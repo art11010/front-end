@@ -417,16 +417,277 @@
 // 	}
 // }
 
+// - - - - - - - - - - - - - - - - - - - -
 
-let nums = [2,7,11,15], target = 9, result = [];
-let twoSum = function(nums, target) {
-    for(let i = 0; i < nums.length; i++){
-		for(let j = 0; j < nums.length; j++){
-			if(nums[i] + nums[j] == target){
-				result.push(i,j);
-				return result;
-			}
-		}
-	}
-};
-console.log(twoSum(nums, target))
+// 22. 함수
+// // 함수 선언식
+// function add(x, y){
+// 	return x + y;
+// }
+// // 함수 표현식
+// const add = function(x, y){
+// 	return x + y;
+// }
+// // 화살표 함수
+// const add = (x, y) => x + y;
+
+// // 매개변수 기본 값 설정
+// function add(x, y = 10){
+// 	console.log(x,y);
+// }
+// add(5);
+
+// // 매개변수 없이 인자 전달 (arguments)
+// function add(){
+// 	console.log(arguments[0] - arguments[1]);
+// }
+// add(10, 20);
+
+// // 함수 반환
+// function add(x, y){
+// 	return x + y;
+// 	console.log('hello');
+// }
+// console.log(add(10, 20));
+
+// function dummy(){}
+// console.log(dummy());
+
+// function chckAge(age){
+// 	if(age >= 18){
+// 		return true;
+// 	}else{
+// 		return false;
+// 	}
+// }
+// console.log(chckAge(14), chckAge(20));
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 23. 재귀 함수
+// 함수 내부에서 자기 자신을 또 다시 호출하는 것
+// 무한 루프에 빠지지 않게 exit code 필요
+// function recurseFn(){
+// 	recurseFn();
+// }
+// recurseFn();
+
+// // 1. basic recursive function
+// function recursive(num){
+// 	if(num == 0) return 0;
+// 	return num + recursive(num - 1);
+// }
+// console.log(recursive(3));
+// // 2. factorial function
+// function factorial(x){
+// 	if(x === 0) return 1;
+// 	return x * factorial(x - 1);
+// }
+// console.log(factorial(3));
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 24.
+// 콜백 함수 : 다른 함수의 매개변수로 전달되는 함수
+// 고차 함수 : 매개변수를 통해 함수를 받아 호출하는 함수
+// function add(x, y){return x + y;}
+// function sub(x, y){return x - y;}
+// function mul(x, y){return x * y;}
+// function div(x, y){return x / y;}
+// function calc(callback, x, y){
+// 	return callback(x, y);
+// }
+// console.log(add(7, 3));
+// console.log(calc(add, 7, 3));
+// console.log(calc(sub, 7, 3));
+// console.log(calc(mul, 7, 3));
+// console.log(calc(div, 7, 3));
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 25.
+// *연습 문제 1
+// 내 풀이 ↓ (정답 풀이와 같음)
+// function MAX(x, y){
+// 	if(x > y) return x;
+// 	return y;
+// }
+// console.log(MAX(0,3));
+// console.log(MAX(-1,5));
+// console.log(MAX(100,7));
+// 정답 풀이 ↓
+// function MAX2(x, y){
+// 	return x > y ? x : y;
+// }
+// console.log(MAX2(0,3));
+// console.log(MAX2(-1,5));
+// console.log(MAX2(100,7));
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 26. Method
+// 함수 선언식
+// function add_1(x, y){
+// 	return x + y;
+// }
+// // 함수 표현식
+// const add_2 = function(x, y){
+// 	return x + y;
+// }
+// // 화살표 함수
+// const add_3 = (x, y) => x + y;
+
+// const add_4 = add_1;
+
+// console.log(add_4(1,3));
+// console.log(add_1 == add_2, add_1 == add_4);
+// console.log(Object.getOwnPropertyDescriptors(add_1));
+// console.log(Object.getOwnPropertyDescriptors(add_2));
+// console.log(Object.getOwnPropertyDescriptors(add_3));
+// console.log(Object.getOwnPropertyDescriptors(add_4));
+
+// 배열의 요소(element) or 객체의 속성(property)에 함수 저장 가능
+// let arr = ['john', 27, function subFn(){ console.log('Hey'); }];
+// arr[2]();
+
+// let obj = {
+// 	name: 'john',
+// 	age: 27,
+// 	subFn(){
+// 		console.log('Hey ' + this.name);
+// 	},
+// 	func: subFn
+// }
+// function subFn(){ console.log('Hey'); }
+// obj.subFn();
+// obj.func();
+
+// console.log(typeof arr[2]);
+// console.log(typeof obj.subFn);
+// console.log(typeof subFn);
+// console.log(Object.getOwnPropertyDescriptors(arr));
+// console.log(Object.getOwnPropertyDescriptors(obj));
+
+// this
+// let user = {name: 'john'};
+// let admin = {name: 'admin'};
+// function heyFn(){
+// 	console.log('hey '+ this.name);
+// }
+// user.func = heyFn;
+// admin.func = heyFn;
+// user.func();
+// admin.func();
+// user['func']();
+// admin['func']();
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 27. Number
+// 지수 표기법(Exponential notation)
+// let billion_1 = 1000000000;	// 0이 9개
+// let billion_2 = 1e9;	// 0이 9개
+// let us = 1e-6;	// 0.000001
+
+// 진법 표기 : 0x(16진수), 0o(8진수), 0b(2진수)
+// console.log(0x0f, 0o17, 0b1111);
+
+// 형 변환
+// console.log(us.toString(), typeof us.toString(), typeof String(us));
+
+// 자리 수 표현
+// Number.toFixed(x) : x자리까지 소수 보여짐
+// Number.toPrecision(x) : 양수(음수 안 됨)를 포함한 x자리까지 보여짐
+// let num_1 = 125.0;
+// let num_2 = 123.456;
+// console.log(num_1 - num_2);
+// console.log((num_1 - num_2).toFixed(3), (num_1 - num_2).toPrecision(2));
+// console.log(us.toFixed(3), us.toPrecision(3));
+
+// Number 자료형 확인
+// isNaN : 숫자가 아닌지 맞는지 확인(Not a Number, 부정형)
+// isFinite : 숫자인지 확인(Infinity도 false)
+// console.log(!Number.isNaN(123), !Number.isNaN('hey'));
+// console.log(Number.isFinite(123), Number.isFinite(Infinity), Number.isFinite('hey'));
+
+// 정수 실수 형 변환
+// Number.parseInt : 정수로 변환
+// Number.parseFloat : 실수로 변환
+// console.log(Number.parseInt('1.25px'), Number.parseInt('0f', 16))
+// console.log(Number.parseFloat('1.25em'))
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 28. String
+// 문자 표기
+// console.log('line\nfeed');			// 줄 내림
+// console.log('carriage\rreturn');	// 줄 내림
+// console.log('backslash \\');		// 슬래시 표현
+// console.log('tab\ttab');			// tab 표현
+// console.log('\u{1F60D}');			// 유니코드 표현
+
+// 문자열 길이 / 접근
+// let str = `hello
+// world`;
+// let linStr = 'hello\nworld';
+// // 길이
+// console.log(str.length, linStr.length);
+// // 접근
+// console.log(str.charAt(1));			// 1번 째 문자 => e
+// console.log(str.charCodeAt(1));		// 1번 째 문자(e)에 대한 코드 값
+// console.log(str[1]);					// 1번 째 문자 => e
+
+// 문자열 검색 / 변환
+// // 검색
+// let str2 = 'Hello World';
+// console.log(str2.indexOf('l'));				// i의 index
+// console.log(str2.indexOf('l', 3));			// 3번재 문자 이후의 i index
+// console.log(str2.lastIndexOf('l'));			// 마지막 i의 index
+// console.log(str2.includes('hello'));		// hello를 포함하는지 확인
+// console.log(str2.startsWith('ello', 1));	// ello로 시작하는 지 확인
+// console.log(str2.endsWith('world'));		// world로 끝나는 지 확인
+// // 변환
+// console.log(str2.toUpperCase());	// 모두 대문자
+// console.log(str2.toLowerCase());	// 모두 소문자
+
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 29. String
+// 문자열 치환
+// String.replace(orginal, change)
+// /문자/g(전체)i(대소문자 구분 X)
+// let text = 'helLo, world:)';
+// let chngTxt = '';
+// chngTxt = text.replace('world','earth');
+// console.log(text, chngTxt);
+// console.log(text.replace(':)','!'), text.replace('L','l'));
+// console.log(text.replace(/l/g, 'i'));
+// console.log(text.replace(/l/gi, 'i'));
+
+// 문자열 추출
+// 위치 기반 추출 : String.slice(start, end), String.substring(start, end)
+// 길이 기반 추출 : String.substr(start, length)
+// let text = 'hello, world:)';
+// console.log(text.slice(2, 6));	// 2번째 부터 6번째 문자
+// console.log(text.slice(2));		// 2번째 이후 문자
+// console.log(text.slice(-2));		// 뒤에서 2번째까지의 문자
+// console.log(text.substring(2, 6));	// text.slice(2,6)와 같음
+// console.log(text.substring(6, 2));	// 인자 중 작은 값을 시작 지점으로 여김
+// console.log(text.slice(2, 6));
+// console.log(text.substr(2, 6));		// 2번째 부터 6개의 문자
+// console.log(text.substr(-5, 3));	// 뒤에서 5번째 부터 3개의 문자
+
+// 문자열 분할
+// 배열로 문자열 분할 : String.split(Separator, limit)
+// let fruits = 'apple banana melon';
+
+// result = fruits.split(' ');
+// console.log(result, result[0], result[1], result[2]);
+
+// result = fruits.split('');
+// console.log(result, result.length, result[0]);
+
+// result = fruits.split('', 3);		// 3번째 문자까지 분할
+// console.log(result, result.length);
+
