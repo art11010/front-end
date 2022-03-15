@@ -411,8 +411,22 @@
 
 // *연습 문제 2
 // 내 풀이 ↓ (정답 풀이와 같음)
-for(let i = 2; i <= 9; i++){
-	for(let j = 1; j <= 9; j++){
-		console.log(`${i} x ${j} = ${i * j}`);
+// for(let i = 2; i <= 9; i++){
+// 	for(let j = 1; j <= 9; j++){
+// 		console.log(`${i} x ${j} = ${i * j}`);
+// 	}
+// }
+
+
+let nums = [2,7,11,15], target = 9, result = [];
+let twoSum = function(nums, target) {
+    for(let i = 0; i < nums.length; i++){
+		for(let j = 0; j < nums.length; j++){
+			if(nums[i] + nums[j] == target){
+				result.push(i,j);
+				return result;
+			}
+		}
 	}
-}
+};
+console.log(twoSum(nums, target))
