@@ -691,3 +691,53 @@
 // result = fruits.split('', 3);		// 3번째 문자까지 분할
 // console.log(result, result.length);
 
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 30. Array
+// *배열 선언법
+// let arry = [];				// []
+// let arry = new Array(10);	// [ 10 empty items]
+
+// 배열의 개수 및 접근
+// let num = [1, 2, 3, 4];
+// console.log(num.length, num[0])
+// num[0] = 5;
+// console.log(num)		// 5
+
+// 배열 타입 확인 : Array.isArray(변수명)
+// let num = 123, str = ':D', arry = [':)',':D'];
+// console.log(Array.isArray(num), Array.isArray(str), Array.isArray(arry))
+
+// 배열 요소 삭제 : delete array[index]	// 삭제해도 빈 배열로 남아있음
+// let arry = [':)',':D','<3'];
+// console.log(arry, arry.length);
+// delete arry[1]
+// console.log(arry, arry.length);	// [ ':)', <1 empty item>, '<3' ]
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 31. 배열 조작
+// 배열 추가 / 삭제 (LIFO - last in front out, 마지막에 들어온 게 먼저 나간다.)
+// let arry = ['송','강','짱'];
+// Back
+// ret = arry.push('멋져');
+// console.log(arry, ret);	// 맨 뒤에 추가됨, push : arry.length를 return
+// ret = arry.pop();
+// console.log(arry, ret);	// 맨 뒤 값 삭제, pop : 삭제된 데이터를 return
+// // Front
+// ret = arry.unshift('멋져');
+// console.log(arry, ret);	// 맨 앞에 추가됨, unshift : arry.length를 return
+// ret = arry.shift();
+// console.log(arry, ret);	// 맨 앞 값 삭제, shift : 삭제된 데이터를 return
+
+// 배열 쪼개기 : Array.splice(index,deleteNum,elementName,...)
+let arry = ['송','강','짱'];
+ret = arry.splice(1);		// 1번째 이후에 배열을 짤라 쪼갬
+console.log(arry, ret);		// splice(i) : 짜른 값 return
+arry = ['송','강','짱'];
+ret = arry.splice(1, 2);	// 1번째 이후에 2개만 짤라 쪼갬
+console.log(arry, ret);		// splice(i, n) : 짜른 값 return
+arry = ['송','강','짱'];
+ret = arry.splice(1, 1, '송','예');	// 삭제된 위치에서 데이터 추가
+console.log(arry, ret);		// splice(i, n, v) : 짜른 값 return
