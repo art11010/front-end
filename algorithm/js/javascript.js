@@ -731,13 +731,100 @@
 // ret = arry.shift();
 // console.log(arry, ret);	// 맨 앞 값 삭제, shift : 삭제된 데이터를 return
 
+// *배열 데이터 조작
+// 원본 배열을 자름
 // 배열 쪼개기 : Array.splice(index,deleteNum,elementName,...)
-let arry = ['송','강','짱'];
-ret = arry.splice(1);		// 1번째 이후에 배열을 짤라 쪼갬
-console.log(arry, ret);		// splice(i) : 짜른 값 return
-arry = ['송','강','짱'];
-ret = arry.splice(1, 2);	// 1번째 이후에 2개만 짤라 쪼갬
-console.log(arry, ret);		// splice(i, n) : 짜른 값 return
-arry = ['송','강','짱'];
-ret = arry.splice(1, 1, '송','예');	// 삭제된 위치에서 데이터 추가
-console.log(arry, ret);		// splice(i, n, v) : 짜른 값 return
+// let arry = ['송','강','짱'];
+// ret = arry.splice(1);		// 1번째 이후에 배열을 짤라 쪼갬
+// console.log(arry, ret);		// splice(i) : 짜른 값 return
+// arry = ['송','강','짱'];
+// ret = arry.splice(1, 1);	// 1번째 이후에 1개만 짤라 쪼갬
+// console.log(arry, ret);		// splice(i, n) : 짜른 값 return
+// arry = ['송','강','짱'];
+// ret = arry.splice(1, 1, '예','지');	// 삭제된 위치에서 데이터 추가
+// console.log(arry, ret);		// splice(i, n, v) : 짜른 값 return
+
+// *배열에서 데이터 추출
+// 원본 배열에 영향을 미치지 않음
+// 배열 삭제 : Array.slice(start, end)
+// let fruits = ['apple','orange','melon'];
+// console.log(fruits, fruits.slice(1));	// 2(1+1)번째 이후의 배열 추출
+// console.log(fruits, fruits.slice(1,2));	// 2(1+1)번째 부터 2번째 배열 추출
+// console.log(fruits, fruits.slice(-2));	// 뒤에서 2번째 배열 추출
+// 배열 병합 : Array.concat(arg1, arg2...)
+// console.log(fruits.concat('strawberry'));
+// console.log(fruits.concat(['cherry','banana']));
+// console.log(fruits.concat(['cherry','banana'],'mango'));
+
+// 배열 반복문
+// let fruits = ['apple','orange','melon'];
+// // 1. for ...length(index 접근)
+// for(let i = 0; i < fruits.length; i++){
+// 	console.log('for : ' + fruits[i]);
+// }
+// // 2. for of(element 접근)
+// for(let fruit of fruits){
+// 	console.log('of : ' + fruit);
+// }
+// // 3. for in(key 접근)
+// for(let key in fruits){
+// 	console.log('in : ' + fruits[key] + ', key : '+ key);
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 32.
+// *배열 탐색
+// let fruits = ['apple','orange','banana','orange','melon'];
+// 1. index 탐색(앞에서부터) : Array.indexOf(item, from)
+// console.log(fruits.indexOf('orange'));		// 가장 앞에 있는 orange index 값을 return
+// console.log(fruits.indexOf('Orange'));		// 값이 없을 땐 -1 return
+// console.log(fruits.indexOf('orange'), 2);	// 2번째 이후의 orange index 값을 return
+
+// // 2. index 탐색(뒤에서부터) : Array.lastIndexOf(item, from)
+// console.log(fruits.lastIndexOf('orange'));		// 가장 뒤에 있는 orange index 값을 return
+// console.log(fruits.lastIndexOf('orange', -3));	// 뒤에서 3번째 이후의 orange index 값을 return
+// console.log(fruits.lastIndexOf('orange', 0));	// 0, 즉 1번째 이후의 데이터는 없기 때문에 -1 return
+
+// // 3. 값 포함 여부 확인(Boolean) : Array.includes(item, from)
+// console.log(fruits.includes('banana',3));
+// console.log(fruits.includes('Banana'));
+// console.log(fruits.includes(0));
+
+// *배열 변형
+// 1. 배열 정렬/반전 : Array.sort(), Array.reverse()
+// Number, String 모두 사용 가능(전부 String으로 변환하여 정렬)
+// let nums = [1, -1, 4, 5, 2, 0];
+// console.log(nums.sort());		// 값을 정렬(오름차순)
+// console.log(nums.reverse());	// 현재 있는 데이터를 기반으로 좌우 반전
+// // 2. 배열 값을 문자열로 변환 : Array.join()
+// let fruits = ['apple', 'orange', 'banana', 'melon'];
+// console.log(fruits.sort());		// 문자도 알바펫 or 가나다 기준으로 정렬
+// let str = fruits.join();				// 배열을 ,로 구분하여 문자열 변환
+// let str_separator = fruits.join(';');	// 배열을 ;로 구분하여 문자열 변환
+// let result = str.split(',');			// ,로 구분하여 배열로 변환
+// console.log(str, str_separator, result);
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 33. 고차함수
+// 하나 이상의 함수를 매개변수로 취하거나 함수를 결과로 반환하는 함수
+// 매개변수로 전달되는 함수 : 콜백 함수(Callback function)
+// 대표 배열 조작 메서드
+// 1. 임의 정렬 : Array.sort(callback function)
+// sort의 문제점 : [4, 10] 일 경우 sort 사용시 [10, 4]로 return
+// sort의 한계점 : 대소문자 구분 없이 정렬 불가능
+// ↑ 위 문제ㆍ한계점을 해결하기 위해 callback함수을 받아 고차함수를 지원
+let nums = [1, -1, 4, 0, 10, 20, 12];
+console.log(nums.sort());
+let ascending_order = function(x,y){ console.log(x,y,x-y); return x - y; };
+// let descending_order = function(x,y){ return y - x; };
+console.log(nums.sort(ascending_order));
+// console.log(nums.sort(descending_order));
+
+
+// 반복 작업 : Array.forEach()
+// 콜백함수 결과 배열 반환 : Array.map()
+// 조건에 만족하는 하나의 값 반환 : Array.find()
+// 조건에 만족하는 값 배열로 반환 : Array.filter()
+// 누적 결과 값 반환 : Array.reduce()
