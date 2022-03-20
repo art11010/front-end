@@ -757,12 +757,12 @@
 // console.log(fruits.concat(['cherry','banana'],'mango'));
 
 // 배열 반복문
-// let fruits = ['apple','orange','melon'];
+let fruits = ['apple','orange','melon'];
 // // 1. for ...length(index 접근)
 // for(let i = 0; i < fruits.length; i++){
 // 	console.log('for : ' + fruits[i]);
 // }
-// // 2. for of(element 접근)
+// // 2. for of(element 접근, 변수에 요소를 넣음)
 // for(let fruit of fruits){
 // 	console.log('of : ' + fruit);
 // }
@@ -807,24 +807,319 @@
 
 // - - - - - - - - - - - - - - - - - - - -
 
-// 33. 고차함수
+// 33. 고차함수 part 1
 // 하나 이상의 함수를 매개변수로 취하거나 함수를 결과로 반환하는 함수
 // 매개변수로 전달되는 함수 : 콜백 함수(Callback function)
-// 대표 배열 조작 메서드
-// 1. 임의 정렬 : Array.sort(callback function)
+// 대표 배열 조작 메서드 : sort, forEach, map, find, filter, reduce
+
+// 임의 정렬 : Array.sort(callback function)
 // sort의 문제점 : [4, 10] 일 경우 sort 사용시 [10, 4]로 return
 // sort의 한계점 : 대소문자 구분 없이 정렬 불가능
 // ↑ 위 문제ㆍ한계점을 해결하기 위해 callback함수을 받아 고차함수를 지원
-let nums = [1, -1, 4, 0, 10, 20, 12];
-console.log(nums.sort());
-let ascending_order = function(x,y){ console.log(x,y,x-y); return x - y; };
-// let descending_order = function(x,y){ return y - x; };
-console.log(nums.sort(ascending_order));
+
+// sort의 문제점 해결
+// let nums = [1, -1, 4, 0, 10, 20, 12];
+// console.log(nums.sort());
+// // 두 가지 변수를 받아 retrun x - y 값이 > 0 일 경우 두 값의 위치 바뀜
+// let ascending_num = function(x, y){ return x - y; };
+// let descending_num = function(x, y){ return y - x; };
+// console.log(nums.sort(ascending_num));
+// console.log(nums.sort(descending_num));
+
+// sort의 한계점 해결
+// let fruits = ['apple','Orange','orange','melon'];
+// let ascending_str = function(x, y){
+// 	x = x.toUpperCase();	// 변수를 대문자로 바꿈
+// 	y = y.toUpperCase();
+// 	if(x > y) return 1;			// retrun 값이 1 일 경우 두 값의 위치 바뀜
+// 	else if(y > x) return -1;
+// 	else return 0;
+// }
+// let descending_str = function(x, y){
+// 	x = x.toUpperCase();
+// 	y = y.toUpperCase();
+// 	if(x < y) return 1;
+// 	else if(y < x) return -1;
+// 	else return 0;
+// }
+// console.log(fruits.sort(ascending_str));
+// console.log(fruits.sort(descending_str));
+
+// // sort의 문제점ㆍ한계점 해결
+// let ascending_order = function(x, y){
+// 	if( typeof x === 'string') x = x.toUpperCase();
+// 	if( typeof y === 'string') y = y.toUpperCase();
+// 	return x > y ? 1 : -1;
+// }
+// let descending_order = function(x, y){
+// 	if( typeof x === 'string') x = x.toUpperCase();
+// 	if( typeof y === 'string') y = y.toUpperCase();
+// 	return x < y ? 1 : -1;
+// }
+// let nums = [1, -1, 4, 0, 10, 20, 12];
+// console.log(nums.sort(ascending_order));
 // console.log(nums.sort(descending_order));
+// let fruits = ['apple','Orange','orange','melon'];
+// console.log(fruits.sort(ascending_order));
+// console.log(fruits.sort(descending_order));
 
 
-// 반복 작업 : Array.forEach()
-// 콜백함수 결과 배열 반환 : Array.map()
-// 조건에 만족하는 하나의 값 반환 : Array.find()
-// 조건에 만족하는 값 배열로 반환 : Array.filter()
-// 누적 결과 값 반환 : Array.reduce()
+// - - - - - - - - - - - - - - - - - - - -
+
+// 34. 고차함수 part 2
+
+// 반복 작업 : Array.forEach(function(item, index, array){})
+// item : 요소, index : 배열 위치, array : 배열
+// let nums = [5, 6, 7];
+// 같은 작업 for 이용
+// for(let i = 0; i < nums.length; i++){
+// 	console.log(nums[i]);
+// }
+// 같은 작업 forEach 이용
+// nums.forEach(function(itm, idx, arr){
+// 	console.log(itm, idx, arr);
+// });
+
+// 콜백함수 결과를 '배열로 반환' : Array.map(function(item, index, array){})
+// item : 배열 요소, index : 배열 위치, array : 배열
+// let nums = [1, 2, 3, 4, 5];
+// let use_for = [];
+// // 같은 작업 for 이용
+// for(let i = 0; i < nums.length; i++){
+// 	use_for.push(nums[i] * 2);
+// }
+// console.log(use_for);
+// // 같은 작업 map 이용
+// let use_map = nums.map(function(itm, idx, arr){
+// 	console.log(itm, idx, arr)
+// 	return itm * 2;
+// });
+// console.log(use_map);
+
+// 조건에 만족하는 '하나의 값' 반환 : Array.find(function(item, index, array){})
+// item : 배열 요소, index : 배열 위치, array : 배열
+// let users = [
+// 	{name: 'mini', age: 25, job: false},
+// 	{name: 'jiji', age: 26, job: false},
+// 	{name: 'luving', age: 2728, job: true},
+// ]
+// let find_job = users.find(function(itm){
+// 	return itm.job === false;
+// });
+// console.log(find_job, find_job.job);
+// let find_age = users.find(function(itm){
+// 	return itm.age > 25;
+// });
+// console.log(find_age, find_age.age);
+
+// 조건에 만족하는 '모든 값' '배열로' 반환 : Array.filter(function(item, index, array){})
+// item : 배열 요소, index : 배열 위치, array : 배열
+// let filter_job = users.filter(function(itm){
+// 	return itm.job === false;
+// });
+// console.log(filter_job);
+// let filter_age = users.filter(function(itm){
+// 	return itm.age > 25;
+// });
+// console.log(filter_age);
+
+// 누적 결과 값 반환 : Array.reduce(function(){accumulator, item, index, array},initial)
+// accumulator : 이전 함수 결과
+// item : 배열 요소, index : 배열 위치, array : 배열
+// initial : loop를 할 초기값 index 설정 (초기값 : 1)
+// let nums = [2, 2, 3, 4, 5];
+// let call_count = 0;
+// console.log('accumulator\titem\tindex');
+// let sum = nums.reduce(function(acc, itm, idx, arr){
+// 	console.log(acc, '\t\t\t\t\t', itm, '\t\t', idx)
+// 	// call_count++;
+// 	return acc + itm;
+// },0);
+// console.log(sum);
+
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 35. 생성자 함수
+// 유사한 객체를 다중으로 만들 때 사용되는 함수
+// 일반적으로 생성자 함수는 대문자로 시작
+// 생성자 함수로 객체 생성시 new 연산자를 통해 '객체 생성'
+// function FishBread(flavor, price){
+// 	this.flavor = flavor;
+// 	this.price = price;
+// 	this.base = 'flour';
+// }
+// let bread = FishBread('sample', 1200);
+// let cbread = new FishBread('cream', 1200);
+// let rbread = new FishBread('redbeen', 1000);
+// let mbread = new FishBread('milk', 1100);
+// console.log(bread);		// undefined
+// console.log(cbread);
+// console.log(rbread);
+// console.log(mbread);
+
+// new.target : new 가 호출 됐는지 안 됐는지 확인
+// let 몇번도는지확인 = 0;
+// function User(name){
+// 	console.log(몇번도는지확인, new.target);
+// 	몇번도는지확인 ++;
+// 	// new 가 없을 경우 if 문을 탐
+// 	if(!new.target){
+// 		return new User(name);
+// 	}
+// 	this.name = name;
+// }
+// console.log(User('john'));
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 36. collection
+// 구조 or 비구조화 형태로 값을 담을 수 있는 공간
+// Indexed collection : array, typed array
+// keyed collection : object, map, set, week map, week set
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 37. Map
+// Odject 대비 다양한 자료형의 key 허용, key-value 형태의 자료형을 저장 가능한 collection
+// 값의 추가/삭제 시 메소드를 통해 수행이 필요함
+// ↓ 대표 속성 및 메서드
+// Map 생성자 : new Map()
+// Map 개수 확인 : Map.size()
+// Map 요소 추가 : Map.set(key, value)
+// Map 요소 접근 : Map.get(key)
+// Map 요소 삭제 : Map.delete(key)
+// Map 전체 삭제 : Map.clear()
+// Map 요소 존재 여부 확인 : Map.has(key)
+// Map 그 밖의 메서드 : Map.keys(), Map.values(), Map.entires()
+
+// Map 요소 추가/삭제
+// let map = new Map();
+// // Map 요소 추가 : Map.set(key, value)
+// map.set('name', 'john');
+// map.set(123, 456);
+// map.set(true, 'boolean');
+// console.log(map);
+// // Map 개수 확인 : Map.size()
+// console.log(map.size);
+// // Map 요소 접근 : Map.get(key)
+// console.log(map.get(123));
+// console.log(map.get('name'));
+// // Map 요소 삭제 : Map.delete(key)
+// map.delete('name');
+// console.log(map);
+// // Map 전체 삭제 : Map.clear()
+// map.clear();
+// console.log(map);
+// map.set('name', 'john').set(123, 456).set(true, 'boolean');	// chaining(연쇄) 사용 가능
+// console.log(map);
+
+// Map 반복문
+// Map은 collection이기 때문에 iterator(반복자) 속성을 갖음
+// 위 이유로 for of 구문을 통해 반복문 수행을 많이 함
+// let recipe = new Map([
+// 	// [key, values]
+// 	['starwberry', 50],
+// 	['banana', 100],
+// 	['ice', 150],
+// ]);
+// for(let item of recipe.keys()) console.log(item);
+// for(let amount of recipe.values()) console.log(amount);
+// for(let entity of recipe) console.log(entity);
+// console.log(recipe);
+
+// Map -> Object 변환 : Map.entries()
+// console.log(recipe.entries());
+// console.log(recipe.entries().next(),recipe.entries().next().value);
+
+// Object -> Map 변환 : Object.entries(), Object.fromEntries()
+// console.log(recipe);
+// let recipe_obj = Object.fromEntries(recipe);
+// console.log(recipe_obj);		// Object 형태로 변환
+// let recipe_kv = Object.entries(recipe_obj);
+// console.log(recipe_kv);		// Array key,value 형태로 변환
+// let recipe_map = new Map(recipe_kv);
+// console.log(recipe_map);	// 다시 Map으로 형태 변환
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 38. Set
+// value만을 저장, 중복을 허용하지 않는 collection
+// 다양한 자료형을 value로 사용 가능
+// ↓ 대표 속성 및 메서드
+// Set 생성자 : new Set()
+// Set 개수 확인 : Set.size
+// Set 요소 추가 : Set.add()
+// Set 요소 삭제 : Set.delete(value)
+// Set 전체 삭제 : Set.clear()
+// Set 요소 존재 여부 확인 : Set.has(value)
+// Set 그 밖의 메서드 : Set.keys(), Set.values(), Set.entires()
+
+// Set 요소 추가/삭제
+// let set = new Set();
+// let num = new Set([1, 2, 3, 4, 5]);
+// let str = new Set('hello');
+// console.log(set, num, str);
+// // Set 요소 추가 : Set.add(value)
+// set.add(1).add(1).add(10).add(20);	// chaining(연쇄) 사용 가능
+// console.log(set);
+// // Set 요소 존재 여부 확인 : Set.has(value)
+// console.log(set.has(10), set.has(2));
+// // Set 요소 삭제 : Set.delete(value)
+// console.log(set.delete(1), set.delete(-1), set);
+// // Set 전체 삭제 : Set.clear()
+// console.log(set.clear(), set);
+
+
+// Set 반복문
+// Set은 collection이기 때문에 iterator(반복자) 속성을 갖음
+// 위 이유로 for of 구문을 통해 반복문 수행을 많이 함
+// let str = new Set('hello');
+// console.log(str);
+// for(let item of str) console.log(item);			// 전부 value return
+// for(let item of str.keys()) console.log(item);	// 전부 value return
+// for(let item of str.values()) console.log(item);	// 전부 value return
+// for(let item of str.entries()) console.log(item);	// Map과의 호환성을 위해 key, value 값으로 return
+// console.log(str.keys(), str.entries())
+
+// Set -> Object 변환 : Set.entries()
+// console.log(recipe.entries());
+// console.log(recipe.entries().next(),recipe.entries().next().value);
+
+// Object -> Set 변환 : Object.entries(), Object.fromEntries()
+// console.log(recipe);
+// let recipe_obj = Object.fromEntries(recipe);
+// console.log(recipe_obj);	// Object 형태로 변환
+// let recipe_kv = Object.entries(recipe_obj);
+// console.log(recipe_kv);		// Array key,value 형태로 변환
+// let recipe_Set = new Set(recipe_kv);
+// console.log(recipe_Set);	// 다시 Set으로 형태 변환
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 39. Math
+// 표준 Built-in 객체
+// 수학적인 연산을 위한 속성값과 메서드를 제공하는 객체
+// Math는 생성자 함수가 아니면 모든 속성과 메서드는 정적 Math.메서드명()으로 호출 가능
+// ↓ 대표 속성 및 메서드
+// Math.E : 오일러 상수
+// Math.PI : PI
+// Math.abs(x) : 절대값
+// Math.max(...x) : 최대값
+// Math.min(...x) : 최소값
+// Math.random() : 랜덤 난수 값
+// Math.pow(x, y), Math.sqrt(x) : 제곱과 제곱근
+// Math.round(x), Math.ceil(x), Math.floor(x) : 소수점 처리
+
+// Math 최대/최소/절대값
+// Math.max(...x) : 최대값
+// Math.min(...x) : 최소값
+console.log(Math.max(1, -1), Math.min(1, -1));
+console.log(Math.max(1, -1, 5, 17, -4), Math.min(1, -1, 5, 17, -4));
+let nums = [1, -1, 5, 23, 17, -4];
+console.log(`Max: ${Math.max.apply(null, nums)}`);
+console.log(`Min: ${Math.min.apply(null, nums)}`);
+console.log(`Max: ${Math.max(...nums)}`);
+console.log(`Min: ${Math.min(...nums)}`);
+// Math.abs(x) : 절대값
+console.log(Math.abs(1), Math.abs(-1), Math.abs(-Infinity));
