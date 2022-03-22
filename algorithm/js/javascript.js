@@ -757,7 +757,7 @@
 // console.log(fruits.concat(['cherry','banana'],'mango'));
 
 // 배열 반복문
-let fruits = ['apple','orange','melon'];
+// let fruits = ['apple','orange','melon'];
 // // 1. for ...length(index 접근)
 // for(let i = 0; i < fruits.length; i++){
 // 	console.log('for : ' + fruits[i]);
@@ -1112,14 +1112,327 @@ let fruits = ['apple','orange','melon'];
 // Math.round(x), Math.ceil(x), Math.floor(x) : 소수점 처리
 
 // Math 최대/최소/절대값
-// Math.max(...x) : 최대값
-// Math.min(...x) : 최소값
-console.log(Math.max(1, -1), Math.min(1, -1));
-console.log(Math.max(1, -1, 5, 17, -4), Math.min(1, -1, 5, 17, -4));
-let nums = [1, -1, 5, 23, 17, -4];
-console.log(`Max: ${Math.max.apply(null, nums)}`);
-console.log(`Min: ${Math.min.apply(null, nums)}`);
-console.log(`Max: ${Math.max(...nums)}`);
-console.log(`Min: ${Math.min(...nums)}`);
-// Math.abs(x) : 절대값
-console.log(Math.abs(1), Math.abs(-1), Math.abs(-Infinity));
+// // Math.max(...x) : 최대값
+// // Math.min(...x) : 최소값
+// console.log(Math.max(1, -1), Math.min(1, -1));
+// console.log(Math.max(1, -1, 5, 17, -4), Math.min(1, -1, 5, 17, -4));
+// let nums = [1, -1, 5, 23, 17, -4];
+// console.log(Math.max(nums));	// output : NaN
+// // Math.max()는 'value : number'형태로 return 시키기 때문에 Number가 아님
+// // 때문에 apply 함수를 써서 최대값 추출
+// console.log(Math.max.apply(null, nums));
+// console.log(Math.min.apply(null, nums));
+// // ... <- Spread 문법
+// // Spread 문법 설명 : https://paperblock.tistory.com/62
+// console.log(Math.max(...nums), Math.min(...nums));
+// // Math.abs(x) : 절대값
+// console.log(Math.abs(1), Math.abs(-1), Math.abs(-Infinity));
+
+// Math 속성 및 랜덤 값
+// console.log(Math.E, Math.PI);
+// for(let i = 0; i < 3; i++){
+// 	// Math.random : 0 ~ 1 사이 난 수 return
+// 	// Number.parseInt : 정수로 바꿔줌
+// 	console.log(Math.random(), Number.parseInt(Math.random() * 10));
+// 	// Number.parseInt(Math.random() * 10 : 1자리 정수
+// 	// Number.parseInt(Math.random() * 100 : 10자리 정수
+// 	// Number.parseInt(Math.random() * 1000 : 100자리 정수 등등
+// }
+
+// Math 제곱/제곱근/소수점 처리
+// // 제곱 : Math.pow(x, y)
+// console.log(Math.pow(2, 3), 2 ** 3);
+// // 제곱근 : Math.sqrt(x)
+// console.log(Math.sqrt(4), Math.sqrt(2));
+// // 소수점 반올림 : Math.round(x)
+// console.log(Math.round(3.5), Math.round(-2.3), Math.round(-2.7));
+// // 소수점 올림 : Math.ceil(x)
+// console.log(Math.ceil(3.5), Math.ceil(-2.3), Math.ceil(-2.7));
+// // 소수점 내림 : Math.floor(x)
+// console.log(Math.floor(3.5), Math.floor(-2.3), Math.floor(-2.7));
+
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 40. Date
+// 표준 Built-in 객체
+// 날짜와 시간을 위한 속성값과 메서드를 제공하는 객체
+// ↓ 대표 속성 및 메서드
+// Date 생성자 : new Date()
+// 현재 시간 기준 문자열 : Date()
+// 날짜 정보 얻기 (년/월/일) : Date.getFullYear(), Date.getMonth(), Date.getDate()
+// 날짜 정보 얻기 (시/분/초/ms) : Date.getHours(), Date.getMinutes(), Date.getSeonds()
+// 날짜 정보 설정 (시/분/초/ms) : Date.setFullYear(), Date.setMonth(), Date.setDate()
+// 날짜 정보 설정 (시/분/초/ms) : Date.setHours(), Date.setMinutes(), Date.setSeonds()
+// 그 외 날짜 정보 얻기 : Date.getDay(), Date.getTime(). Date.getTimezoneOffset()
+// 그 외 날짜 정보 설정 : Date.parse(string)
+
+// Date 생성자 종류 : new Date(), new Date(miniseconds), new Date(datestring), new Date(yeae, month, date, hours, minutes, seconds, ms)
+// // 1. Default
+// console.log(new Date());	// 현재 날짜 기준 Object
+// console.log(Date());		// 현재 String
+// // 2. milliseconds (1/1000)sec
+// console.log(new Date(0));					// 초기값(1970.01.01) return
+// console.log(new Date(1000 * 3600 * 24));	// 초기값에 하루를 추가
+// // 3. date string
+// console.log(new Date('2020-01-01'));	// String을 받아서 데이터 객체로 변환
+// // 4. year, month(0 ~ 11), ..., ms
+// console.log(new Date(2021, 0, 1));		// 개별 요소를 받아 설정 가능
+// 										// UTC 때매 9시간 차이남
+// console.log(new Date(Date.UTC(2021, 0, 1, 6, 12, 18, 24)));
+// // Date.UTC()를 통해 보정? 가능
+// console.log(new Date(Date.UTC(2021, 0, 1)));
+
+// 날짜 정보 얻기
+// let date = new Date(Date.UTC(2022, 2, 22));
+// console.log(date);
+// // 년/월/일 : Date.getFullYear(), Date.getMonth(), Date.getDate(), Date.getDay()
+// // Date.getDay() : 일요일(0) ~ 토요일(6)
+// console.log(date.getFullYear(), date.getMonth(), date.getDate(), date.getDay());
+// // 시/분/초/ms : Date.getHours(), Date.getMinutes(), Date.getSeonds()
+// console.log(date.getHours(), date.getUTCHours());
+// // console.log(date.getHours(), date.getMinutes(), date.getSeonds());
+// // 주어진 일시 : Date.getTime()
+// console.log(date.getTime(), new Date(date.getTime()));	// 현재 시간을 milliseconds로 return
+// // 현지 시간 : Date.getTimezoneOffset()
+// console.log(date.getTimezoneOffset());	// UTC 기준으로 현지 시간과 얼마나 차이나는지 나옴
+
+// 날짜 정보 설정
+// let date = new Date();
+// console.log(date);
+// // 시/분/초/ms : Date.setFullYear(), Date.setMonth(), Date.setDate()
+// let now_year = date.setFullYear(2022, 3, 22);
+// 원하는 연도 설정, milliseconds로 return
+// console.log(date, now_year);
+// console.log(new Date(now_year));
+// date.setDate(2);		// 원하는 일 설정
+// console.log(date);
+// date.setDate(0);		// 이전 달의 마지막 날
+// console.log(date);
+// date.setMonth(7);		// 원하는 달 설정
+// console.log(date);
+// // 시/분/초/ms : Date.setHours(), Date.setMinutes(), Date.setSeonds()
+// date.setHours(date.getHours() + 2);	// 원하는 시간 설정 (+2 시간)
+// console.log(date);
+
+// 날짜 정보 설정 : Date.parse(YYYY-MM-DDTHH:mm:ss.sssZ)
+// YYYY-MM-DD : 연-월-일
+// T : 구분 기호
+// HH:mm.ss.sss : 시-분-초.밀리초
+// Z : option, 미설정 - 현재 로컬 기준 UTO, 설정 - UTO + 0 기준
+// milliseconds로 return
+// let parse = Date.parse('2020-03-31T00:00:00.000');
+// console.log(parse);
+// console.log(new Date(parse));
+// console.log(new Date(Date.parse('2020-03-31T00:00:00.000Z')));
+
+// beanchmark, 성능 측정
+// function dataSub(new_date, old_date){
+// 	return new_date - old_date;
+// }
+// function getTime(new_date, old_date){
+// 	return new_date.getTime() - old_date.getTime();
+// }
+// function beanchmark(callback){
+// 	let date_1 = new Date('2020-01-01');
+// 	let date_2 = new Date();
+// 	let start = Date.now();
+// 	for(let i = 0; i < 100000; i++){
+// 		callback(date_1, date_2);
+// 	}
+// 	return Date.now() - start;
+// }
+// console.log('dataSub : ' + beanchmark(dataSub) + 'ms');
+// console.log('getTime : ' + beanchmark(getTime) + 'ms');
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 41. N차원 Array
+// 배열 안에 N개 만큼의 배열이 존재하는 객체
+// 2ㆍ3차 지도 정보나 RGB를 저장하는 2차원 사진 파일 등을 표현할 때 사용
+
+// 2차원 배열
+// let array = [
+// 	[101, 102, 103],
+// 	[201, 202, 203],
+// 	[301, 302, 303]
+// ]
+// let arrPop = array.pop();					// 가장 뒷 요소를 뺌
+// 											// 빼낸 요소 return
+// console.log(arrPop, array, array.length);
+// let arrPush = array.push([401, 402, 403]);	// 추가된 후 length return
+// console.log(arrPush, array, array.length);
+
+// 2차원 배열 반복문
+// let array = [
+// 	[101, 102, 103],
+// 	[201, 202, 203],
+// 	[301, 302, 303]
+// ]
+// for(let i = 0; i < array.length; i++){
+// 	for(let j = 0; j < array.length; j++){
+// 		console.log(array[i][j]);
+// 	}
+// }
+// let fruits = [
+// 	['strawberry', 50],
+// 	['banana', 100],
+// 	['ice', 150],
+// ]
+// for(let i = 0; i < array.length; i++){
+// 	console.log(`fruit : ${fruits[i][0]}, amount : ${fruits[i][1]}`);
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 43. 기본 문제 풀이(반복문) - 별별별
+// function answer(num){
+// 	let result = '';
+// 	for(let i = 0; i < num; i++){
+// 		result += '*'
+// 	}
+// 	return result;
+// }
+// let input = [5, 7, 12]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i])}`)
+// }
+
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 44. 기본 문제 풀이(반복문) - 두 수 사이 숫자
+// function answer(x, y){
+// 	let result = [];
+// 	if(x > y){
+// 		// let z = x; x = y; y = z;
+// 		[x, y] = [y, x]		// x = y; y = x;
+// 	}
+// 	for(let i = x; i <= y; i++){
+// 		result.push(i)
+// 	}
+// 	return result;
+// }
+// let input = [ [3, 7], [8, 3], [12, 10] ]
+// for(let i = 0; i < input.length; i++){
+// 	process.stdout.write(`#${i + 1} `);
+// 	console.log(answer(input[i][0], input[i][1]))
+// }
+
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 45. 기본 문제 풀이(반복문) - 반 평균
+// function answer(score){
+// 	let average = 0;
+// 	for(let i = 0; i < score.length; i++){
+// 		average += score[i];
+// 	}
+// 	// average = (average / score.length).toFixed(2);
+// 	average /= score.length
+// 	average = average.toFixed(2);
+// 	return average;
+// }
+// let input = [
+// 	[80, 95, 65, 70, 100],
+// 	[82, 77, 51, 64, 73, 90, 80],
+// 	[100, 71, 59, 88, 72, 75, 91, 93]
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i])}`)
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 46. 기본 문제 풀이(반복문) - 핸드폰 판매
+// function answer(employee){
+// 	let employee_id;
+// 	// employee_id = employee.indexOf(Math.max(...employee)) + 1;
+// 	let max = 0;
+// 	for(let i = 0; i < employee.length; i++){
+// 		if( max < employee[i] ){
+// 			max = employee[i];
+// 			employee_id = i + 1;
+// 			// employee_id = employee.indexOf(max) + 1;
+// 		}
+// 	}
+// 	return employee_id;
+// }
+// let input = [
+// 	[3, 7, 9, 6, 1],
+// 	[2, 7, 1, 4, 3, 0, 5],
+// 	[7, 5, 0, 1, 2, 12, 6]
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i])}`)
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 47. 기본 문제 풀이(반복문) - 무한 뺄셈
+function answer(s, e){
+	let sequence = [];
+	sequence.push(s);
+	sequence.push(e);
+	for(let i = sequence.length - 2; i < sequence.length - 1; i++){
+		if(sequence[i] - sequence[i + 1] >= 0){
+			sequence.push(sequence[i] - sequence[i + 1]);
+		}
+	}
+
+	return sequence;
+}
+let input = [
+	[9, 3],
+	[6, 3],
+	[13, 7]
+]
+for(let i = 0; i < input.length; i++){
+	process.stdout.write(`#${i + 1} `);
+	console.log(answer(input[i][0], input[i][1]))
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function answer(num){
+// 	let result = '';
+// 	return result;
+// }
+// let input = [
+	
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i])}`)
+// }
+// for(let i = 0; i < input.length; i++){
+// 	process.stdout.write(`#${i + 1} `);
+// 	console.log(answer(input[i][0], input[i][1]))
+// }
