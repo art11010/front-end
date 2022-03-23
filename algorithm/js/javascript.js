@@ -1370,27 +1370,27 @@
 // - - - - - - - - - - - - - - - - - - - -
 
 // 47. 기본 문제 풀이(반복문) - 무한 뺄셈
-function answer(s, e){
-	let sequence = [];
-	sequence.push(s);
-	sequence.push(e);
-	for(let i = sequence.length - 2; i < sequence.length - 1; i++){
-		if(sequence[i] - sequence[i + 1] >= 0){
-			sequence.push(sequence[i] - sequence[i + 1]);
-		}
-	}
+// function answer(s, e){
+// 	let sequence = [];
+// 	sequence.push(s);
+// 	sequence.push(e);
+// 	for(let i = sequence.length - 2; i < sequence.length - 1; i++){
+// 		if(sequence[i] - sequence[i + 1] >= 0){
+// 			sequence.push(sequence[i] - sequence[i + 1]);
+// 		}
+// 	}
 
-	return sequence;
-}
-let input = [
-	[9, 3],
-	[6, 3],
-	[13, 7]
-]
-for(let i = 0; i < input.length; i++){
-	process.stdout.write(`#${i + 1} `);
-	console.log(answer(input[i][0], input[i][1]))
-}
+// 	return sequence;
+// }
+// let input = [
+// 	[9, 3],
+// 	[6, 3],
+// 	[13, 7]
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	process.stdout.write(`#${i + 1} `);
+// 	console.log(answer(input[i][0], input[i][1]))
+// }
 
 
 

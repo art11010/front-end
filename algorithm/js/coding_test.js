@@ -146,20 +146,180 @@ let longestCommonPrefix = function(strs) {
 // }
 // console.log(solution(5))
 
-arr = [1, 2, 1]
-function solution(arr) {
-    // return arr[1]
-	// for(let i = 0; i < arr.length; i++){
-		// console.log(i)
-		for(let j = 1; j < arr.length; j++){
-			if(arr[0] == arr[j]){
-				console.log(arr[0],arr[j])
-				// return arr[j-1]
-				delete arr[0]
-				delete arr[j]
-			}
+// arr = [1, 2, 1]
+// function solution(arr) {
+//     // return arr[1]
+// 	// for(let i = 0; i < arr.length; i++){
+// 		// console.log(i)
+// 		for(let j = 1; j < arr.length; j++){
+// 			if(arr[0] == arr[j]){
+// 				console.log(arr[0],arr[j])
+// 				// return arr[j-1]
+// 				delete arr[0]
+// 				delete arr[j]
+// 			}
+// 		}
+// 		return arr.join('')
+// 	// }
+// }
+// console.log(solution(arr))
+
+
+
+
+// 1.
+// let num = -587;
+// let num = 4300;
+// function solution(num) {
+// 	if(Math.abs(num) > 100000) return 0;
+// 	num = String(num);
+// 	let result = num.split('');
+// 	let max = [];
+// 	let min = [];
+// 	if( num < 0 ){
+// 		if(result[0] == '-'){
+// 			min = result.splice(0,1)
+// 			for(let i = result.length - 1; i >= 0; i--){
+// 				min.push(result[i]);
+// 			}
+// 			return Number(min.join(''));
+// 		}
+// 	}else{
+// 		for(let i = result.length - 1; i >= 0; i--){
+// 			max.push(result[i]);
+// 		}
+// 		return Number(max.join(''));
+// 	}
+// }
+// console.log(solution(num))
+// reverse
+
+// 2.
+// let s = "Hello, World!?"
+// function solution(s) {
+// 	spc = /[/?.,!]/gi
+// 	newS = s.replace(spc, '');
+// 	let splitS = newS.split(' ');
+// 	let result = [];
+// 	for(let i = 0; i < splitS.length; i++){
+// 		let wrap = '';
+// 		for(let j = splitS[i].length - 1; j >= 0; j--){
+// 			wrap += splitS[i][j];
+// 		}
+// 		result.push(wrap);
+// 	}
+// 	return result;
+// }
+// console.log(solution(s))
+
+// 3.
+// let s = 221123;
+// function solution(s) {
+// 	s = String(s);
+// 	let curr ;
+// 	let hi = 0;
+// 	for(let i = 0; i < s.length; i++){
+// 		// console.log(s[i])
+// 		curr = s[i]
+// 		if(curr == s[i]){
+// 			hi++;
+// 			console.log(hi)
+// 		}
+// 		// for(let j = 1; j < s.length; j++){
+// 		// }
+// 	}
+// 	// console.log(curr)
+// }
+// console.log(solution(s))
+
+// 4.
+// let n = 15;
+// function solution(n) {
+// 	for(let i = 1; i < 10; i++){
+
+// 	}
+// }
+// console.log(solution(n))
+
+// 5.
+// let num = 5;
+// function solution(num) {
+// 	console.log(num % 2)
+// 	if(num % 2){
+// 		return true
+// 	}else{
+// 		return false
+// 	}
+// }
+// console.log(solution(num))
+
+// 6.
+// let w = 4;
+// let h = 4;
+// function solution(w, h) {
+// 	let block = ((w - parseInt(w/2)) * h) + (parseInt(w/2) * (h - 1))
+// 	let half = parseInt(w/2) * 2
+// 	// 블록 정상
+// 	console.log((w - parseInt(w/2)) * h)
+// 	// 반블록 정상
+// 	console.log(parseInt(w/2) * (h - 1))
+// 	// 반블록 반띵
+// 	console.log(parseInt(w/2) * 2)
+
+// 	console.log(block, half);
+// 	return (block * 500) + (half * 300)
+// }
+// console.log(solution(w, h))
+
+// 7.
+let n = 3;
+function solution(n) {
+	for(let i = 1; i < 15; i++){
+		if(n * (n-1) == 15){
+			return n
 		}
-		return arr.join('')
-	// }
+	}
 }
-console.log(solution(arr))
+console.log(solution(n))
+
+// 8.
+// arr =  [13, 14, 15, 15, 16]
+// function solution(arr) {
+// 	let set = new Set(arr)
+// 	return set.size
+// }
+// console.log(solution(arr))
+
+
+// 9.
+// points = [0, 0, 0, 5, 5, 0]
+// 1/2*밑변*높이
+
+// 10.
+// arr = [1, 2, 3, 5, 5, 5]
+// i = 2
+// function solution(arr, i) {
+// 	max = [];
+// 	min = [];
+// 	for(let j = 0; j < arr.length; j++){
+// 		if(arr[j] <= i+1){
+// 			max.push(Math.pow(arr[j] - (i-1), 2))
+// 		}
+// 	}
+// 	// for(let j = 0; j < arr.length; j++){
+// 	// 	if(arr[j] <= i){
+// 	// 		console.log(arr[j] - (i-1))
+// 	// 		// min.push(Math.pow(arr[j] - (i-1), 2))
+// 	// 	}
+// 	// }
+// 	// for(let j = 0; j < arr.length; j++){
+// 	// 	if(arr[j] <= i){
+// 	// 		min.push(i)
+// 	// 	}else{
+// 	// 		min.push(arr[j])
+// 	// 	}
+// 	// }
+	
+// 	console.log(max,min)
+// }
+// console.log(solution(arr, i))
