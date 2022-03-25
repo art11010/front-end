@@ -230,7 +230,7 @@
 // - - - - - - - - - - - - - - - - - - - -
 
 // 14. 조건문 if else
-// 3항 연산자
+// 삼항 연산자
 // 변수 = (조건식) ? 참일 때 값 : 거짓일 때 값
 // let age = 20;
 // let msg = age < 19 ? 'You are not adult' :'You are adult';
@@ -1374,41 +1374,206 @@
 // 	let sequence = [];
 // 	sequence.push(s);
 // 	sequence.push(e);
-// 	for(let i = sequence.length - 2; i < sequence.length - 1; i++){
-// 		if(sequence[i] - sequence[i + 1] >= 0){
-// 			sequence.push(sequence[i] - sequence[i + 1]);
-// 		}
-// 	}
+// 	// 내 풀이 ↓
+// 	// for(let i = sequence.length - 2; i < sequence.length - 1; i++){
+// 	// 	if(sequence[i] - sequence[i + 1] >= 0){
+// 	// 		sequence.push(sequence[i] - sequence[i + 1]);
+// 	// 	}
+// 	// }
 
-// 	return sequence;
+// 	// 정답 풀이 ↓
+// 	// let sum;
+// 	// while(1){
+// 	// 	sum = s - e;
+// 	// 	s = e;
+// 	// 	e = sum;
+// 	// 	if(e < 0) break;
+// 	// 	sequence.push(e)
+// 	// }
+// 	// return sequence;
+// }
+// let input = [ [9, 3],[6, 3],[13, 7] ]
+// for(let i = 0; i < input.length; i++){
+// 	process.stdout.write(`#${i + 1} `);
+// 	console.log(answer(input[i][0], input[i][1]))
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 48. 기본 문제 풀이(조건문) - 대소 비교
+// function answer(x, y){
+// 	let result = '';
+// 	if(x > y) result = '>';
+// 	else if(x < y) result = '<';
+// 	else  result = '=';
+// 	return result;
+// }
+// let input = [ [3, 5], [7, 4], [2, 2] ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i][0], input[i][1])}`)
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 49. 기본 문제 풀이(조건문) - 나누기와 대소 비교
+// function answer(a, b, c, d){
+// 	let result = '';
+// 	x = a/b;
+// 	y = c/d;
+// 	if(x > y) result = 1;
+// 	else if(x < y) result = -1;
+// 	else  result = 0;
+// 	return result;
+// }
+// let input = [ [14, 2, 6, 6], [6, 7, 8, 9], [18, 2, 36, 4] ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i][0], input[i][1], input[i][2], input[i][3])}`)
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 50. 기본 문제 풀이(조건문) - 윤년 판결기
+// function answer(year){
+// 	let result;
+// 	if(year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) result = true;
+// 	else result = false;
+// 	return result;
+// }
+// let input = [4, 100, 124, 247, 400]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i])}`)
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 51. 기본 문제 풀이(조건문) - ATM 기기
+// function answer(withdraw, total){
+// 	let result;
+// 	if( withdraw % 5 !== 0){
+// 		result = total;
+// 	}else{
+// 		result = total < withdraw + 0.5 ? total : total - withdraw - 0.5
+// 	}
+// 	return result;
+// }
+// let input = [ [40, 130.0], [33, 130.0], [300, 300.0] ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i][0], input[i][1])}`)
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 52. 기본 문제 풀이(조건문) - 네 번째 좌표
+// function answer(x_arr, y_arr){
+// 	let result = [];
+// 	if( x_arr[0] == x_arr[1] ) result[0] = x_arr[2]
+// 	else if( x_arr[0] == x_arr[2] ) result[0] = x_arr[1]
+// 	else result[0] = x_arr[0]
+
+// 	if( y_arr[0] == y_arr[1] ) result[1] = y_arr[2]
+// 	else if( y_arr[0] == y_arr[2] ) result[1] = y_arr[1]
+// 	else result[1] = y_arr[0]
+// 	return result;
 // }
 // let input = [
-// 	[9, 3],
-// 	[6, 3],
-// 	[13, 7]
+// 	[ [5, 5, 8], [5, 8, 5]],
+// 	[ [3, 1, 1], [2, 1, 2]],
+// 	[ [7, 7, 3], [4, 1, 1]]
 // ]
 // for(let i = 0; i < input.length; i++){
 // 	process.stdout.write(`#${i + 1} `);
 // 	console.log(answer(input[i][0], input[i][1]))
 // }
 
+// - - - - - - - - - - - - - - - - - - - -
 
+// 53. 기본 문제 풀이(종합) - 최솟값 구하기
+// function answer(x, y){
+// 	let min;
+// 	min = x > y ? min = y : min = x;
+// 	return min;
+// }
+// let input = [ [16, 3], [-3, 1], [1000, 525] ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i][0], input[i][1])}`)
+// }
 
+// - - - - - - - - - - - - - - - - - - - -
 
+// 54. 기본 문제 풀이(종합) - 제곱 구현
+// function answer(x, y){
+// 	let result = x;
+// 	for(let i = 1; i < y; i++){
+// 		result *= x
+// 		console.log(result,i)
+// 	}
+// 	return result;
+// }
+// let input = [ [2, 3], [4, 6], [1, 100] ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i][0], input[i][1])}`)
+// }
 
+// - - - - - - - - - - - - - - - - - - - -
 
+// 55. 기본 문제 풀이(종합) - 놀이기구 입장 제한
+// function answer(user){
+// 	let permit;
+// 	// 내 풀이 ↓
+// 	permit = user.height < 150 ? false : true;
+// 	// 정답 풀이 ↓
+// 	permit = user.height >= 150
+// 	return permit;
+// }
+// let input = [
+// 	{name: 'john', age: 27, height: 181},
+// 	{name: 'alice', age: 12, height: 148},
+// 	{name: 'bob', age: 14, height: 156},
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i])}`)
+// }
 
+// - - - - - - - - - - - - - - - - - - - -
 
+// 56. 기본 문제 풀이(종합) - 요일 구하기
+// function answer(str){
+// 	let week = new Array(
+// 		'sunday',
+// 		'monday',
+// 		'tuseday',
+// 		'wendsday',
+// 		'thursday',
+// 		'firday',
+// 		'saterday'
+// 	);
+// 	let day = new Date(str);
+// 	day = week[day.getDay()];
+// 	return day;
+// }
+// let input = [ '2021-01-27', '2021-02-27', '2021-03-14' ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i])}`)
+// }
 
+// - - - - - - - - - - - - - - - - - - - -
 
-
-
-
-
-
-
-
-
+// 57. 기본 문제 풀이(종합) - 중복 단어 제거
+function answer(arr){
+	let new_arr = [];
+	// 1. Set
+	new_arr = new Set(...arr);
+	return new_arr;
+}
+let input = [
+	['john', 'alice', 'alice'],
+	['Hello', 'hello', 'Hello', 'hello'],
+	['kiwi', 'banana', 'mango', 'kiwi', 'banana']
+]
+for(let i = 0; i < input.length; i++){
+	process.stdout.write(`#${i + 1} `);
+	console.log(answer(input[i]))
+}
 
 
 
@@ -1431,6 +1596,9 @@
 // ]
 // for(let i = 0; i < input.length; i++){
 // 	console.log(`#${i + 1} ${answer(input[i])}`)
+// }
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i][0], input[i][1])}`)
 // }
 // for(let i = 0; i < input.length; i++){
 // 	process.stdout.write(`#${i + 1} `);
