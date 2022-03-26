@@ -981,7 +981,8 @@
 // - - - - - - - - - - - - - - - - - - - -
 
 // 37. Map
-// Odject 대비 다양한 자료형의 key 허용, key-value 형태의 자료형을 저장 가능한 collection
+// Odject 대비 다양한 자료형의 key 허용
+// [key, value] 형태로 이루어진 collection
 // 값의 추가/삭제 시 메소드를 통해 수행이 필요함
 // ↓ 대표 속성 및 메서드
 // Map 생성자 : new Map()
@@ -1082,9 +1083,11 @@
 // for(let item of str.entries()) console.log(item);	// Map과의 호환성을 위해 key, value 값으로 return
 // console.log(str.keys(), str.entries())
 
-// Set -> Object 변환 : Set.entries()
+// Set -> Object 변환
+// 1. Set.entries()
 // console.log(recipe.entries());
 // console.log(recipe.entries().next(),recipe.entries().next().value);
+// 2. Array.from(new Set(arr));
 
 // Object -> Set 변환 : Object.entries(), Object.fromEntries()
 // console.log(recipe);
@@ -1559,35 +1562,192 @@
 // - - - - - - - - - - - - - - - - - - - -
 
 // 57. 기본 문제 풀이(종합) - 중복 단어 제거
-function answer(arr){
-	let new_arr = [];
-	// 1. Set
-	new_arr = new Set(...arr);
-	return new_arr;
+// function answer(arr){
+// 	let new_arr = [];
+// 	// 내 풀이 ↓
+// 	// 1. Set
+// 	// new_arr = new Set(arr);
+// 	// 2. for
+// 	// for(let i = 0; i < arr.length; i++){
+// 	// 	for(let j = i+1; j < arr.length; j++){
+// 	// 		console.log(i, j);
+// 	// 		if( arr[i] == arr[j]) arr.splice(j,1);
+// 	// 	}
+// 	// }
+// 	// new_arr = arr;
+// 	// 3. object
+// 	// for(let i = 0; i < arr.length; i++){
+// 	// 	let obj = {}
+// 	// 	obj.key = arr[i];
+// 	// 	obj.num = 1;
+// 	// 	if( i > 0 ){
+// 	// 		let result = true;
+// 	// 		for(let j = 0; j < new_arr.length; j++){
+// 	// 			if(new_arr[j].key == obj.key){
+// 	// 				new_arr[j].num = new_arr[j].num + 1;
+// 	// 				result = false;
+// 	// 			}
+// 	// 		}
+// 	// 		if(result) new_arr.push(obj);
+// 	// 	}else{
+// 	// 		new_arr.push(obj)
+// 	// 	}
+// 	// }
+
+// 	// 정답 풀이 ↓
+// 	// 1.
+// 	// new Set(arr).forEach(function(itm){
+// 	// 	new_arr.push(itm);	// set 자료형을 배열로 변환
+// 	// });
+// 	// 2.
+// 	// new_arr = Array.from(new Set(arr));	// set 자료형을 배열로 변환
+
+// 	return new_arr;
+// }
+// let input = [
+// 	['john', 'alice', 'alice', 'alice', 'alice'],
+// 	['Hello', 'hello', 'HELLO', 'hello', 'hello', 'hello'],
+// 	['kiwi', 'banana', 'mango', 'kiwi', 'banana']
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	process.stdout.write(`#${i + 1} `);
+// 	console.log(answer(input[i]))
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 58. 기본 문제 풀이(종합) - 배열 내 최대값 구하기
+// function answer(arr){
+// 	let max;
+// 	// 내 풀이 ↓
+// 	// 1. for
+// 	max = arr[0];
+// 	for(let i = 0; i < arr.length; i++){
+// 		if( arr[i] > max ) max = arr[i];
+// 	}
+// 	// 2. Math
+// 	max = Math.max.apply(null, arr);
+// 	max = Math.max(...arr);
+// 	// 정답 풀이 ↓ : 변수 초기하 외 다 같음
+// 	max = Number.MIN_SAFE_INTEGER;	// 음수 중 가장 작은 음수
+// 	return max;
+// }
+// let input = [
+// 	[1, 6, 5, 2, 3],
+// 	[19, 41, 23, -4, 17],
+// 	[-64, -27, -41, -33, -59]
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i])}`)
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 59. 기본 문제 풀이(종합) - 스팸 메일
+// function answer(str){
+// 	let span_flag;
+// 	return span_flag = str.toUpperCase().includes('ADVERT');
+// }
+// let input = [
+// 	'RE: Request documents',
+// 	'[Advertisement] free mobile!',
+// 	'50% off this week (advertising)'
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i])}`)
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 60. 기본 문제 풀이(종합) - 배열 회전
+// function answer(prmt){
+// 	let result = [];
+// 	// 내 풀이 ↓
+// 	for(let i = prmt.length-1; i >= 0; i--){
+// 		result.push(prmt[i])
+// 	}
+// 	// 정답 풀이 ↓
+// 	let tmp;
+// 	for(let i = 0; i < prmt.length / 2; i++){
+// 		tmp = prmt[i];
+// 		prmt[i] = prmt[prmt.length - 1 -i];
+// 		prmt[prmt.length - 1 -i] = tmp
+// 	}
+// 	return result = prmt;
+// }
+// let input = [
+// 	[1, 2, 3, 4],
+// 	[-1, 6, 'hello', -15],
+// 	['apple', 'banana', 'mango']
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	process.stdout.write(`#${i + 1} `);
+// 	console.log(answer(input[i]));
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 61. 기본 문제 풀이(종합) - 문자 교정
+// function answer(prmt){
+// 	let result = '';
+// 	// 내 풀이 ↓
+// 	spt = prmt.split(' ');
+// 	for(let i = 0; i < spt.length; i++){
+// 		first = spt[i].slice(0,1)
+// 		spt[i] = spt[i].replace(first,first.toUpperCase());
+// 	}
+// 	return result = spt.join(' ');
+// 	// 정답 풀이 ↓
+// 	for(let item of prmt.split(' ')){
+// 		// 1.
+// 		item = item.replace(item[0],item[0].toUpperCase());
+// 		result += item + ' ';
+// 		// 2.
+// 		result += item[0].toUpperCase() + item.slice(1) + ' ';
+// 	}
+
+// 	return result;
+// }
+// let input = [
+// 	'Hello, My name is john',
+// 	'This week closed due to COVID-19',
+// 	'fifty persent off this week'
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i])}`);
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 62. 기본 문제 풀이(종합) - 2차원 배열의 곱셈 합
+
+function answer(prmt){
+	let result = 1;
+	for(let i = 0; i < prmt.length; i++){
+		for(item of prmt[i]){
+			result *= item;
+		}
+	}
+	return result;
 }
 let input = [
-	['john', 'alice', 'alice'],
-	['Hello', 'hello', 'Hello', 'hello'],
-	['kiwi', 'banana', 'mango', 'kiwi', 'banana']
+	[[1],[2],[3]],
+	[
+		[1, 2], [3, 4], [5, 6, 7]
+	],
+	[
+		[5, 1], [0.2, 4, 0.5], [3, 9]
+	]
 ]
 for(let i = 0; i < input.length; i++){
-	process.stdout.write(`#${i + 1} `);
-	console.log(answer(input[i]))
+	console.log(`#${i + 1} ${answer(input[i])}`);
 }
 
+// - - - - - - - - - - - - - - - - - - - -
 
-
-
-
-
-
-
-
-
-
-
-
-// function answer(num){
+// 내 풀이 ↓
+// 정답 풀이 ↓
+// function answer(prmt){
 // 	let result = '';
 // 	return result;
 // }
@@ -1595,12 +1755,12 @@ for(let i = 0; i < input.length; i++){
 	
 // ]
 // for(let i = 0; i < input.length; i++){
-// 	console.log(`#${i + 1} ${answer(input[i])}`)
+// 	console.log(`#${i + 1} ${answer(input[i])}`);
 // }
 // for(let i = 0; i < input.length; i++){
-// 	console.log(`#${i + 1} ${answer(input[i][0], input[i][1])}`)
+// 	console.log(`#${i + 1} ${answer(input[i][0], input[i][1])}`);
 // }
 // for(let i = 0; i < input.length; i++){
 // 	process.stdout.write(`#${i + 1} `);
-// 	console.log(answer(input[i][0], input[i][1]))
+// 	console.log(answer(input[i][0], input[i][1]));
 // }
