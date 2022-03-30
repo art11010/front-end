@@ -14,7 +14,7 @@
 
 
 // https://leetcode.com/problems/palindrome-number/
-let isPalindrome = function(x) {
+// let isPalindrome = function(x) {
 	// 앞 뒤만 같아도 되는
 	// x = String(x);
 	// let result = x.split('');
@@ -24,7 +24,7 @@ let isPalindrome = function(x) {
 	// 뒤집어도 같은
 	// if( x == String(x).split('').reverse().join('')) return true;
 	// return false;
-};
+// };
 // console.log(isPalindrome(122))
 
 // https://leetcode.com/problems/longest-common-prefix/
@@ -272,15 +272,15 @@ let longestCommonPrefix = function(strs) {
 // console.log(solution(w, h))
 
 // 7.
-let n = 3;
-function solution(n) {
-	for(let i = 1; i < 15; i++){
-		if(n * (n-1) == 15){
-			return n
-		}
-	}
-}
-console.log(solution(n))
+// let n = 3;
+// function solution(n) {
+// 	for(let i = 1; i < 15; i++){
+// 		if(n * (n-1) == 15){
+// 			return n
+// 		}
+// 	}
+// }
+// console.log(solution(n))
 
 // 8.
 // arr =  [13, 14, 15, 15, 16]
@@ -323,3 +323,167 @@ console.log(solution(n))
 // 	console.log(max,min)
 // }
 // console.log(solution(arr, i))
+
+
+// 1.
+// let nums = [1, 3, 4, 8];
+// function solution(nums){
+// 	let arr = [];
+// 	for(let i = 1; i <= nums.length; i++){
+// 		if(!nums.includes(i)){
+// 			arr.push(i)
+// 		}
+// 	}
+// 	return arr
+// }
+// console.log(solution(nums))
+
+// 2.
+// let p = '가나다라';
+// let s = '바나나 드래곤 바나나 오염';
+// function solution(p,s){
+// 	pArr = new Set(p.split(''));
+// 	sArr = new Set(s.split(' '));
+// 	if(pArr.size == sArr.size) return true
+// 	else return false
+// }
+// console.log(solution(p,s))
+
+// 3.
+// let S = '2-6-7*8/2+5';
+// function solution(S) {
+// 	return eval(S).toFixed(2);
+// }
+// console.log(solution(S))
+
+// 4.
+// A = [2, -8, 3, -2, 4, -10];
+// function solution(A) {
+// 	console.log(A)
+// 	for(let i = 0; i < num; i++){
+// 		for(let j = i+1; j < num; j++){
+			
+// 		}
+// 	}
+// }
+// console.log(solution(A))
+
+// 5.
+// S = 1101;
+// function solution(S) {
+// 	S = parseInt(S, 2);
+// 	count = 0;
+// 	while(S > 0){
+// 		if(S % 2){
+// 			S = S - 1;
+// 		}else{
+// 			S = S/2;
+// 		}
+// 		count++;
+// 	}
+// 	return count;
+// }
+// console.log(solution(S))
+
+// 6.
+// s = 'abssccbsbsv'
+// function solution(s) {
+// 	// 1
+// 	// sArr = s.split('');
+// 	// result = [];
+// 	// start = 0;
+// 	// for(let i = 0; i < sArr.length; i++){
+// 	// 	z = i + 1;
+// 	// 	if(sArr[i] == sArr[z]){
+// 	// 		console.log(sArr[i],sArr[z])
+// 	// 		result.push(s.slice(start,i+1))
+// 	// 		console.log(start)
+// 	// 		start = i;
+// 	// 	}
+// 	// }
+// 	// console.log(result)
+// 	// 2
+// 	// for(let i = 0; i < s.length; i++){
+// 	// 	let start = s.charAt(i)
+// 	// 	s.lastIndexOf(start);
+// 	// 	console.log(start, s.lastIndexOf(start))
+// 	// 	if(s.lastIndexOf(start) == s.indexOf(start)){
+// 	// 		console.log('hi')
+// 	// 	}
+// 	// }
+// }
+// console.log(solution(s))
+
+// 7.
+// A = [2, 1, 3, 4];
+// function solution(A) {
+// 	A = A.sort(function(x, y){ return x - y; });
+// 	arr = [];
+// 	result = [];
+// 	for(let i = 0; i < A.length; i++){
+// 		two = A[i].toString(2).split('');
+// 		let sum = two.reduce(function(acc, itm){
+// 			acc = Number(acc);
+// 			itm = Number(itm);
+// 			return acc + itm;
+// 		},0);
+// 		arr.push(sum)
+// 	}
+// 	for(let j = 1; j <= Math.max(...arr); j++){
+// 		for(let k = 0; k < A.length; k++){
+// 			if(arr[k] == j) result.push(A[k])
+// 		}
+// 	}
+// 	return result;
+// }
+// console.log(solution(A))
+
+// 8.
+// A = 12;
+// B = 6;
+// function solution(A, B) {
+// 	sNum(A);
+// 	sNum(B);
+// 	function sNum(num){
+// 		let Snums = [];
+// 		for(let i = 0; i < num; i++){
+// 			for(let j = i+1; j < num; j++){
+// 				if( i*j == num ) Snums.push(i,j)
+// 			}
+// 		}
+// 		Snums.sort()
+// 		for(let i = 0; i < Snums.length; i++){
+// 			for(let j = 0; j < Snums[i]; j++){
+// 				for(let k = 0; k < Snums[i]; k++){
+// 					if( j*k == Snums[i] ) {
+// 						Snums.splice(Snums.indexOf(Snums[i]), 1, j, k);
+// 					}
+
+// 				}
+// 			}
+// 		}
+// 		new_arr = Array.from(new Set(Snums));
+// 		return new_arr.join('');
+// 	}
+// 	if(sNum(A) == sNum(B)) answer = 1;
+// 	else answer = 0;
+//     return answer;
+// }
+// console.log(solution(A,B))
+
+
+// 9.
+// A = [["철수", "영희"], ["영희", "철수"], ["영희", "진수"], ["진수", "동수"], ["진수", "진호"]]
+// function solution(A) {
+//     var answer = 0;
+// 	for(let i = 0; i < A.length; i++){
+// 		A[i] = A[i].sort();
+// 	}
+// 	for(let j = 0; j < A.length; j++){
+// 		for(let k = j+1; k < A.length; k++){
+// 			if(A[j].join('') == A[k].join('')) answer += 1;
+// 		}
+// 	}
+//     return answer;
+// }
+// console.log(solution(A))

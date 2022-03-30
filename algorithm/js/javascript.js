@@ -593,6 +593,9 @@
 // console.log(0x0f, 0o17, 0b1111);
 
 // 형 변환
+// let num = 10;
+// num.toString(16) : 16진수
+// num.toString(2) : 2진수
 // console.log(us.toString(), typeof us.toString(), typeof String(us));
 
 // 자리 수 표현
@@ -1721,27 +1724,27 @@
 
 // 62. 기본 문제 풀이(종합) - 2차원 배열의 곱셈 합
 
-function answer(prmt){
-	let result = 1;
-	for(let i = 0; i < prmt.length; i++){
-		for(item of prmt[i]){
-			result *= item;
-		}
-	}
-	return result;
-}
-let input = [
-	[[1],[2],[3]],
-	[
-		[1, 2], [3, 4], [5, 6, 7]
-	],
-	[
-		[5, 1], [0.2, 4, 0.5], [3, 9]
-	]
-]
-for(let i = 0; i < input.length; i++){
-	console.log(`#${i + 1} ${answer(input[i])}`);
-}
+// function answer(prmt){
+// 	let result = 1;
+// 	for(let i = 0; i < prmt.length; i++){
+// 		for(item of prmt[i]){
+// 			result *= item;
+// 		}
+// 	}
+// 	return result;
+// }
+// let input = [
+// 	[[1],[2],[3]],
+// 	[
+// 		[1, 2], [3, 4], [5, 6, 7]
+// 	],
+// 	[
+// 		[5, 1], [0.2, 4, 0.5], [3, 9]
+// 	]
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i])}`);
+// }
 
 // - - - - - - - - - - - - - - - - - - - -
 
