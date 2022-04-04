@@ -472,18 +472,33 @@
 // }
 // recurseFn();
 
-// // 1. basic recursive function
+// 1. 기본 재귀
+// function recursive(num){
+// 	if(num == 0) return;
+// 	console.log('1 : ' + num);
+// 	recursive(--num);
+// 	console.log('2 : ' + num);
+// }
+// recursive(3);
+
+// 2. 더하기 재귀함수
 // function recursive(num){
 // 	if(num == 0) return 0;
-// 	return num + recursive(num - 1);
+// 	console.log('1 : ' + num);
+// 	return num + recursive(--num);
+// 	console.log('2 : ' + num);
 // }
-// console.log(recursive(3));
-// // 2. factorial function
-// function factorial(x){
-// 	if(x === 0) return 1;
-// 	return x * factorial(x - 1);
+// // 함수가 있는 곳에 함수의 return 값이 들어가는 거!!!!!
+// // 3 + (2 + (1 + (0))) = 6
+// recursive(3);
+
+// 3. 팩토리얼
+// function factorial(num){
+// 	if(num == 0) return 1;
+// 	return num * factorial(num-1);
 // }
-// console.log(factorial(3));
+// // 4 * (3 * (2 * (1))) = 24
+// console.log(factorial(4));
 
 // - - - - - - - - - - - - - - - - - - - -
 

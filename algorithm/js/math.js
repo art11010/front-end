@@ -51,6 +51,38 @@
 
 // - - - - - - - - - - - - - - - - - - - -
 
+// 0. 순열 전 재귀 함수 이해하기
+
+// 1. 기본 재귀
+// function recursive(num){
+// 	if(num == 0) return;
+// 	console.log('1 : ' + num);
+// 	recursive(--num);
+// 	console.log('2 : ' + num);
+// }
+// recursive(3);
+
+// 2. 더하기 재귀함수
+// function recursive(num){
+// 	if(num == 0) return 0;
+// 	console.log('1 : ' + num);
+// 	return num + recursive(--num);
+// 	console.log('2 : ' + num);
+// }
+// // 함수가 있는 곳에 함수의 return 값이 들어가는 거!!!!!
+// // 3 + (2 + (1 + (0))) = 6
+// recursive(3);
+
+// 3. 팩토리얼
+// function factorial(num){
+// 	if(num == 0) return 1;
+// 	return num * factorial(num-1);
+// }
+// // 4 * (3 * (2 * (1))) = 24
+// console.log(factorial(4));
+
+// - - - - - - - - - - - - - - - - - - - -
+
 // 4. 순열
 // 서로 다른 n개의 원소 중 r을 중복 없이 골라 '순서에 상관 있게' 나열(nPr = n! / (n-r)!)
 
@@ -236,31 +268,3 @@
 // }
 // result = recursive(5);
 // console.log(result);
-
-// 기본 재귀
-// function recursive(num){
-// 	if(num == 0) return;
-// 	console.log('1 : ' + num);
-// 	recursive(--num);
-// 	console.log('2 : ' + num);
-// }
-// recursive(3);
-
-// !더하기 재귀함수
-// function recursive(num){
-// 	if(num == 0) return 0;
-// 	console.log('1 : ' + num);
-// 	return num + recursive(--num);
-// 	console.log('2 : ' + num);
-// }
-// // 함수가 있는 곳에 함수의 return 값이 들어가는 거!!!!!
-// // 3 + (2 + (1 + (0))) = 6
-// recursive(3);
-
-// 팩토리얼
-// function factorial(num){
-// 	if(num == 0) return 1;
-// 	return num * factorial(num-1);
-// }
-// // 4 * (3 * (2 * (1))) = 24
-// console.log(factorial(4));
