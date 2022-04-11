@@ -97,8 +97,7 @@
 // 			if(i == j) continue;
 // 			// for k -> [i, j, k]
 // 			for(let k = 0; k < arr.length; k++){
-// 				if(i == k) continue;
-// 				if(j == k) continue;
+// 				if(i == k || j == k) continue;
 // 				console.log(arr[i], arr[j], arr[k]);
 // 				count++;
 // 			}
@@ -121,7 +120,7 @@
 // 	}
 // 	// 2. 메인 로직(재귀를 돌면서 변경되어야할 부분)
 // 	for(let i = s; i < arr.length; i++){
-// 		// console.log(s,i);
+// 		console.log(i, s);
 // 		[arr[s], arr[i]] = [arr[i], arr[s]];	// swap
 // 		permutation(arr, s + 1, r);
 // 		[arr[s], arr[i]] = [arr[i], arr[s]];	// 원상복귀
@@ -163,6 +162,7 @@
 // 	}
 // 	// 2. 메인 로직(재귀를 돌면서 변경되어야할 부분)
 // 	for(let i = idx; arr.length - i >= r - s; i++){
+// 		console.log(s, i, arr.length - i, r - s);
 // 		data[s] = arr[i];
 // 		combination(arr, data, s + 1, i + 1, r);
 // 	}
@@ -268,3 +268,70 @@
 // }
 // result = recursive(5);
 // console.log(result);
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 7. 기본 문제 풀이 - 등차수열의 항 찾기
+// function answer(a, d, n){
+// 	let index = -1;
+// 	let num;
+// 	// 1.
+// 	for(let i = 1; ;i++){
+// 		num = a + d * (i - 1);
+// 		if(num > n) break;
+// 		if(num == n){
+// 			index = i;
+// 			break;
+// 		}
+// 		console.log(num);
+// 	}
+
+// 	// 2.
+// 	if((n - a) % d == 0) index = (n - a) / d + 1;
+// 	else index;
+// 	return index;
+// }
+// let input = [
+// 	[1, 2, 7],
+// 	[2, 3, 10],
+// 	[3, 5, 23]
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i][0], input[i][1], input[i][2])}`);
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 8. 기본 문제 풀이 - 잃어버린 카드 찾기
+
+
+// 내 풀이 ↓
+// 정답 풀이 ↓
+function answer(a, b, c){
+	let number = 0;
+	num = [a, b, c];
+	num.sort((x, y) => x - y);
+	// 1. 등차값(d) 찾기
+	let d = 0;
+	for(let i = 1; i < num.length; i++){
+		d += num[i] - num[i - 1];
+	}
+	d /= num.length;
+	console.log(d);
+	// 2. 빈 index 찾기
+	let index = num[2] - num[1] > num[1] - num[0] ? 2 : 1;
+	console.log(index);
+	// 3. 이전 값 + d
+	// console.log(num[index] + d);
+	console.log(num[0] + d * index);
+
+	return number;
+}
+let input = [
+	[1, 7, 10],
+	[3, 8, 18],
+	[11, 2, 5],
+]
+for(let i = 0; i < input.length; i++){
+	console.log(`#${i + 1} ${answer(input[i][0], input[i][1], input[i][2])}`);
+}
