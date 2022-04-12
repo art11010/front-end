@@ -784,7 +784,7 @@
 // for(let fruit of fruits){
 // 	console.log('of : ' + fruit);
 // }
-// // 3. for in(key 접근)
+// // 3. for in(key(index num) 접근)
 // for(let key in fruits){
 // 	console.log('in : ' + fruits[key] + ', key : '+ key);
 // }
@@ -954,7 +954,6 @@
 // 	return acc + itm;
 // },0);
 // console.log(sum);
-
 
 // - - - - - - - - - - - - - - - - - - - -
 
