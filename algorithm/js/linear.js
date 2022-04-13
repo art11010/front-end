@@ -206,6 +206,18 @@
 // 5. 배열 문제 풀이 - 두 수 최대 합
 function answer(prmt){
 	let result = [];
+	// 내 풀이 ↓
+	// let max_1 = Math.max(...prmt);
+	// result.push(max_1);
+	// prmt.splice(prmt.indexOf(max_1),1)
+	// let max_2 = Math.max(...prmt);
+	// result.push(max_2);
+
+	// 정답 풀이 ↓
+	result = prmt[0] > prmt[1] ? [prmt[0], prmt[1]] : [prmt[1], prmt[0]];
+	for(let i = 2; i < prmt.length; i++){
+		result[1] > prmt[i] ? [prmt[i], result[1]] : [prmt[i], result[0]];
+	}
 	return result;
 }
 let input = [

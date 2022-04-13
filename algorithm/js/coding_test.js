@@ -487,3 +487,260 @@ let longestCommonPrefix = function(strs) {
 //     return answer;
 // }
 // console.log(solution(A))
+
+// 1.
+// let A = [5, 12, 18];
+// function solution(A) {
+// 	A.sort((x, y) => x - y)
+// 	let Amax = Math.max(...A);
+// 	let arr = [];
+// 	let result = [];
+// 	for(let i = 0; i < A.length - 1; i++){
+// 		for(let j = 0; j <= Amax; j++){
+// 			if(A[i] % j === 0){
+// 				arr.push(j)
+// 			}
+// 		}
+// 	}
+// 	arr.sort((x, y) => x - y)
+// 	for(let i = 1; i < arr.length; i++){
+// 		if(arr[i-1] == arr[i]){result.push(arr[i])}
+// 	}
+// 	return Math.max(...result)
+// }
+// console.log(solution(A))
+
+// 2.
+// 마이너스일 경우 어케?
+// let N = 278;
+// let K = -3;
+// function solution(N, K) {
+// 	let a = Number(String(N) + String(K));
+// 	let b = Number(String(K) + String(N));
+// 	console.log(a,b)
+// 	a > b ? result = a : result = b;
+// 	return result
+// }
+// console.log(solution(N, K))
+
+// 3.
+// N = 7
+// K = 3
+// function solution(N, K) {
+// 	let nums = [];
+// 	for(let i = 1; i <= N; i++){
+// 		nums.push(i)
+// 	}
+// 	let orgK = K;
+// 	while(nums.length > 1){
+// 		K = K - 1;
+// 		if( K > nums.length){
+// 			K = K - nums.length
+// 			if(K == nums.length){
+// 				K = K - 2;
+// 			}
+// 		}
+// 		nums.splice(K,1)
+// 		console.log(nums)
+// 		K += orgK
+// 	}
+// 	return nums[0]
+// }
+// console.log(solution(N, K))
+
+// 4.
+// N = 25;
+// K = 2;
+// function solution(N, K) {
+// 	let nums = [];
+// 	for(let i = 1; i <= N; i++){
+// 		nums.push(i)
+// 	}
+// 	let join = nums.join('');
+// 	let split = join.split('');
+// 	let count = 0;
+// 	for(let i = 0; i < split.length; i++){
+// 		if(split[i] == K) count++;
+// 	}
+// 	return count;
+// }
+// console.log(solution(N, K))
+
+// 5.
+// A = [1, 2, 3, 4, 5];
+// K = 1;
+// function solution(A, K) {
+// 	if( K > 0) K = K - 1;
+// 	let arr = [];
+// 	for(let i = 0; i < A.length; i++){
+// 		for(let k = 0; k < A.length; k++){
+// 			if( i == k) continue;
+// 			arr.push(String(A[i]) + String(A[k]))
+// 		}
+// 	}
+// 	arr.sort((x, y) => y - x)
+// 	return Number(arr[K]);
+// }
+
+// console.log(solution(A, K))
+
+// 6.
+// S = 'MAMA';
+// function solution(S) {
+// 	let rever = S.split('').reverse().join('');
+// 	S == rever ? result =  1 : result = 0;
+// 	return result
+// }
+// console.log(solution(S))
+
+// 7.
+// A = [[1, 1, 0, 0], [1, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]
+// function solution(A) {
+//     var answer = 0;
+//     return answer;
+// }
+// console.log(solution(A))
+
+
+// 8.
+A = [["A", "B"], ["B", "C"], ["A", "C"], ["A", "D"], ["B", "E"]]
+S = 'D'
+function solution(A, S) {
+    var answer = [];
+	let arr = [];
+	let arr2 = [];
+	let zom;
+	for(let i = 0; i < A.length; i++){
+		if(A[i].includes(S)) zom = i;
+	}
+	for(let i = 0; i < zom; i++){
+		arr.push(A[i].join(''))
+	}
+	answerJoin = arr.join('').split('');
+	answerJoin.sort();
+	// console.log(answerJoin)
+	let count = 0;
+	for(let i = 0; i < answerJoin.length; i++){
+		for(let j = 0; j < answerJoin.length; j++){
+			if(answerJoin[i] == answerJoin[j]){
+				count++;
+			}
+			arr2.push(count)
+		}
+	}
+	console.log(arr2)
+	answer.push(answerJoin[0])
+    return answer;
+}
+console.log(solution(A, S))
+
+
+
+
+// function answer(arr){
+// 	let new_arr = [];
+// 	for(let i = 0; i < arr.length; i++){
+// 		let obj = {}
+// 		obj.key = arr[i];
+// 		obj.num = 1;
+// 		if( i > 0 ){
+// 			let result = true;
+// 			for(let j = 0; j < new_arr.length; j++){
+// 				if(new_arr[j].key == obj.key){
+// 					new_arr[j].num = new_arr[j].num + 1;
+// 					result = false;
+// 				}
+// 			}
+// 			if(result) new_arr.push(obj);
+// 		}else{
+// 			new_arr.push(obj)
+// 		}
+// 	}
+// 	return new_arr;
+// }
+// let input = [
+// 	['john', 'alice', 'alice', 'alice', 'alice'],
+// 	['Hello', 'hello', 'HELLO', 'hello', 'hello', 'hello'],
+// 	['kiwi', 'banana', 'mango', 'kiwi', 'banana']
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	process.stdout.write(`#${i + 1} `);
+// 	console.log(answer(input[i]))
+// }
+
+
+
+
+
+
+
+
+
+// 9.
+// A = [[1, 1, 1, 1], [0, 0, 0, 1], [0, 1, 1, 1], [0, 1, 1, 0], [0, 0, 1, 1]]
+// function solution(A) {
+//     var answer = 0;
+// 	let count = 0;
+// 	for(let i = 0; i < 4; i++){
+// 		if(A[0][i] == A[1][i]){
+// 			count = 1;
+// 			for(let i = 0; i < 4; i++){
+// 				if(A[1][i] == A[2][i]){
+// 					count = 2;
+// 					for(let i = 0; i < 4; i++){
+// 						if(A[2][i] == A[3][i]){
+// 							count = 3;
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// 	if(count == 3){
+// 		answer = 1
+// 	}else{
+// 		answer = 0
+// 	}
+//     return answer;
+// }
+// console.log(solution(A))
+
+// function solution(A) {
+//     var answer = 0;
+// 	let count = 0;
+// 	let aa = 0;
+// 	while(aa<4){
+// 		for(let i = 0; i < A[count].length-1; i++){
+// 			if(A[count][i] == A[count+1][i]){
+// 				count++;
+// 				break;
+// 			}
+// 		}
+// 		aa++;
+// 	}
+// 	if(aa == 4){
+// 		answer = 1
+// 	}else{
+// 		answer = 0
+// 	}
+//     return answer;
+// }
+
+
+
+
+
+
+
+// [[0, 0, 0, 1], [0, 1, 0, 1], [0, 1, 0, 1], [0, 1, 0, 1]]
+
+// N * N 크기의 배열에는 지뢰가 숨어져 있는 곳과 빈곳으로 구분되어 표현되어있습니다. (지뢰 1, 빈공간 0)
+// 이때 빈공간을 선택하면 해당 공간으로부터 8방향에 있는 지뢰의 개수가 표시됩니다.
+
+// 주어진 배열에서 적절한 위치를 선택했을때 최대 몇개의 지뢰 개수가 표시되는지 리턴하는 함수를 작성하세요. 이때, 지뢰가 있는 곳은 선택할 수 없습니다.
+
+// [입력]
+// 지뢰 정보가 표시된 2차원 배열 A
+
+// [출력]
+// 8방향에 존재하는 최대 지뢰 개수
