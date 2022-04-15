@@ -489,7 +489,7 @@ let longestCommonPrefix = function(strs) {
 // console.log(solution(A))
 
 // 1.
-// let A = [5, 12, 18];
+// let A = [3, 12, 18];
 // function solution(A) {
 // 	A.sort((x, y) => x - y)
 // 	let Amax = Math.max(...A);
@@ -603,36 +603,36 @@ let longestCommonPrefix = function(strs) {
 
 
 // 8.
-A = [["A", "B"], ["B", "C"], ["A", "C"], ["A", "D"], ["B", "E"]]
-S = 'D'
-function solution(A, S) {
-    var answer = [];
-	let arr = [];
-	let arr2 = [];
-	let zom;
-	for(let i = 0; i < A.length; i++){
-		if(A[i].includes(S)) zom = i;
-	}
-	for(let i = 0; i < zom; i++){
-		arr.push(A[i].join(''))
-	}
-	answerJoin = arr.join('').split('');
-	answerJoin.sort();
-	// console.log(answerJoin)
-	let count = 0;
-	for(let i = 0; i < answerJoin.length; i++){
-		for(let j = 0; j < answerJoin.length; j++){
-			if(answerJoin[i] == answerJoin[j]){
-				count++;
-			}
-			arr2.push(count)
-		}
-	}
-	console.log(arr2)
-	answer.push(answerJoin[0])
-    return answer;
-}
-console.log(solution(A, S))
+// A = [["A", "B"], ["B", "C"], ["A", "C"], ["A", "D"], ["B", "E"]]
+// S = 'D'
+// function solution(A, S) {
+//     var answer = [];
+// 	let arr = [];
+// 	let arr2 = [];
+// 	let zom;
+// 	for(let i = 0; i < A.length; i++){
+// 		if(A[i].includes(S)) zom = i;
+// 	}
+// 	for(let i = 0; i < zom; i++){
+// 		arr.push(A[i].join(''))
+// 	}
+// 	answerJoin = arr.join('').split('');
+// 	answerJoin.sort();
+// 	// console.log(answerJoin)
+// 	let count = 0;
+// 	for(let i = 0; i < answerJoin.length; i++){
+// 		for(let j = 0; j < answerJoin.length; j++){
+// 			if(answerJoin[i] == answerJoin[j]){
+// 				count++;
+// 			}
+// 			arr2.push(count)
+// 		}
+// 	}
+// 	console.log(arr2)
+// 	answer.push(answerJoin[0])
+//     return answer;
+// }
+// console.log(solution(A, S))
 
 
 

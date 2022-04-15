@@ -204,34 +204,51 @@
 // - - - - - - - - - - - - - - - - - - - -
 
 // 5. 배열 문제 풀이 - 두 수 최대 합
-function answer(prmt){
-	let result = [];
-	// 내 풀이 ↓
-	// let max_1 = Math.max(...prmt);
-	// result.push(max_1);
-	// prmt.splice(prmt.indexOf(max_1),1)
-	// let max_2 = Math.max(...prmt);
-	// result.push(max_2);
+// function answer(prmt){
+// 	let result = [];
+// 	// 내 풀이 ↓
+// 	// let max_1 = Math.max(...prmt);
+// 	// result.push(max_1);
+// 	// prmt.splice(prmt.indexOf(max_1),1)
+// 	// let max_2 = Math.max(...prmt);
+// 	// result.push(max_2);
 
-	// 정답 풀이 ↓
-	result = prmt[0] > prmt[1] ? [prmt[0], prmt[1]] : [prmt[1], prmt[0]];
-	for(let i = 2; i < prmt.length; i++){
-		result[1] > prmt[i] ? [prmt[i], result[1]] : [prmt[i], result[0]];
-	}
-	return result;
-}
-let input = [
-	[-11, 5, 18, -2, -3, 6, 4, 17, 10, 9],
-	[3, 7, -14, 2, -6, 13, -20, -2, -7, 6, -17, -5, 14, -9, 19],
-	[-15, -4, -8, 12, 12, -8, -8, 9, 10, 15, -2, 10, -14, 2, 13, 19, -9, 3, -18, 14],
-]
-for(let i = 0; i < input.length; i++){
-	console.log(`#${i + 1} ${answer(input[i])}`);
-}
+// 	// 정답 풀이 ↓
+// 	result = prmt[0] > prmt[1] ? [prmt[0], prmt[1]] : [prmt[1], prmt[0]];
+// 	for(let i = 2; i < prmt.length; i++){
+// 		if(prmt[i] > result[0]){
+// 			result[1] = result[0];
+// 			result[0] = prmt[i];
+// 		}else if(prmt[i] > result[1]){
+// 			result[1] = prmt[i];
+// 		}
+// 	}
+// 	return result;
+// }
+// let input = [
+// 	[-11, 5, 18, -2, -3, 6, 4, 17, 10, 9],
+// 	[3, 7, -14, 2, -6, 13, -20, -2, -7, 6, -17, -5, 14, -9, 19],
+// 	[-15, -4, -8, 12, 12, -8, -8, 9, 10, 15, -2, 10, -14, 2, 13, 19, -9, 3, -18, 14],
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i])}`);
+// }
 
 // - - - - - - - - - - - - - - - - - - - -
 
 // 6. 배열 문제 풀이 - 일곱 난장이
+function answer(prmt){
+	let result = [];
+	return result;
+}
+let input = [
+	[1, 5, 6, 7, 10, 12, 19, 29, 33],
+	[25, 23, 11, 2, 18, 3, 28, 6, 37],
+	[3, 37, 5, 36, 6, 22, 19, 2, 28],
+]
+for(let i = 0; i < input.length; i++){
+	console.log(`#${i + 1} ${answer(input[i])}`);
+}
 
 // - - - - - - - - - - - - - - - - - - - -
 
