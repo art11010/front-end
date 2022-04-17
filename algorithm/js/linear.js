@@ -237,45 +237,347 @@
 // - - - - - - - - - - - - - - - - - - - -
 
 // 6. 배열 문제 풀이 - 일곱 난장이
-function answer(prmt){
-	let result = [];
-	return result;
-}
-let input = [
-	[1, 5, 6, 7, 10, 12, 19, 29, 33],
-	[25, 23, 11, 2, 18, 3, 28, 6, 37],
-	[3, 37, 5, 36, 6, 22, 19, 2, 28],
-]
-for(let i = 0; i < input.length; i++){
-	console.log(`#${i + 1} ${answer(input[i])}`);
-}
+// function answer(prmt){
+// 	let result = [];
+// 	// 내 풀이 ↓
+// 	// let sum = prmt.reduce(function(prev, item){
+// 	// 	return prev + item
+// 	// },0)
+// 	// for(let i = 0; i < prmt.length; i++){
+// 	// 	for(let j = i; j < prmt.length; j++){
+// 	// 		if( i == j ) continue;
+// 	// 		if(prmt[i] + prmt[j] == sum - 100){
+// 	// 			prmt.splice(i,1)
+// 	// 			prmt.splice(j-1,1)
+// 	// 		}
+// 	// 	}
+// 	// }
+// 	// result = prmt
+// 	// 정답 풀이 ↓
+// 	let sum = -100;
+// 	for(let i = 0; i < prmt.length; i++){
+// 		sum += prmt[i]
+// 	}
+// 	let faker = []
+// 	for(let i = 0; i < prmt.length; i++){
+// 		for(let j = i + 1; j < prmt.length; j++){
+// 			if(prmt[i] + prmt[j] == sum){
+// 				faker[0] = i;
+// 				faker[1] = j;
+// 				break;
+// 			}
+// 		}
+// 		if(faker != 0) break;
+// 	}
+// 	let count = 0;
+// 	for(let i = 0; i < prmt.length; i++){
+// 		if(faker[0] == i) continue;
+// 		if(faker[1] == i) continue;
+// 		result.push(prmt[i])
+// 	}
+// 	return result;
+// }
+// let input = [
+// 	[1, 5, 6, 7, 10, 12, 19, 29, 33],
+// 	[25, 23, 11, 2, 18, 3, 28, 6, 37],
+// 	[3, 37, 5, 36, 6, 22, 19, 2, 28],
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i])}`);
+// }
 
 // - - - - - - - - - - - - - - - - - - - -
 
 // 7. 배열 문제 풀이 - 나무 그리기
+// function answer(prmt){
+// 	let result = '\n';
+// 	// 내 풀이 ↓
+// 	// let arr = [];
+// 	// // 1. 총 몇개
+// 	// let total = 2 * prmt - 1;
+// 	// // 2. 별의 시작 위치
+// 	// for(let i = 0; i < prmt; i++){
+// 	// 	let str = '';
+// 	// 	let start = prmt - i - 1;
+// 	// 	let cnt = 2 * i + 1;
+// 	// 	for(let j = 0; j < total; j++){
+// 	// 		if( j == start){
+// 	// 			for(let j = 0; j < cnt; j++){
+// 	// 				str += '*';
+// 	// 			}
+// 	// 		}else{
+// 	// 			str += ' ';
+// 	// 		}
+// 	// 	}
+// 	// 	arr.push(str)
+// 	// }
+// 	// result = arr.join(result);
+// 	// 정답 풀이 ↓
+// 	let str = '\n';
+// 	for(let i = 0; i < prmt; i++){
+// 		// 1. 공백처리 ' '
+// 		for(let j = 0; j < prmt - i - 1; j++){
+// 			str += ' ';
+// 		}
+// 		// 2. * 처리 2n+1
+// 		for(let j = 0; j < 2 * i+1; j++){
+// 			str += '*';
+// 		}
+// 		// 3.개행문자 추가
+// 		str += '\n';
+// 	}
+// 	result = str;
+// 	return result;
+// }
+// let input = [3, 5, 7]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i])}`);
+// }
 
 // - - - - - - - - - - - - - - - - - - - -
 
 // 8. 배열 문제 풀이 - Two Sum
-
+// function answer(prmt, target){
+// 	// 내 풀이 ↓
+// 	// for(let i = 0; i < prmt.length; i++){
+// 	// 	for(let j = i + 1; j < prmt.length; j++){
+// 	// 		if(prmt[i] + prmt[j] == target){
+// 	// 			return [i, j];
+// 	// 		}
+// 	// 	}
+// 	// }
+// 	// 정답 풀이 ↓
+// 	let map = {};	//key, value
+// 	for(let i = 0; i < prmt.length; i++){
+// 		if(map[target - prmt[i]] != undefined){
+// 			return [ map[target - prmt[i]], i ]
+// 		}
+// 		map[prmt[i]] = i;
+// 	}
+// 	return [];
+// }
+// let input = [
+// 	[[2, 7, 11, 15], 9],
+// 	[[3, 2, 4], 6],
+// 	[[3, 3], 6],
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i][0], input[i][1])}`);
+// }
 
 // - - - - - - - - - - - - - - - - - - - -
 
 // 9. 배열 문제 풀이 - OX 퀴즈
-
+// function answer(prmt){
+// 	let result = 0;
+// 	let count = 0;
+// 	for(let i = 0; i < prmt.length; i++){
+// 		if( prmt[i] == 0) count = 0;
+// 		else count++;
+// 		result += count;
+// 	}
+// 	return result;
+// }
+// let input = [
+// 	[1, 0, 1, 1, 1, 0, 1, 1, 0, 0],
+// 	[1, 1, 0, 1, 1, 0, 1, 1, 1, 1],
+// 	[1, 1, 1, 1, 1, 0, 0, 1, 1, 0],
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i])}`);
+// }
 
 // - - - - - - - - - - - - - - - - - - - -
 
 // 10. 배열 문제 풀이 - 벽돌 옮기기
-
+// function answer(prmt){
+// 	let result = 0;
+// 	// 내 풀이 ↓
+// 	// let sum = prmt.reduce(function(prev, item){
+// 	// 	return prev + item
+// 	// });
+// 	// sum = sum / prmt.length;
+// 	// for( let i = 0; i < prmt.length; i++){
+// 	// 	if(prmt[i] > sum){
+// 	// 		result += prmt[i] - sum;
+// 	// 	}
+// 	// }
+// 	// 정답 풀이 ↓
+// 	let sum = 0;
+// 	for( let i = 0; i < prmt.length; i++){
+// 		sum += prmt[i]
+// 	}
+// 	sum /= prmt.length;
+// 	for( let i = 0; i < prmt.length; i++){
+// 		if(prmt[i] > sum){
+// 			result += prmt[i] - sum;
+// 		}
+// 	}
+// 	return result;
+// }
+// let input = [
+// 	[5, 2, 4, 1, 7, 5],
+// 	[12, 8, 10, 11, 9, 5, 8],
+// 	[27, 14, 19, 11, 26, 25, 23, 15]
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	console.log(`#${i + 1} ${answer(input[i])}`);
+// }
 
 // - - - - - - - - - - - - - - - - - - - -
 
 // 11. 배열 문제 풀이 - 숫자 빈도수 구하기
+// function answer(s, e){
+// 	let result = [];
+// 	// 내 풀이 ↓
+// 	// let str = '';
+// 	// for( let i = s; i <= e; i++ ){
+// 	// 	str += i;
+// 	// }
+// 	// for( let i = 0; i < 10; i++){
+// 	// 	let count = 0;
+// 	// 	for( let j = 0; j < str.length; j++){
+// 	// 		if( i == str[j] ) { count++; }
+// 	// 	}
+// 	// 	result[i] = count;
+// 	// }
+// 	// 정답 풀이 ↓
+// 	for( let i = 0; i < 10; i++ ){
+// 		result[i] = 0;
+// 	}
+// 	for( let i = s; i <= e; i++ ){
+// 		let num = i;
+// 		while(num != 0){
+// 			result[num % 10]++;
+// 			num /= 10;
+// 			num = parseInt(num);
+// 		}
+// 	}
+// 	return result;
+// }
+// let input = [
+// 	[129, 137],
+// 	[1412, 1918],
+// 	[4159, 9182]
+// ]
+// for(let i = 0; i < input.length; i++){
+// 	process.stdout.write(`#${i + 1} `);
+// 	console.log(answer(input[i][0], input[i][1]));
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 12. 배열 문제 풀이 - 달팽이 만들기
+// function answer(prmt){
+// 	let result = [];
+// 	// 1. result -> 2차원 배열
+// 	for( let i = 0; i < prmt; i++){
+// 		result[i] = [];
+// 	}
+
+// 	// 2. 반목문 패턴 구현
+// 	// 1) prmt 길이만큼 시작해서 숫자를 채워준다.
+// 	// 2) prmt - i, 방향, 2회
+// 	// 3) prmt == 0, 프로그램이 멈춘다.
+// 	let direction = 1;
+// 	let x, y, num;
+// 	x = y = num = 0;
+// 	x--;
+// 	while(1){
+// 		for( let i = 0; i < prmt; i++ ){
+// 			x += direction;
+// 			result[y][x] = ++num;
+// 		}
+// 		prmt--;
+// 		if( prmt == 0 ) break;
+// 		for( let j = 0; j < prmt; j++ ){
+// 			y += direction;
+// 			result[y][x] = ++num;
+// 		}
+// 		direction *= -1;
+// 	}
+// 	return result;
+// }
+// let input = [3, 5, 6]
+// for(let i = 0; i < input.length; i++){
+// 	process.stdout.write(`#${i + 1} `);
+// 	console.log(answer(input[i]));
+// }
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 13. 프로토타입(prototype)
+// 어떠한 객체가 만들어지기 위해 객체의 모태가 되는 원형
+// 자바스크립트는 일반적인 객체이향 언어와는 다르게 프로토타입을 복사(Cloning)하여 새로운 객체 생성
+// 일반적인 객체 생성 방식 : 속성은 생성자, 메서드는 프로토타입에서 정의
+// 생성자 속성 정의
+// function Test(a, b){
+// 	// 속성 정의
+// }
+// // 첫번째 메소드 정의
+// Test.prototype.x = function(){ ... };
+// // 두번째 메소드 정의
+// Test.prototype.y = function(){ ... };
+// // 객체 생성
+// let test = new Test(1, 2);
+
+// 프로토타입 예제
+// // 생성자에서 속성 정의
+// function Person(name, age){
+// 	this.name = name;
+// 	this.age = age;
+// }
+// // 메소드 정의
+// Person.prototype.isAudlt = function(){
+// 	return this.age > 18;
+// }
+// // 객체 생성
+// const p1 = new Person('bob', 26);
+// const p2 = new Person('alice', 16);
+// // 객체 메소드 호출
+// console.log(p1, p1.isAudlt(), Object.getOwnPropertyDescriptors(p1));
+// console.log(p2, p2.isAudlt(), Object.getOwnPropertyDescriptors(p2));
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 14. 연결 리스트(Linked List)
+// 각 노드가 데이터와 포인터를 가지며, '한 줄'로 연결되어 데이터를 저장하는 자료 구조
+// 구현 메서드(method)
+// 노드 개수 : LinkedList.size()
+// 비어 있는지 확인 : LinkedList.isEmpty()
+// 노드 출력 : LinkedList.printNode()
+// 노드 추가 : LinkedList.append(), LinkedList.insert()
+// 노드 삭제 : LinkedList.remove(), LinkedList.removeAt()
+// 데이터 위치 확인 : LinkedList.indexOf()
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 15. 연결 리스트 구현하기(1)
 
 
+// - - - - - - - - - - - - - - - - - - - -
+
+// 16. 연결 리스트 구현하기(2)
 
 
+// - - - - - - - - - - - - - - - - - - - -
+
+// 17. 연결 리스트 구현하기(3)
+
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 18. 연결 리스트 구현하기(4)
+
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 19. 연결 리스트 구현하기(5)
+
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 20. 연결 리스트 구현하기(6)
 
 
 
