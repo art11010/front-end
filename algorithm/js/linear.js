@@ -826,7 +826,7 @@ DoubleLinkedList.prototype.size = function(){
 }
 // isEmpty() : 객체 내 노드 존재 여부 파악
 DoubleLinkedList.prototype.isEmpty = function(){
-	return this.length === 0;
+	return this.length == 0;
 }
 
 // - - - - - - - - - - - - - - - - - - - -
