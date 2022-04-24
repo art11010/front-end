@@ -729,18 +729,163 @@ let longestCommonPrefix = function(strs) {
 
 
 
+// 1.
+// arr = [71, 111, 111, 103, 108, 101]
+// function solution(arr) {
+//     var answer = '';
+// 	for (const item of arr) {
+// 		answer += String.fromCharCode(item)
+// 	}
+//     return answer;
+// }
+// console.log(solution(arr))
+
+// 2.
+// n = 5
+// function solution(n) {
+//     var answer = '';
+// 	answer = n.toString(2)
+//     return answer;
+// }
+// console.log(solution(n))
+
+// 3.
+// arr = ["10110", "1010", "11110"]
+// function solution(arr) {
+//     var answer = 0;
+// 	var arry = [];
+// 	for(let i = 0; i < arr.length; i++){
+// 		arry.push(parseInt(arr[i], 2))
+// 	}
+// 	for(let i = 1; i < arry.length; i++){
+// 		answer = arry[i-1]&arry[i]
+// 	}
+//     return parseInt(answer, 2);
+// }
+// console.log(solution(arr))
 
 
+// 4.
+// S = "ABBA"
+// function solution(S) {
+// 	let split = S.split('');
+// 	let count = 0;
+// 	while(1){
+// 		if(split.length == 0) return 1;
+// 		if(split.length == count) return 0;
+// 		for(let i = 1; i < split.length; i++){
+// 			if(split[i-1] == split[i]){
+// 				split.splice(i-1,2)
+// 				console.log(split)
+// 			}
+// 		}
+// 		count++;
+// 	}
+// }
+// console.log(solution(S))
 
-// [[0, 0, 0, 1], [0, 1, 0, 1], [0, 1, 0, 1], [0, 1, 0, 1]]
+// 5.
+// A = [[1], [2, 5], [7, 10, 1], [9, 4, 4, 5]]
+// function solution(A) {
+// 	let arr = [];
+// 	let sum = 0;
+// 	let count = 0;
+// 	let prev = 0;
+// 	while(count < A.length){
+// 		if(count == 0){
+// 			sum = A[count][0];
+// 		}else{
+// 			// console.log('1 : '+ A[count][prev-1], A[count][prev+1])
+// 			if(A[count][prev-1] == undefined){
+// 				prev = prev + 1;
+// 			}
+// 			if(A[count][prev-1] != undefined && A[count][prev-1] < A[count][prev+1]){
+// 				prev = prev - 1;
+// 			}else{
+// 				prev = prev + 1;
+// 			}
+// 			console.log(A[count],prev)
+// 			sum += A[count][prev]
+// 		}
+// 		// console.log(Math.min(...A[count]))
+// 		count++;
+// 		console.log(sum)
+// 	}
+// }
+// console.log(solution(A))
 
-// N * N 크기의 배열에는 지뢰가 숨어져 있는 곳과 빈곳으로 구분되어 표현되어있습니다. (지뢰 1, 빈공간 0)
-// 이때 빈공간을 선택하면 해당 공간으로부터 8방향에 있는 지뢰의 개수가 표시됩니다.
 
-// 주어진 배열에서 적절한 위치를 선택했을때 최대 몇개의 지뢰 개수가 표시되는지 리턴하는 함수를 작성하세요. 이때, 지뢰가 있는 곳은 선택할 수 없습니다.
+// 6.
+// A = [100000, 99000, 99000, 98000, 97000]
+// function solution(A) {
+// 	let sum = 0;
+// 	for(let i = 0; i < A.length; i++){
+// 		if(i % 2){
+// 			sum += A[i]
+// 		}else{
+// 			sum -= A[i]
+// 		}
+// 	}
+// 	return sum > 0 ? sum : 0
+// }
+// console.log(solution(A))
 
-// [입력]
-// 지뢰 정보가 표시된 2차원 배열 A
+// 7.
+// S1 = "HelloWorld"
+// S2 = "WorldHello"
+// function solution(S1, S2) {
+// 	return S1.slice(S1.indexOf(S2[0])) + S1.slice(0,S1.indexOf(S2[0])) == S2 ? 1 : 0;
+// }
+// console.log(solution(S1, S2))
 
-// [출력]
-// 8방향에 존재하는 최대 지뢰 개수
+// 8.
+// A = [14, 1, 15, 6, 8];
+// K = 15;
+// function solution(A, K) {
+// 	A = A.sort(function(x, y){ return x - y; });
+// 	let sum = 0;
+// 	let count = 0;
+// 	if( A[0] > K) return count;
+// 	while(sum < K - 1){
+// 		sum += A[count]
+// 		count++
+// 	}
+// 	return count;
+// }
+// console.log(solution(A, K))
+
+// 9.
+A = [1, 2, 3, 4, 5, 6]
+K = 5
+function solution(A, K) {
+    var answer = 0;
+    let count = 0;
+	let arr = []
+	for(let i = 0; i < A.length; i++){
+		if(A[i] % K == 0) answer++;
+	}
+	while(count < A.length){
+		let sum = 0;
+		for(let i = count; i < A.length; i++){
+			if( (A[i]+1) == (A[i+1]) ){
+				sum += A[i+1]
+			}
+		}
+		if(sum % K == 0) answer++;
+		count++
+	}
+    return answer;
+}
+console.log(solution(A, K))
+
+// 10.
+// A = [[0, 3], [1, 5], [3, 10]]
+// function solution(A) {
+//     var answer = 0;
+// 	// for()
+// 	3
+// 	3 - 1 + 5 = 7
+// 	5 - 3 + 10 = 8
+//     return answer;
+// }
+// console.log(solution(A))
