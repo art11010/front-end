@@ -770,36 +770,73 @@ LinkedList.prototype.removeIdx = function(value){
 }
 
 // Test code
-let ll = new LinkedList();
-ll.insert(1);
-ll.insert(10);
-ll.insert(100);
-ll.insert(2, 1);
-ll.insert(3, 3);
-ll.printNode();
+// let ll = new LinkedList();
+// ll.insert(1);
+// ll.insert(10);
+// ll.insert(100);
+// ll.insert(2, 1);
+// ll.insert(3, 3);
+// ll.printNode();
 
-console.log(ll.indexOf(1000));
-console.log(ll.indexOf(1));
-console.log(ll.indexOf(100));
-console.log(ll.indexOf(10));
+// console.log(ll.indexOf(1000));
+// console.log(ll.indexOf(1));
+// console.log(ll.indexOf(100));
+// console.log(ll.indexOf(10));
 
-console.log(ll.removeIdx(1000));
-ll.printNode();
-console.log(ll.removeIdx(4));
-ll.printNode();
-console.log(ll.removeIdx());
-ll.printNode();
-console.log(ll.removeIdx(1));
-ll.printNode();
-console.log(ll.size());
+// console.log(ll.removeIdx(1000));
+// ll.printNode();
+// console.log(ll.removeIdx(4));
+// ll.printNode();
+// console.log(ll.removeIdx());
+// ll.printNode();
+// console.log(ll.removeIdx(1));
+// ll.printNode();
+// console.log(ll.size());
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 21. 이중 연결 리스트
+// 각 노드가 데이터와 포인터를 가지며, '두 줄'로 연결되어 데이터를 저장하는 자료 구조
+// 구현 메서드(method)
+// 노드 개수 : DoubleLinkedList.size()
+// 비어 있는지 확인 : DoubleLinkedList.isEmpty()
+// 노드 출력ㆍ역출력 : DoubleLinkedList.printNode(), DoubleLinkedList.printNodeInverse()
+// 노드 추가 : DoubleLinkedList.append(), DoubleLinkedList.insert()
+// 노드 삭제 : DoubleLinkedList.remove(), DoubleLinkedList.removeAt()
+// 데이터 위치 확인 : DoubleLinkedList.indexOf()
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 22. 이중 연결 리스트 구현하기(1), (2)
+// Node() : data와 point를 가지고 있는 객체
+function DoubleNode(data){
+	this.prev = null;
+	this.data = data;
+	this.next = null;
+}
+// DoubleLinkedList() : head와 length를 가지고 있는 객체
+function DoubleLinkedList(){
+	this.head = null;
+	this.tail = null;
+	this.length = 0;
+}
+// size() : 연결 리스트 내 노드 개수 확인
+DoubleLinkedList.prototype.size = function(){
+	return this.length;
+}
+// isEmpty() : 객체 내 노드 존재 여부 파악
+DoubleLinkedList.prototype.isEmpty = function(){
+	return this.length === 0;
+}
+
+// - - - - - - - - - - - - - - - - - - - -
+
+// 23. 이중 연결 리스트 구현하기(2), (3)
 
 
+// - - - - - - - - - - - - - - - - - - - -
 
-
-
-
-
-
+// 24. 이중 연결 리스트 구현하기(5)
 
 
 
