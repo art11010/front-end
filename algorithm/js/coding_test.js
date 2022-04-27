@@ -855,28 +855,28 @@ let longestCommonPrefix = function(strs) {
 // console.log(solution(A, K))
 
 // 9.
-A = [1, 2, 3, 4, 5, 6]
-K = 5
-function solution(A, K) {
-    var answer = 0;
-    let count = 0;
-	let arr = []
-	for(let i = 0; i < A.length; i++){
-		if(A[i] % K == 0) answer++;
-	}
-	while(count < A.length){
-		let sum = 0;
-		for(let i = count; i < A.length; i++){
-			if( (A[i]+1) == (A[i+1]) ){
-				sum += A[i+1]
-			}
-		}
-		if(sum % K == 0) answer++;
-		count++
-	}
-    return answer;
-}
-console.log(solution(A, K))
+// A = [1, 2, 3, 4, 5, 6]
+// K = 5
+// function solution(A, K) {
+//     var answer = 0;
+//     let count = 0;
+// 	let arr = []
+// 	for(let i = 0; i < A.length; i++){
+// 		if(A[i] % K == 0) answer++;
+// 	}
+// 	while(count < A.length){
+// 		let sum = 0;
+// 		for(let i = count; i < A.length; i++){
+// 			if( (A[i]+1) == (A[i+1]) ){
+// 				sum += A[i+1]
+// 			}
+// 		}
+// 		if(sum % K == 0) answer++;
+// 		count++
+// 	}
+//     return answer;
+// }
+// console.log(solution(A, K))
 
 // 10.
 // A = [[0, 3], [1, 5], [3, 10]]
@@ -889,3 +889,257 @@ console.log(solution(A, K))
 //     return answer;
 // }
 // console.log(solution(A))
+
+
+// 1.
+// fruits = [-2, 5, -3, 6, 8, -1, -5, 3]
+// function solution(fruits) {
+// 	let count = 0;
+// 	let result = Number.MIN_SAFE_INTEGER;
+// 	while(count < fruits.length){
+// 		let sum = 0;
+// 		for(let i = count; i < fruits.length; i++){
+// 			sum += fruits[i];
+// 			if(sum > result) result = sum;
+// 		}
+// 		count++;
+// 	}
+// 	return result;
+// }
+// console.log(solution(fruits))
+
+// 2.
+// n = 5;
+// k = 3;
+// function solution(n, k) {
+// 	// while( k > 0 ){
+// 	// 	for(let i = 0; i < k; i++){
+// 	// 		console.log(i,k)
+// 	// 	}
+// 	// 	k--;
+// 	// }
+// 	let num = 0;
+// 	let sum = 0;
+// 	while( k > 0 ){
+// 		for(let i = num; i <= k; i++){
+// 			sum += i;
+// 			console.log(sum)
+// 			if( sum < n ){
+// 				num++
+// 				break;
+// 			}
+// 		}
+// 	}
+// }
+// console.log(solution(n, k))
+
+// 3.
+arr = [3, 2, 3];
+function solution(arr) {
+	arr = arr.sort(function(x, y){ return x - y; });
+	for(let i = 0; i < arr.length; i++){
+		if( arr[i] <= 0) return 0;
+	}
+	return arr[arr.length-1] + arr[arr.length-2] + arr[arr.length-3]
+}
+// function solution(arr) {
+// 	if( arr.length < 3)  return 0;
+// 	for(let i = 0; i < arr.length; i++){
+// 		if( arr[i] <= 0) return 0;
+// 	}
+// 	let maxArr = [];
+// 	while(maxArr.length < 3){
+// 		maxArr.push(Number(arr.splice(arr.indexOf(Math.max(...arr)),1)))
+// 	}
+// 	let sum = maxArr.reduce(function(acc, itm){
+// 		return acc + itm;
+// 	})
+// 	return sum;
+// }
+console.log(solution(arr))
+
+// 4.
+// n = 99999;
+// function solution(n) {
+// 	let squared = 0;
+// 	for(let i = 0; i < n; i++){
+// 		if(i ** 3 > n) break;
+// 		squared = i ** 3;
+// 	}
+// 	return squared;
+// }
+// console.log(solution(n))
+
+
+// 5.
+// distance = [1, 2, 8];
+// time = [1, 1, 2];
+// function solution(distance, time) {
+// }
+// console.log(solution(distance, time))
+
+// 6.
+// puzzle = [
+// 	["대", "한", "가", "나"],
+// 	["국", "민", "다", "라"],
+// 	["마", "바", "사", "아"],
+// 	["자", "차", "카", "타"]
+// ]
+// word = "대한민국"
+// function solution(puzzle, word) {
+// 	let tb = 0;
+// 	let lr = 0;
+// 	let count = 0;
+// 	let result = 0;
+// 	for(let i = 0; i < puzzle.length; i++){
+// 		for(let j = 0; j < puzzle[i].length; j++){
+// 			if( puzzle[i][j] == word[0]){
+// 				tb = i;
+// 				lr = j;
+// 			}
+// 		}
+// 	}
+// 	while(count < word.length){
+// 		let tbM = tb-1;
+// 		let tbP = tb+1;
+// 		let lrM = lr-1;
+// 		let lrP = lr+1;
+// 		if( tbM < 0) tbM = 0;
+// 		if( tbP > puzzle.length) tbP = puzzle.length - 1;
+// 		else if( tbP < 0 ) tbP = 0;
+// 		if( lrM > puzzle[tb].length) lrM = puzzle[tb].length - 1;
+// 		else if( lrM < 0 ) lrM = 0;
+// 		if( lrP < 0) lrP = 0;
+// 		// 배열 탐색
+// 		if(
+// 			puzzle[tbM][lr] == word[count+1] || 
+// 			puzzle[tbM][lrM] == word[count+1] || 
+// 			puzzle[tbM][lrP] == word[count+1] || 
+// 			puzzle[tbP][lr] == word[count+1] || 
+// 			puzzle[tbP][lrM] == word[count+1] || 
+// 			puzzle[tbP][lrP] == word[count+1] || 
+// 			puzzle[tb][lrM] == word[count+1] || 
+// 			puzzle[tbM][lrM] == word[count+1] || 
+// 			puzzle[tbP][lrM] == word[count+1] || 
+// 			puzzle[tb][lrP] == word[count+1] || 
+// 			puzzle[tbM][lrP] == word[count+1] || 
+// 			puzzle[tbP][lrP] == word[count+1]
+// 		){
+// 			result++;
+// 		}
+// 		count++;
+// 	}
+// 	return result == word.length-1 ? true : false;
+// }
+// console.log(solution(puzzle, word))
+
+// 7.
+// field = [[1, 0, 1], [0, 0, 1], [0, 1, 1]];
+// n = 2;
+// function solution(field, n) {
+// 	let sum = 0;
+// 	for(let i = 0; i < field.length; i++){
+// 		count = 0;
+// 		for(let j = 0; j < field[i].length; j++){
+// 			// field[i][j]
+// 			count++;
+// 			console.log(i,j)
+// 			if(count == n) break;
+// 		}
+// 	}
+// }
+// console.log(solution(field, n))
+
+// 8.
+// arr = [3, 2, 3, 1];
+// function solution(arr) {
+// 	if( arr.length < 4)  return 0;
+// 	for(let i = 0; i < arr.length; i++){
+// 		if( arr[i] <= 0) return 0;
+// 	}
+// 	let maxArr = [];
+// 	while(maxArr.length < 4){
+// 		maxArr.push(Number(arr.splice(arr.indexOf(Math.max(...arr)),1)))
+// 	}
+// 	let sum = maxArr.reduce(function(acc, itm){
+// 		return acc + itm;
+// 	})
+// 	return sum;
+// }
+// console.log(solution(arr))
+
+// 9.
+// arr = [4, 1, 3, 2];
+// function solution(arr) {
+// 	arr = arr.sort(function(x, y){ return x - y; });
+// 	let sum = 0;
+// 	for(let i = 1; i <= arr.length; i++){
+// 		if( i % 2 === 0){
+// 			sum += arr[i-1]
+// 		}
+// 	}
+// 	return sum;
+// }
+// console.log(solution(arr))
+
+// 10.
+// p = "?ast*";
+// s = ["fastcampus", "fast", "faster", "notfast", "notfaster"]
+// function solution(p, s) {
+// 	let count = 0;
+// 	if( p.includes('*')) p = p.slice(0, p.indexOf('*'));
+// 	if( p.includes('?')){
+// 		let startp = p.slice(0, p.indexOf('?'));
+// 		let endp = p.slice(p.indexOf('?') + 1);
+// 		let ends;
+// 		for(let i = 0; i < s.length; i++){
+// 			if(s[i].startsWith(startp)){
+// 				ends = s[i].slice(p.indexOf('?'))
+// 				if(ends.startsWith(endp)){
+// 					count++;
+// 				}
+// 			}
+// 		}
+// 	}else{
+// 		for(let i = 0; i < s.length; i++){
+// 			if( s[i].startsWith(p) ){
+// 				count++;
+// 			}
+// 		}
+// 	}
+// 	return count;
+// }
+// console.log(solution(p, s))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
