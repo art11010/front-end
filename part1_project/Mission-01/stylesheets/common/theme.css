@@ -1,1 +1,11 @@
 /* Theme 스타일 작성 */
+:root {
+	--color-back: #181818;
+	--color-white: #FFFFFF;
+	--gray-100: #F3F3F3;
+	--gray-500: #C4C4C4;
+	--gray-600: #AAA9A9;
+	--blue-600: #0074E9;
+	--opacity-20:rgba(0, 0, 0, 0.2);
+	--font-family: 'Noto Sans KR', sans-serif;
+}

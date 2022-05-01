@@ -1,1 +1,22 @@
 /* CSS 작성 */
+header{margin:100px auto 0;width:1020px;}
+h1{width:176px;height:40px;}
+h1 img{width:100%;}
+section{margin:48px auto 0;width:1020px;}
+h2{display:flex;align-items:center;padding-bottom:24px;line-height:28px;font-size:24px;font-weight:500;}
+h2 .line{margin:0 10px;font-size:20px;}
+h2 .sub_tit{line-height:18px;font-size:16px;font-weight:500;color:var( --gray-600 );}
+.item_wrap:after{display:block;content:'';clear:both;}
+.item_box{float:left;margin-bottom:16px;margin-left:16px;width:243px;height:310px;position:relative;}
+.item_box:nth-child(1),
+.item_box:nth-child(3),
+.item_box:nth-child(7){margin-left:0;}
+.item_box.big{width:502px;}
+.item_box .sale_btn{display:flex;justify-content:center;align-items:center;width:100%;height:100%;border:1px solid var( --gray-500 );}
+.item_box .sale_arw{display:flex;justify-content:center;align-items:center;width:42px;height:42px;text-align:center;background-color:var( --opacity-20 );background-image:url(./../../assets/icon/angle-right-square.svg);background-repeat:no-repeat;background-position:right;position:absolute;bottom:20px;left:20px;transition:background .3s;}
+.item_box .sale_btn:hover,
+.item_box .sale_btn:focus{border-color:var( --blue-600 );}
+.item_box .sale_btn:hover .sale_arw,
+.item_box .sale_btn:focus .sale_arw{width:112px;background-color:var( --blue-600 );}
+.item_box .sale_btn:hover .sale_arw::before,
+.item_box .sale_btn:focus .sale_arw::before{display:inline;content:'구매하기';padding-right:16px;line-height:17px;font-size:14px;font-weight:500;color:var( --color-white );}

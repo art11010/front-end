@@ -1,0 +1,31 @@
+/* 오늘의 쇼핑 제안 */
+header{margin:100px auto 0;width:1022px;}
+h1 a{display:block;}
+h1 img{width:176px;}
+section{margin:48px auto 0;width:1022px;}
+h2{display:flex;align-items: center;margin-top:0;margin-bottom:24px;padding-left:30px;line-height:28px;font-size:24px;font-weight:500;background-image:url(./../../assets/icon/shopping.svg);background-repeat:no-repeat;}
+.item_wrap{margin:0;padding:0;display:flex;}
+.item_box{width:200px;height:270px;text-align:center;position:relative;list-style:none;}
+.item_box .noshow{line-height:0;font-size:0;}
+.item_box a{display:block;width:100%;height:100%;padding:14px 0;position:relative;}
+.item_box .sale{display:block;padding-top:2px;width:53px;height:30px;line-height:24px;font-size:16px;background-color: var( --color-red-500 );font-style: normal;color: var( --color-white );position:absolute;top:0;left:0;}
+.item{margin-top:12px;padding:0 14px;text-align:left;}
+.item .item_tit{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+.item .ship{font-size:14px;color: var( --color-gray-700 )}
+.item .item_info{margin-top:12px;height:17px;}
+.item .review{margin-top:4px;}
+.item .score{display:inline-block;width:68px;height:12px;line-height:0;font-size:0;vertical-align: middle;background-image:url(./../../assets/sprites/rating-stars.png);background-repeat:no-repeat;}
+.item .score.s00{background-position:0 0;}
+.item .score.s05{background-position:0 -14px;}
+.item .score.s10{background-position:0 -28px;}
+.item .score.s15{background-position:0 -42px;}
+.item .score.s20{background-position:0 -56px;}
+.item .score.s25{background-position:0 -70px;}
+.item .score.s30{background-position:0 -84px;}
+.item .score.s35{background-position:0 -98px;}
+.item .score.s40{background-position:0 -112px;}
+.item .score.s45{background-position:0 -126px;}
+.item .score.s50{background-position:0 -140px;}
+.item .nums{line-height:17px;font-size:14px;color: var( --color-gray-700 )}
