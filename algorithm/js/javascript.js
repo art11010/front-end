@@ -611,6 +611,7 @@
 // let num = 10;
 // num.toString(16) : 16진수
 // num.toString(2) : 2진수
+// parseInt(num, 2) : 10진수
 // console.log(us.toString(), typeof us.toString(), typeof String(us));
 
 // 자리 수 표현

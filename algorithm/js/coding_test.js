@@ -51,17 +51,17 @@
 // 	}
 // 	return arr[max[max.length-1]]
 // };
-let strs = ["flower","flow","flight","hi"];
-let longestCommonPrefix = function(strs) {
-	for(let i = 0; i <= strs[0].length; i++){
-		for(let j = 1; j < strs.length; j++){
-			// console.log(j + ' : ' + strs[0][i],strs[j][i])
-			// if (strs[0][i] !== strs[j][i]) {
-            //     return strs[0].slice(0, i);
-            // }
-		}
-	}
-};
+// let strs = ["flower","flow","flight","hi"];
+// let longestCommonPrefix = function(strs) {
+// 	for(let i = 0; i <= strs[0].length; i++){
+// 		for(let j = 1; j < strs.length; j++){
+// 			// console.log(j + ' : ' + strs[0][i],strs[j][i])
+// 			// if (strs[0][i] !== strs[j][i]) {
+//             //     return strs[0].slice(0, i);
+//             // }
+// 		}
+// 	}
+// };
 // console.log(longestCommonPrefix(strs))
 
 
@@ -934,14 +934,14 @@ let longestCommonPrefix = function(strs) {
 // console.log(solution(n, k))
 
 // 3.
-arr = [3, 2, 3];
-function solution(arr) {
-	arr = arr.sort(function(x, y){ return x - y; });
-	for(let i = 0; i < arr.length; i++){
-		if( arr[i] <= 0) return 0;
-	}
-	return arr[arr.length-1] + arr[arr.length-2] + arr[arr.length-3]
-}
+// arr = [3, 2, 3];
+// function solution(arr) {
+// 	arr = arr.sort(function(x, y){ return x - y; });
+// 	for(let i = 0; i < arr.length; i++){
+// 		if( arr[i] <= 0) return 0;
+// 	}
+// 	return arr[arr.length-1] + arr[arr.length-2] + arr[arr.length-3]
+// }
 // function solution(arr) {
 // 	if( arr.length < 3)  return 0;
 // 	for(let i = 0; i < arr.length; i++){
@@ -956,7 +956,7 @@ function solution(arr) {
 // 	})
 // 	return sum;
 // }
-console.log(solution(arr))
+// console.log(solution(arr))
 
 // 4.
 // n = 99999;
@@ -1112,25 +1112,143 @@ console.log(solution(arr))
 // console.log(solution(p, s))
 
 
+// 1.
+// s = 'google'
+// function solution(s) {
+//     var answer = 0;
+// 	s = s.split('');
+// 	let set = new Set(s)
+// 	// return set.size
+//     return answer = set.size;
+// }
+// console.log(solution(s))
 
+// 3.
+// arr = ["10110", "1010", "11110"];
+// function solution(arr) {
+//     var answer = 0;
+// 	if(arr.length < 2){
+// 		answer = parseInt(arr[0],2)
+// 	}else{
+// 		answer = parseInt(arr[0],2)|parseInt(arr[1],2)
+// 		for(let i = 2; i < arr.length; i++){
+// 			answer = answer|parseInt(arr[i],2)
+// 		}
+// 	}
+//     return answer;
+// }
+// console.log(solution(arr))
 
+// 4.
+// arr = [5, 3, 4, 3, 1]
+// function solution(arr) {
+// 	arr = arr.sort(function(x, y){ return x - y; });
+// 	arr.splice(arr.indexOf(Math.max(...arr)),1)
+// 	arr.splice(arr.indexOf(Math.min(...arr)),1)
+// 	console.log(arr)
+// 	let sum = 0;
+// 	for(let i = 0; i < arr.length; i++){
+// 		sum += arr[i]
+// 	}
+// 	return parseInt(sum/arr.length)
+// }
+// console.log(solution(arr))
 
+// 5.
+// arr = [0, 2, 1, 4, 3, 0]
+// function solution(arr) {
+// 	let newArr = [];
+// 	for(let i = 0; i < arr.length; i++){
+// 		if(arr[i]%2 == 0){
+// 			newArr.push(arr[i])
+// 		}else{
+// 			newArr.push(arr[i])
+// 			newArr.push(arr[i])
+// 		}
+// 	}
+// 	newArr.splice(arr.length)
+// 	return newArr
+// }
+// console.log(solution(arr))
 
+// 6.
+// n = 3;
+// function solution(n) {
+// 	let sum = '';
+// 	let result = 0;
+// 	for(let i = 0; i <= n; i++){
+// 		sum += i.toString(2);
+// 	}
+// 	for(let i = 0; i < sum.length; i++){
+// 		result += Number(sum[i]);
+// 	}
+// 	return result
+// }
+// console.log(solution(n))
 
+// 7.
+// arr = ["Happy new year", "Hello world", "Nice to meet you"]
+// function solution(arr) {
+// 	let num = 0;
+// 	for(let i = 0; i < arr.length; i++){
+// 		let newArr = []
+// 		newArr = arr[i].split(' ');
+// 		if(newArr.length > num) num = newArr.length;
+// 	}
+// 	return num;
+// }
+// console.log(solution(arr))
 
+// 8.
+// h = 1;
+// w = 4;
+// function solution(h, w) {
+// 	let min = 0;
+// 	h < w ? min = h : min = w;
+// 	let multiply = (h * w) / min;
+// 	if(h == 1 || w == 1) multiply = 1;
+// 	return multiply;
+// }
+// console.log(solution(h, w))
 
+// 9.
+// arr = [6, 2, 1, 4]
+// K = 2
+// function solution(arr, K) {
+// 	arr = arr.sort(function(x, y){ return x - y; });
+// 	let sum = 0;
+// 	for(let i = 1; i <= arr.length; i++){
+// 		if( i % K === 0){
+// 			sum += arr[i-1]
+// 		}
+// 	}
+// 	return sum;
+// }
+// console.log(solution(arr, K))
 
-
-
-
-
-
-
-
-
-
-
-
+// 10.
+// Friends = ["bob", "andrew", "bobby", "ant"]
+// Taste = [
+// 	["bobby", "ant"],
+// 	["bob", "ant"],
+// 	["bob"],
+// 	["bob", "bobby"],
+// 	["andrew", "bobby"],
+// 	["andrew", "ant"]
+// ]
+// function solution(Friends, Taste) {
+//     var answer = 0;
+// 	for(let i = 0; i < Taste.length; i++){
+// 		for(let j = 0; j < Taste[i].length; j++){
+// 			if(Friends.includes(Taste[i][j])){
+// 				answer += 1/Taste[i].length;
+// 				Friends.splice(Friends.indexOf(Taste[i][j]),1);
+// 			}
+// 		}
+// 	}
+//     return answer;
+// }
+// console.log(solution(Friends, Taste))
 
 
 
