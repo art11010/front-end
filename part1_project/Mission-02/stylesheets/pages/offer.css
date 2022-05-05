@@ -1,8 +1,9 @@
 /* 오늘의 쇼핑 제안 */
-header{margin:100px auto 0;width:1022px;}
+header{margin:100px auto 0;width:1020px;}
+h1{margin:0;}
 h1 a{display:block;}
 h1 img{width:176px;}
-section{margin:48px auto 0;width:1022px;}
+section{margin:48px auto 0;width:1020px;}
 h2{display:flex;align-items: center;margin-top:0;margin-bottom:24px;padding-left:30px;line-height:28px;font-size:24px;font-weight:500;background-image:url(./../../assets/icon/shopping.svg);background-repeat:no-repeat;}
 .item_wrap{margin:0;padding:0;display:flex;}
 .item_box{width:200px;height:270px;text-align:center;position:relative;list-style:none;}
