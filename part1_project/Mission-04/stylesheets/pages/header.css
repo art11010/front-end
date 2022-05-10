@@ -1,6 +1,6 @@
 /* 헤더 */
 nav{margin:0 auto;width:1920px;height:34px;background-color:var( --color-gray-100 );}
-nav ul{margin:0;padding:0;display:flex;align-items:center;height:100%}
+nav ul{margin:0 auto;padding:0;width:1020px;display:flex;align-items:center;height:100%}
 nav li{margin-left:8px;list-style:none;}
 nav li:nth-child(1){margin-left:auto;}
 nav li:nth-child(3){margin-right:8px;}
@@ -8,12 +8,17 @@ nav li:nth-child(1),
 nav li:nth-child(2),
 nav li:nth-child(3){order:1;}
 
+/* header */
+header{display:grid;grid-template-columns:110px 870px;margin:0 auto;width:1020px;}
+.hd_wrap{display:grid;grid-template-columns:176px 516px 126px;margin-top: 30px;margin-left:40px;}
+
 /* button--category */
-button{border:none;}
+button{background:none;border:none;}
 .button--category{padding:72px 0 30px;width:110px;line-height:14px;font-size:12px;color:var( --color-white );background:url(./../../assets/icon/hamburger.svg) no-repeat top 30px center var( --color-blue-600 );box-sizing:border-box;}
 
-/* header */
-header h1 a{display:block;width:246px;height:56px;line-height:0;font-size:0;background-image:url(./../../assets/logo/logo.svg)}
+/* h1 */
+header h1{margin:0;}
+header h1 a{display:block;width:176px;height:40px;line-height:0;font-size:0;background:url(./../../assets/logo/logo.svg) center/176px}
 
 /* form */
-form{width:516px;;height:40px;border:1px solid var( --color-blue-600 )}
+form{margin-left:30px;width:516px;;height:40px;border:1px solid var( --color-blue-600 )}
