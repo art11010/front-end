@@ -14,34 +14,59 @@
 	<script src="./js/main.js" defer></script>
 </head>
 <body>
-	<nav>
-		<ul>
-			<li><a href="/">로그인</a></li>
-			<li><a href="/">회원가입</a></li>
-			<li><a href="/">고객센터</a></li>
-			<li><a href="/">쿠팡플레이</a></li>
-			<li><a href="/">제휴마케팅</a></li>
-		</ul>
-	</nav>
 	<header>
-		<button type="button" class="button--category">카테고리</button>
+		<nav>
+			<ul>
+				<li><a href="/">로그인</a></li>
+				<li><a href="/">회원가입</a></li>
+				<li><a href="/">고객센터</a></li>
+				<li><a href="/">쿠팡플레이</a></li>
+				<li><a href="/">제휴마케팅</a></li>
+			</ul>
+		</nav>
 		<div class="hd_wrap">
-			<h1>
-				<a href="https://www.coupang.com/" target="_blank" rel="noreferrer">Coupang</a>
-			</h1>
-			<form>
-				<label>
-					<select name="category">
-						<option value="전체">전체</option>
-					</select>
-				</label>
-				<input type="search" placeholder="찾고 싶은 상품을 검색해 보세요!">
-				<button type="button"></button>
-				<button type="submit"></button>
-			</form>
-			<div class="btn_wrap">
-				<button type="button">마이쿠팡</button>
-				<button type="button">장바구니</button>
+			<button type="button" class="button--category">카테고리</button>
+			<div class="hd_srch">
+				<h1>
+					<a href="https://www.coupang.com/" target="_blank" rel="noreferrer">Coupang</a>
+				</h1>
+				<form>
+					<label for="category" class="ctgy">
+						<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 17H15L19.6957 23L24 17Z" fill="#767676"/></svg>
+						<select id="category" name="category">
+							<option value="전체">전체</option>
+						</select>
+					</label>
+					<label class="srch"><input type="search" placeholder="찾고 싶은 상품을 검색해 보세요!"></label>
+					<button class="voice" type="button">음성검색</button>
+					<button class="search" type="button">검색</button>
+				</form>
+			</div>
+			<div class="hd_link">
+				<a href="/"><img class="ship" src="./assets/icon/icon-rocket.svg" alt="로켓배송">로켓배송</a>
+				<a href="/"><img class="ship" src="./assets/icon/icon-fresh.svg" alt="로켓프레시">로켓프레시</a>
+				<a href="/">2022년 설날<img class="new" src="./assets/icon/new.svg" alt="new"></a>
+				<a href="/">로켓직구</a>
+				<a href="/">골드박스</a>
+				<a href="/">정기배송</a>
+				<a href="/">이벤트/쿠폰</a>
+				<a href="/">기획전</a>
+				<a href="/">여행티켓</a>
+			</div>
+			<div class="hd_btn">
+				<div class="myCoupang my">
+					<button type="button">마이쿠팡</button>
+					<ul class="tooltip">
+						<li><a href="/">주문목록</a></li>
+						<li><a href="/">취소/반품</a></li>
+						<li><a href="/">찜리스트</a></li>
+					</ul>
+				</div>
+				<div class="my cart">
+					<span class="num">0</span>
+					<button type="button">장바구니</button>
+					<div class="tooltip">장바구니에 담긴 상품이 없습니다.</div>
+				</div>
 			</div>
 		</div>
 	</header>
