@@ -1182,9 +1182,9 @@
 // Date 생성자 : new Date()
 // 현재 시간 기준 문자열 : Date()
 // 날짜 정보 얻기 (년/월/일) : Date.getFullYear(), Date.getMonth(), Date.getDate()
-// 날짜 정보 얻기 (시/분/초/ms) : Date.getHours(), Date.getMinutes(), Date.getSeonds()
+// 날짜 정보 얻기 (시/분/초/ms) : Date.getHours(), Date.getMinutes(), Date.getSeconds()
 // 날짜 정보 설정 (시/분/초/ms) : Date.setFullYear(), Date.setMonth(), Date.setDate()
-// 날짜 정보 설정 (시/분/초/ms) : Date.setHours(), Date.setMinutes(), Date.setSeonds()
+// 날짜 정보 설정 (시/분/초/ms) : Date.setHours(), Date.setMinutes(), Date.setSeconds()
 // 그 외 날짜 정보 얻기 : Date.getDay(), Date.getTime(). Date.getTimezoneOffset()
 // 그 외 날짜 정보 설정 : Date.parse(string)
 
@@ -1210,9 +1210,9 @@
 // // 년/월/일 : Date.getFullYear(), Date.getMonth(), Date.getDate(), Date.getDay()
 // // Date.getDay() : 일요일(0) ~ 토요일(6)
 // console.log(date.getFullYear(), date.getMonth(), date.getDate(), date.getDay());
-// // 시/분/초/ms : Date.getHours(), Date.getMinutes(), Date.getSeonds()
+// // 시/분/초/ms : Date.getHours(), Date.getMinutes(), Date.getSeconds()
 // console.log(date.getHours(), date.getUTCHours());
-// // console.log(date.getHours(), date.getMinutes(), date.getSeonds());
+// // console.log(date.getHours(), date.getMinutes(), date.getSeconds());
 // // 주어진 일시 : Date.getTime()
 // console.log(date.getTime(), new Date(date.getTime()));	// 현재 시간을 milliseconds로 return
 // // 현지 시간 : Date.getTimezoneOffset()
@@ -1232,7 +1232,7 @@
 // console.log(date);
 // date.setMonth(7);		// 원하는 달 설정
 // console.log(date);
-// // 시/분/초/ms : Date.setHours(), Date.setMinutes(), Date.setSeonds()
+// // 시/분/초/ms : Date.setHours(), Date.setMinutes(), Date.setSeconds()
 // date.setHours(date.getHours() + 2);	// 원하는 시간 설정 (+2 시간)
 // console.log(date);
 
