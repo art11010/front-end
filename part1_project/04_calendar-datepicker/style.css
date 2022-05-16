@@ -92,15 +92,16 @@ body {
 }
 .calendar-grid .date {
   height:100%;
+  color:#bdbdbd;
   border-radius:100%;
 }
-.calendar-grid .date:hover,
-.calendar-grid .date.selct {
+.calendar-grid .date.curt:hover,
+.calendar-grid .date.curt.selct {
   color:#fff;
   background-color:#44c379;
 }
-.calendar-grid .date.g{
-  color:#bdbdbd;
+.calendar-grid .date.curt{
+  color:#000;
 }
 .calendar-grid .date.sun{
   color:#f00;

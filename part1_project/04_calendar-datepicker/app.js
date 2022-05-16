@@ -1,22 +1,25 @@
 // Calendar Setting
 const calendarSet = () => {
 	let activeDate = new Date();
+	let todayDate = new Date();
 	// current date
 	let curtYear = activeDate.getFullYear();
 	let curtMonth = activeDate.getMonth();
-	// prev date
-	let startDay = new Date(curtYear, curtMonth, 0);
-	let prevDate = startDay.getDate();
-	let prevDay = startDay.getDay();
-	// next date
-	let endDay = new Date(curtYear, curtMonth + 1, 0);
-	let nextDate = endDay.getDate();
-	let nextDay = endDay.getDay();
 
 	// Calendar Render
 	const calendarRender = (activeDate) => {
+		// current date
 		curtYear = activeDate.getFullYear();
 		curtMonth = activeDate.getMonth();
+		// prev date
+		let startDay = new Date(curtYear, curtMonth, 0);
+		let prevDate = startDay.getDate();
+		let prevDay = startDay.getDay();
+		// next date
+		let endDay = new Date(curtYear, curtMonth + 1, 0);
+		let nextDate = endDay.getDate();
+		let nextDay = endDay.getDay();
+
 		// Calendar Year Month
 		const calYear = document.querySelector('.calendar-nav .year');
 		const calMonth = document.querySelector('.calendar-nav .month');
@@ -35,22 +38,26 @@ const calendarSet = () => {
 			<div class="day">FRI</div>
 			<div class="day">SAT</div>
 		`;
-		const dateElement = (i,g) => {
+		const dateElement = (i, curt) => {
 			let calBtn = '<button class="date" type="button">' + i + '</button>';
-			if(g) calBtn = '<button class="date g" type="button">' + i + '</button>';
+			if(curt) calBtn = '<button class="date curt" type="button">' + i + '</button>';
 			calGrid.innerHTML = calGrid.innerHTML + calBtn;
 		};
 		// prev create
-		for(let i = prevDate - prevDay + 1; i <= prevDate; i++){
-			dateElement(i,'g');
+		for(let i = prevDate - prevDay ; i <= prevDate; i++){
+			dateElement(i);
 		}
 		// current create
 		for(let i = 1; i <= nextDate; i++){
-			dateElement(i);
+			dateElement(i, 'curt');
 		}
 		// next create
-		for(let i = 1; i <= ( 7 - nextDate == 7 ? 0 : 7 - nextDay ); i++){
-			dateElement(i,'g');
+		for(let i = 1; i <= ( 6 - nextDate == 6 ? 0 : 6 - nextDay ); i++){
+			dateElement(i);
+		}
+		if( todayDate.getMonth() == curtMonth ){
+			let curtDays = document.querySelectorAll('.date.curt');
+			curtDays[todayDate.getDate() - 1].classList.add('today');
 		}
 	};
 
