@@ -4,8 +4,24 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Calendar-datepicker</title>
+	<link rel="stylesheet" href="./style.css">
+	<script type="module" src="./app.js"></script>
 </head>
 <body>
-	
+	<div class="date-picker">
+		<label for="datePicker">DatePicker</label>
+		<input id="datePicker" type="text" placeholder="Select date" readonly>
+		<div class="calendar">
+			<div class="calendar-nav">
+				<button class="prev" type="button"><i class='bx bxs-left-arrow'></i></button>
+				<div class="txt">
+					<span class="month"></span>
+					<span class="year"></span>
+				</div>
+				<button class="next" type="button"><i class='bx bxs-right-arrow'></i></button>
+			</div>
+			<div class="calendar-grid"></div>
+		</div>
+	</div>
 </body>
 </html>

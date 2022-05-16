@@ -10,18 +10,18 @@
 	function loadActive(){
 		body.style.visibility = 'visible';
 		if(strgTog) nav.classList.add(strgTog);
-	};
+	}
 	// nav toggle
 	function navToggle(){
 		togBtn.addEventListener('click',function(){
-			nav.classList.toggle('active')
-		})
-	};
+			nav.classList.toggle('active');
+		});
+	}
 	navToggle();
 	// stop transition
 	function stopTransition(){
-		body.classList.remove('preload')
-	};
+		body.classList.remove('preload');
+	}
 
 	// LOAD
 	window.addEventListener('load',function(){

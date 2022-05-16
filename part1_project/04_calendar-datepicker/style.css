@@ -1,24 +1,110 @@
+@import url(https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css);
+
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
+  box-sizing:border-box;
 }
 body {
-  font-family: 'Open Sans';
-  font-weight: 300;
+  font-family:'Open Sans';
+  font-weight:300;
 }
-.title {
-  color: #db5b33;
-  font-weight: 300;
-  text-align: center;
+
+/* Theme */
+:root{
+  --calender-size:300px;
 }
-.star-rating {
-  width: 300px;
-  text-align: center;
-  margin: 0px auto;
-  user-select: none;
+/* date-picker */
+.date-picker {
+  position:relative;
 }
-.current-rating {
-  margin: 20px;
-  text-align: center;
+.date-picker label {
+  display:block;
+  padding-bottom:20px;
+  font-size:2rem;
+  font-weight:400;
+  color:#d66047
+}
+.date-picker input {
+  padding:0 10px;
+  height:35px;
+  border:1px solid #bdbdbd;
+  border-radius:5px;
+}
+/* .date-picker input:focus + .calendar,
+.calendar:hover{
+  display:block;
+} */
+/* calendar */
+.calendar {
+  _display:none;
+  width:var( --calender-size );
+  font-size:calc( var( --calender-size ) / 20 );
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,0.5);
+  overflow:hidden;
+  position:absolute;
+  top:calc(100% + 5px);
+  left:0;
+}
+.calendar button {
+  font-size:calc( var( --calender-size ) / 25 );
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+.calendar i {
+  pointer-events:none
+}
+/* calendar-nav */
+.calendar-nav {
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  height:50px;
+  background-color:#44c379;
+}
+.calendar-nav .txt {
+  text-align:center;
+  color:#fff;
+}
+.calendar-nav .txt span {
+  display:block
+}
+.calendar-nav .txt .year {
+  font-size:0.8em;
+}
+.calendar-nav button {
+  color:#fff;
+}
+/* calendar-grid */
+.calendar-grid {
+  display:grid;
+  align-items:center;
+  grid-template-columns:repeat(7, 1fr);
+  grid-template-rows:repeat(7, 1fr);
+  height:var( --calender-size );
+}
+.calendar-grid .day {
+  text-align:center;
+  font-size:0.8em;
+  color:#bdbdbd;
+}
+.calendar-grid .date {
+  height:100%;
+  border-radius:100%;
+}
+.calendar-grid .date:hover,
+.calendar-grid .date.selct {
+  color:#fff;
+  background-color:#44c379;
+}
+.calendar-grid .date.g{
+  color:#bdbdbd;
+}
+.calendar-grid .date.sun{
+  color:#f00;
+}
+.calendar-grid .today{
+  border:1px solid #44c379;
 }
