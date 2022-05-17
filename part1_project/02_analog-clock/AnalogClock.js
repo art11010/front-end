@@ -23,7 +23,7 @@ const AnalogClock = $container => {
     hour.style.setProperty('--deg', Time.getHours() * 30);
     minute.style.setProperty('--deg', Time.getMinutes() * 6);
     second.style.setProperty('--deg', Time.getSeconds() * 6);
-  }, 1000)
+  }, 1000);
 };
 
 export default AnalogClock;

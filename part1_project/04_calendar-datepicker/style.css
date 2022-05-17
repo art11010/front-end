@@ -37,7 +37,7 @@ body {
 } */
 /* calendar */
 .calendar {
-  _display:none;
+  display:none;
   width:var( --calender-size );
   font-size:calc( var( --calender-size ) / 20 );
   border-radius:10px;
@@ -94,6 +94,7 @@ body {
   height:100%;
   color:#bdbdbd;
   border-radius:100%;
+  pointer-events:none;
 }
 .calendar-grid .date.curt:hover,
 .calendar-grid .date.curt.selct {
@@ -102,6 +103,7 @@ body {
 }
 .calendar-grid .date.curt{
   color:#000;
+  pointer-events:auto;
 }
 .calendar-grid .date.sun{
   color:#f00;
