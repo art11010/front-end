@@ -1250,14 +1250,135 @@
 // }
 // console.log(solution(Friends, Taste))
 
+// 1.
+// let s= "Hello world Nice world";
+// function solution(s) {
+// 	let split = s.split(' ');
+// 	let answer = new Set(split);
+// 	return answer.size;
+// }
+// console.log(solution(s));
 
 
 
+// 2.
+// let arr1 =[1, 7, 8, 4];
+// let arr2 = [2, 4, 6, 8];
+// function solution(arr1, arr2) {
+//     var answer = [];
+// 	for(let i = 0; i < arr1.length; i++){
+// 		for(let j = 0; j < arr2.length; j++){
+// 			if(arr1[i] == arr2[j]){
+// 				console.log(arr1[i], arr2[j]);
+// 				answer.push(arr1[i]);
+// 			}
+// 		}
+// 	}
+// 	answer = answer.sort(function(x, y){ return x - y; });
+//     return answer;
+// }
+// console.log(solution(arr1, arr2));
 
+// 3.
+// let arr = [5, 2, 1, 3];
+// function solution(arr) {
+//     var answer = 0;
+// 	arr = arr.sort(function(x, y){ return x - y; });
+//     return answer = arr[0];
+// }
+// console.log(solution(arr));
 
+// 4.
+// S = 'ABCXAXYABC';
+// function solution(S) {
+//     var answer = '';
+// 	let split = S.split('');
+// 	if( split.includes('X') && split.includes('Y') ){
+// 		split.splice(S.indexOf('X'), 1, 'Y');
+// 		split.splice(S.lastIndexOf('Y'), 1, 'X');
+// 	}
+//     return answer = split.join('');
+// }
+// console.log(solution(S));
 
+// 5.
+// finish = ["A", "B", "C", "D"];
+// submit = ["B", "C", "D", "E"];
+// function solution(finish, submit) {
+//     var answer = 0;
+// 	for(let i = 0; i < finish.length; i++){
+// 		for(let j = 0; j < submit.length; j++){
+// 			if(finish[i] == submit[j]){
+// 				answer++;
+// 			}
+// 		}
+// 	}
+//     return answer;
+// }
+// console.log(solution(finish, submit));
 
+// 6.
+// nums = [1, 3, 5, 3, 2];
+// n = 3;
+// function solution(nums, n) {
+//     var answer = 0;
+// 	nums = nums.sort(function(x, y){ return x - y; });
+//     return answer = nums.indexOf(n);
+// }
+// console.log(solution(nums, n));
 
+// 7.
+// arr = ["no pain", "no", "gain"];
+// function solution(arr) {
+//     var answer = 0;
+// 	arr = arr.join(' ').split(' ');
+// 	let set = new Set(arr);
+//     return answer = set.size;
+// }
+// console.log(solution(arr));
 
+// 8.
+// let prices = [5, 10, 3];
+// function solution(prices) {
+//     var answer = 0;
+// 	prices = prices.sort(function(x, y){ return x - y; });
+// 	let first = prices[1];
+// 	let second = prices[0];
+//     return answer = first - second;
+// }
+// console.log(solution(prices));
 
+// 9.
+// let l = [1, 10, 10, 10, 5];
+// function solution(l) {
+// 	let arr = [];
+// 	let result = [];
+// 	for(let i = 0; i < l.length; i++){
+// 		let num = 0;
+// 		for(let j = 0; j < l.length; j++){
+// 			if( l[i] <= l[j] ){
+// 				num++;
+// 			}
+// 		}
+// 		arr.push(num);
+// 	}
+// 	for(let i = 0; i < l.length; i++){
+// 		result.push(l[i] * arr[i]);
+// 	}
+// 	return Math.max(...result);
+// }
+// console.log(solution(l));
+
+// 10.
+// let s = 'DACC32';
+// function solution(s) {
+//     var answer = true;
+// 	let code = ['A', 'B', 'C', 'D', 'E', 'F'];
+// 	if(s.length != 6) return answer = false;
+// 	if(s != s.toUpperCase()) return answer = false;
+
+//     return answer;
+// }
+
+// console.log(solution(s));
 

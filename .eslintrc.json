@@ -10,6 +10,10 @@
         "sourceType": "module"
     },
     "rules": {
-        "semi": "error"
+        // "off" or 0
+        // "warn" or 1
+        // "error" or 2
+        "no-unused-vars": "off",
+        "semi": "warn"
     }
 }

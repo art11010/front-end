@@ -566,11 +566,11 @@ function LinkedList(){
 // size() : 연결 리스트 내 노드 개수 확인
 LinkedList.prototype.size = function(){
 	return this.length;
-}
+};
 // isEmpty() : 객체 내 노드 존재 여부 파악
 LinkedList.prototype.isEmpty = function(){
 	return this.length === 0;
-}
+};
 // Test code
 // let ll = new LinkedList();
 // console.log(ll);
@@ -593,7 +593,7 @@ LinkedList.prototype.printNode = function(){
 		process.stdout.write(`${node.data} -> `);	// js 내장 함수
 	}
 	console.log('null');
-}
+};
 // append() : 연결 리스트 가장 끝에 노드 추가
 LinkedList.prototype.append = function(value){
 	let node = new Node(value),
@@ -608,7 +608,7 @@ LinkedList.prototype.append = function(value){
 		current.next = node;
 	}
 	this.length++;
-}
+};
 // Test code
 // let ll = new LinkedList();
 
@@ -646,7 +646,7 @@ LinkedList.prototype.insert = function(value, position = 0){
 	}
 	this.length++;
 	return true;
-}
+};
 
 // Test code
 // let ll = new LinkedList();
@@ -682,7 +682,7 @@ LinkedList.prototype.remove = function(value){
 	}
 	this.lenght--;
 	return current.data;
-}
+};
 
 // Test code
 // let ll = new LinkedList();
@@ -726,7 +726,7 @@ LinkedList.prototype.removeAt = function(position = 0){
 	}
 	this.length--;
 	return current.data;
-}
+};
 // Test code
 // let ll = new LinkedList();
 // ll.insert(1);
@@ -761,13 +761,13 @@ LinkedList.prototype.indexOf = function(value){
 		current = current.next;
 	}
 	return -1;
-}
+};
 
 // removeIdx() : indexOf + removeAt = remove
 LinkedList.prototype.removeIdx = function(value){
 	let index = this.indexOf(value);
 	return this.removeAt(index);
-}
+};
 
 // Test code
 // let ll = new LinkedList();
@@ -824,11 +824,11 @@ function DoubleLinkedList(){
 // size() : 연결 리스트 내 노드 개수 확인
 DoubleLinkedList.prototype.size = function(){
 	return this.length;
-}
+};
 // isEmpty() : 객체 내 노드 존재 여부 파악
 DoubleLinkedList.prototype.isEmpty = function(){
 	return this.length === 0;
-}
+};
 
 // Test code
 // let dll = new DoubleLinkedList();
@@ -854,8 +854,8 @@ DoubleLinkedList.prototype.printNode = function(){
 	for(let node = this.head; node != null; node = node.next){
 		process.stdout.write(`${node.data} -> `);
 	}
-	console.log('null')
-}
+	console.log('null');
+};
 
 // printNodeInverse() : 노트 역방향 출력
 DoubleLinkedList.prototype.printNodeInverse = function(){
@@ -868,7 +868,7 @@ DoubleLinkedList.prototype.printNodeInverse = function(){
 		process.stdout.write(`${temp[i]} <- `);
 	}
 	console.log('tail');
-}
+};
 
 // append() : 연결 리스트 가장 끝에 노드 추가
 DoubleLinkedList.prototype.append = function(value){
@@ -882,7 +882,7 @@ DoubleLinkedList.prototype.append = function(value){
 		this.tail = node;
 	}
 	this.length++;
-}
+};
 
 // Test code
 // let dll = new DoubleLinkedList();
@@ -934,7 +934,7 @@ DoubleLinkedList.prototype.insert = function(value, position = 0){
 	}
 	this.length++;
 	return true;
-}
+};
 
 // Test code
 // let dll = new DoubleLinkedList();
@@ -965,7 +965,7 @@ DoubleLinkedList.prototype.remove = function(value){
 
 	if(current === this.head){
 		this.head = current.next;
-		if(this.length === 1) {this.tail = null; console.log('hi')}
+		if(this.length === 1) {this.tail = null; console.log('hi');}
 		else this.head.prev = null;
 	}else if(current === this.tail){
 		this.tail = current.prev;
@@ -978,20 +978,18 @@ DoubleLinkedList.prototype.remove = function(value){
 	this.length--;
 
 	return current.data;
-}
+};
 
 // Test code
-let dll = new DoubleLinkedList();
-let node = new DoubleNode();
-console.log(dll)
-console.log(node)
+// let dll = new DoubleLinkedList();
+
 // dll.insert(1);
 // dll.insert(10);
-dll.insert(100);
+// dll.insert(100);
 // dll.insert(2, 1);
 // dll.insert(3, 3);
-dll.printNode();
-dll.printNodeInverse();
+// dll.printNode();
+// dll.printNodeInverse();
 
 // console.log(dll.remove(1000));
 // dll.printNode();
@@ -1002,17 +1000,65 @@ dll.printNodeInverse();
 // console.log(dll.remove(2));
 // dll.printNode();
 // dll.printNodeInverse();
-console.log(dll.remove(100));
-console.log(dll.size());
-dll.printNode();
-dll.printNodeInverse();
+// console.log(dll.remove(100));
+// dll.printNode();
+// dll.printNodeInverse();
 
 // - - - - - - - - - - - - - - - - - - - -
 
 // 24. 이중 연결 리스트 구현하기(5)
+DoubleLinkedList.prototype.removeAt = function(position = 0){
+	if(position < 0 || position >= this.length){
+		return null;
+	}
+	let current = this.head,
+		index = 0,
+		prev;
+	if(position === 0){
+		this.head = current.next;
+		if(this.length === 1) this.tail = null;
+		else this.head.prev = null;
+	}else if(position === this.length - 1){
+		current = this.tail;
+		this.tail = current.prev;
+		this.tail.next = null;
+	}else{
+		while(index++ < position){
+			prev = current;
+			current = current.next;
+		}
+		prev.next = current.next;
+		current.next.prev = prev;
+	}
 
+	this.length;
 
+	return current.data;
+};
 
+// Test code
+let dll = new DoubleLinkedList();
+
+dll.insert(1);
+dll.insert(10);
+dll.insert(100);
+dll.insert(2, 1);
+dll.insert(3, 3);
+dll.printNode();
+dll.printNodeInverse();
+
+console.log(dll.removeAt(1000));
+dll.printNode();
+dll.printNodeInverse();
+console.log(dll.removeAt(4));
+dll.printNode();
+dll.printNodeInverse();
+console.log(dll.removeAt());
+dll.printNode();
+dll.printNodeInverse();
+console.log(dll.removeAt(1));
+dll.printNode();
+dll.printNodeInverse();
 
 
 
