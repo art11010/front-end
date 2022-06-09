@@ -1382,3 +1382,173 @@
 
 // console.log(solution(s));
 
+// 1.
+// let s = "work";
+// function solution(s) {
+//     var answer = [];
+// 	s = s.split('');
+// 	for(let i = 0; i < s.length; i++){
+// 		answer.push(s[i].charCodeAt());
+// 	}
+//     return answer;
+// }
+// console.log(solution(s));
+
+// 2.
+// let arr = [1, 3, 5, 4, 3, 1, 1];
+// function solution(arr) {
+//     var answer = true;
+// 	arr = arr.sort(function(x, y){ return x - y; });
+// 	let set = Array.from(new Set(arr));
+// 	let numarr = [];
+// 	for(let i = 0; i < set.length; i++){
+// 		let count = 0;
+// 		for(let j = 0; j < arr.length; j++){
+// 			if(set[i] == arr[j]) count++;
+// 		}
+// 		numarr.push(count);
+// 	}
+// 	numarr = new Set(numarr);
+// 	set.length == numarr.size ? answer = true : answer = false;
+//     return answer;
+// }
+// console.log(solution(arr));
+
+// 3.
+// let note = ["dolphin", "B", "B", "A", "A"];
+// function solution(note) {
+//     var answer = '';
+// 	note = note.sort();
+// 	let set = Array.from(new Set(note));
+// 	let numarr = [];
+// 	for(let i = 0; i < set.length; i++){
+// 		let count = 0;
+// 		for(let j = 0; j < note.length; j++){
+// 			if(set[i] == note[j]) count++;
+// 		}
+// 		numarr.push(count);
+// 	}
+// 	let reset = 0;
+// 	for(let i = 0; i < numarr.length; i++){
+// 		if(numarr[i] > reset) {
+// 			reset = numarr[i];
+// 			answer = set[i];
+// 		}
+// 	}
+//     return answer;
+// }
+// console.log(solution(note));
+
+// 4.
+// let ZERO = [1, 2, 1, 2, 1];
+// function solution(ZERO) {
+//     var answer = new Set(ZERO).size;
+//     return answer;
+// }
+// console.log(solution(ZERO));
+
+// 5.
+// let now = [3, 3, 3];
+// let tobe = [5, 2, 1];
+// function solution(now, tobe) {
+//     var answer = 0;
+// 	for(let i = 0; i < now.length; i++){
+// 		if(now[i] < tobe[i]){
+// 			answer += tobe[i] - now[i];
+// 		}else if(now[i] > tobe[i]){
+// 			answer += now[i] + tobe[i];
+// 		}
+// 	}
+//     return answer;
+// }
+// console.log(solution(now, tobe));
+
+// 6.
+// let arr = [-5, 2, 1, -1, 3];
+// function solution(arr) {
+// 	var answer = 0;
+// 	arr = arr.sort(function(x, y){ return x - y; });
+// 	let arrAbs = [];
+// 	for(let i = 0; i < arr.length; i++){
+// 		arrAbs.push(Math.abs(arr[i]));
+// 	}
+// 	let reset = Number.MAX_SAFE_INTEGER;
+// 	for(let i = 0; i < arrAbs.length; i++){
+// 		if(reset > arrAbs[i]){
+// 			reset = arrAbs[i];
+// 			answer = arr[i];
+// 		}
+// 	}
+//     return answer;
+// }
+// console.log(solution(arr));
+
+// 7.
+// let grid = [
+// 	['1', '1', '1', '1', '0'],
+// 	['1', '1', '0', '1', '0'],
+// 	['1', '1', '0', '0', '0'],
+// 	['0', '0', '0', '0', '0']
+// ];
+// let grid = [
+// 	['1', '1', '0', '0', '0'],
+// 	['1', '1', '0', '0', '0'],
+// 	['1', '1', '0', '0', '0'],
+// 	['0', '0', '1', '0', '0'],
+// 	['0', '0', '0', '1', '1']
+// ];
+// function solution(grid) {
+//     var answer = 0;
+	
+//     return answer;
+// }
+// console.log(solution(grid));
+
+// 8.
+// let N = 4;
+// let K = 2;
+// function solution(N, K) {
+//     var answer = new Array(N);
+// 	let nArr = [];
+// 	for(let i = 1; i <= N; i++){
+// 		nArr.push(i);
+// 	}
+// 	for(let i = 0; i < nArr.length; i++){
+// 		for(let j = 1; j <= nArr.length; j++){
+// 			if( Math.abs(nArr[i]-j) == K) {
+// 				answer[i] = j;
+// 			}
+// 		}
+// 	}
+// 	for(let i = 0; i < answer.length; i++){
+// 		if( typeof answer[i] != 'number' ) answer = [-1];
+// 	}
+//     return answer;
+// }
+// console.log(solution(N, K));
+
+// 9.
+// let arr = ["We can", "give advice", "but we cannot give conduct"];
+// function solution(arr) {
+// 	arr = arr.join(' ').split(' ').sort();
+// 	let answer = Array.from(new Set(arr));
+//     return answer;
+// }
+// console.log(solution(arr));
+
+// 10.
+// let cars = [[10, 100], [2, 200], [30, 300]];
+// let clients = [[5, 110], [9, 500], [20, 400]];
+// function solution(cars, clients) {
+//     var answer = 0;
+// 	for(let i = 0; i < cars.length; i++){
+// 		for(let j = 0; j < clients.length; j++){
+// 			if(cars[i][0] >= clients[j][0] && cars[i][1] <= clients[j][1]){
+// 				answer++;
+// 				clients.splice(j,1);
+// 			}
+// 		}
+// 	}
+//     return answer;
+// }
+// console.log(solution(cars, clients));
