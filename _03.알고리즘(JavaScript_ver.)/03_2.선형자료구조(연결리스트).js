@@ -138,7 +138,7 @@ LinkedList.prototype.remove = function(value){
 	}else{
 		prev.next = current.next;
 	}
-	this.lenght--;
+	this.length--;
 	return current.data;
 };
 
