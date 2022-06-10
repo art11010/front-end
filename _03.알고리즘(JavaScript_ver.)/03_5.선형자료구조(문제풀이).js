@@ -110,9 +110,72 @@
 // - - - - - - - - - - - - - - - - - - - -
 
 // 31. 연결리스트 문제풀이 - 대표 선출
+function Node(data){
+	this.data = data;
+	this.next = null;
+}
+function LinkedList(){
+	this.head = null;
+}
 
+function answer(n, m, k){
+	// n : 전체 개수
+	// m : 시작 위치
+	// k : 움직이는 값
+	let result = [];
 
+	// 1. Circular Liked List 제작
+		let ll = new LinkedList();
+		// 연결 리스트 할 때는 current, prev 기본적으로 생성하기
+		let current,	// 현재위치
+			prev;		// 이전위치
+		for(let i = 1; i <= n; i++){
+			current = new Node(i);
 
+			if(i === 1){
+				ll.head = current;		// 1. head에 노드 연결
+			}else{
+				prev.next = current;	// 3. current에 담겨져 있는 next 값에 새로운 노드 연결
+			}
 
+			prev = current;				// 2 or 4. 연결한 노드를 current에 담음
+		}
+		current.next = ll.head;			// 마지막 노드의 next 값에 head 연결
+
+	// 2. Start node 위치 설정
+	current = ll.head;
+	while(--m){
+		prev = current;
+		current = current.next;
+	}
+
+	// 3. 후보자들 중 k만큼 움직이면서 제거
+	let count;
+	while(current.next != current){	// current의 next가 나 자신이 아닐 때까지
+		result.push(current.data);
+		prev.next = current.next;	// push된 current.data 값을 없애기 위해 current.next로 덮음
+
+		count = k;
+		while(count--){
+			prev = current;
+			current = current.next;
+		}
+	}
+
+	// 4. 혼자 남은 후보 번호를 result에 추가
+	result.push(current.data);
+
+	return result;
+}
+
+let input = [
+	[8, 2, 3],
+	[10, 2, 3],
+	[20, 5, 7]
+];
+for(let i = 0; i < input.length; i++){
+	process.stdout.write(`${i + 1}. `);
+	console.log(answer(input[i][0], input[i][1], input[i][2]));
+}
 
 
