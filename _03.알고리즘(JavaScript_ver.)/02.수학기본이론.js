@@ -6,7 +6,7 @@
 // Ω(오메가) : '최선의 상황'을 고려한 성능 측정 결과(big-Ω)
 
 // big-O(빅오)의 복잡도(뒤로 갈수록 느림)
-// O(log n),O(1) > O(n) > O(n log n) > O(n^2) > O(2^n) > O(n!)
+// O(log n), O(1) > O(n) > O(n log n) > O(n^2) > O(2^n) > O(n!)
 
 // // O(log n) : n*2로 하여 n보다 빠름
 // function big_o( n){
