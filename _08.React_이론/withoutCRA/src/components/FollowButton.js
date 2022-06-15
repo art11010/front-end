@@ -1,5 +1,5 @@
-// React Component!
-// Follow <-> following
+import React from "react";
+
 function FollowButton() {
 	const [following, setFollowing] = React.useState(false);
 	const commonBtnStyle = {
@@ -13,7 +13,7 @@ function FollowButton() {
 	};
 	const followBtnStyle = {
 		...commonBtnStyle,
-		backgroundColor: 'black',
+		backgroundColor: 'blue',
 		color: 'white'
 	};
 	const followingBtnStyle = {
@@ -44,3 +44,4 @@ function FollowButton() {
 		</div>
 	);
 }
+export default FollowButton;

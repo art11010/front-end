@@ -629,6 +629,10 @@
 // console.log(!Number.isNaN(123), !Number.isNaN('hey'));
 // console.log(Number.isFinite(123), Number.isFinite(Infinity), Number.isFinite('hey'));
 
+// 정수 실수 확인
+// Number.isInteger() : 정수인지 실수 인지 확인
+// console.log(Number.isInteger(Math.sqrt(3)));
+
 // 정수 실수 형 변환
 // Number.parseInt : 정수로 변환
 // Number.parseFloat : 실수로 변환

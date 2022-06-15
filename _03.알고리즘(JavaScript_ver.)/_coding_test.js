@@ -1552,3 +1552,133 @@
 //     return answer;
 // }
 // console.log(solution(cars, clients));
+
+// 1.
+// let arr = [4, 8, 13, 6, 9];
+// function solution(arr) {
+//     var answer = 0;
+// 	for(let i = 0; i < arr.length; i++){
+// 		if(arr[i] % 2 === 1) answer++
+// 	}
+//     return answer;
+// }
+// console.log(solution(arr));
+
+// 2.
+// let arr = [10, 1, 5];
+// function solution(arr) {
+//     var answer = 0;
+// 	if(arr.length != 0) answer = Math.max(...arr);
+// 	else answer = -1;
+//     return answer;
+// }
+// console.log(solution(arr));
+
+// 3.
+// let n = 4;
+// function solution(n) {
+//     var answer = 0;
+// 	Number.isInteger(Math.sqrt(n)) ? answer = Math.sqrt(n) : answer = 0;
+//     return answer;
+// }
+// console.log(solution(n));
+
+// 4.
+// let n = 4;
+// function solution(n) {
+// 	var answer = 0;
+// 	for(let i = 1; i <= n; i++){
+// 		answer += i;
+// 	}
+// 	return answer;
+// }
+// console.log(solution(n));
+
+// 5.
+// let s = "-3+26-7";
+// function solution(s) {
+//     return eval(s);
+// }
+// console.log(solution(s));
+
+// 6.
+// let area = 4;
+// function solution(area) {
+// 	var answer = 0;
+// 	var arr = [];
+// 	for(let w = 1; w <= area; w++){
+// 		for(let h = 1; h <= area; h++){
+// 			if(w * h == area && w <= h) arr.push([w,h]);
+// 		}
+// 	}
+//     return answer = arr[arr.length - 1];
+// }
+// console.log(solution(area));
+
+// 7.
+// history = [3, 2, -3, 1, -1, -2, 2, 5, -5, -2, 4, -4, 1, -1];
+// infected = 2;
+// function solution(history, infected) {
+// 	let arr = [];
+// 	let idx = history.indexOf(infected);
+// 	let idx_l = history.lastIndexOf(-infected);
+// 	history.splice(idx_l)
+// 	history = history.splice(idx)
+// 	console.log(history)
+// 	for(let i = 0; i < history.length; i++){
+// 		if( Math.abs(history[i]) != infected){
+// 			arr.push(Math.abs(history[i]));
+// 		}
+// 	}
+// 	arr = Array.from(new Set(arr));
+// 	arr = arr.sort(function(x, y){ return x - y; });
+// 	return arr;
+// }
+// console.log(solution(history, infected));
+
+// 8.
+// lineUp = [1, 0, 0, 0, 1, 0, 0, 1];
+// level = 2;
+// function solution(lineUp, level) {
+// 	let count = 0;
+// 	for(let i = 0; i < lineUp.length; i++){
+// 		if( lineUp[i] == 0 ){
+// 			++count;
+// 		}
+// 		if( i != 0 && lineUp[i] == 1 ){
+// 			if(count < level) return false;
+// 			count = 0;
+// 		}
+// 	}
+// 	return true;
+// }
+// console.log(solution(lineUp, level));
+
+// 9.
+// array = ["er", "r", "ve"];
+// s = "naver"
+// function solution(array, s) {
+//     var answer = 0;
+// 	for(let i = 0; i < array.length; i++){
+// 		if(array[i] == s.slice(-array[i].length)) answer++;
+// 	}
+//     return answer;
+// }
+// console.log(solution(array, s));
+
+// 10.
+// N = 5;
+// language = [[0, 1], [2, 3], [0, 4]];
+// N = 4;
+// language = [[1, 2], [2, 3]];
+// function solution(N, language) {
+//     var answer = 0;
+// 	let arr = [];
+// 	for(let i = 0; i < language.length; i++){
+// 		arr.push(language[i][0])
+// 		arr.push(language[i][1])
+// 	}
+// 	console.log(arr)
+//     return answer;
+// }
+// console.log(solution(N, language));
