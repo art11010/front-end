@@ -226,6 +226,16 @@
 // === : 자료 형까지 같음을 비교
 // 논리 연산자
 // && : AND, || : OR, ! : NOT
+// A === A && expression
+// 조건이 true일 경우 : && 이후에 위치한 expression 반환
+// const andPrmt = 'yeahzing';
+// const count = 0;
+// function solution(andPrmt,count) {
+// 	console.log(count, !count, !!count);
+// 	return andPrmt === 'yeahzing' && `Hello, ${andPrmt}!! Learn React`
+// }
+// console.log(solution(andPrmt, count));
+
 
 // - - - - - - - - - - - - - - - - - - - -
 
