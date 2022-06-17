@@ -3,7 +3,7 @@
 // 문서를 작성할 때 ctrl + z 같은 것도 스택 기반, 웹브라우저 페이지 이동(뒤로가기)도 스택 기반
 // 구현 메서드(method)
 // 데이터 전체 획득 : Stack.getBuffer()
-// 비어 있는지 확인 : Stack.inEmpty()
+// 비어 있는지 확인 : Stack.isEmpty()
 // 데이터 추가 : Stack.push()
 // 데이터 삭제 : Stack.pop()
 // 가장 끝 데이터 반환 : Stack.peak()

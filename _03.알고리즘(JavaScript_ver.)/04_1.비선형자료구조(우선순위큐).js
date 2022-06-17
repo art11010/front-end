@@ -1,10 +1,10 @@
 // 1. 우선순위 큐 (Priority Queue)
-// 우선순위를 설정하고 이를 고려하여 먼저 넣은 데이터가 먼저 나오는 FIFO(First In First Out) 기반의 비선형 자료 구조
+// 우선순위를 설정하고 이를 고려하여 먼저 넣은 데이터가 먼저 나오는 FIFO(First In First Out) 기반의 선형 자료 구조
 // 우선순위 정렬 방식 : 배열 기반, 연결리스트 기반, 힙(Heap) 기반 등의 정렬 방식 존재
 // ex. 비행기 탑승(비즈니스 먼저 탑승), 병원(중환자, 일반환자) 등
 // 구현 메서드(method)
 // 데이터 전체 획득 : PriorityQueue.getBuffer()
-// 비어 있는지 확인 : PriorityQueue.inEmpty()
+// 비어 있는지 확인 : PriorityQueue.isEmpty()
 // 데이터 추가 : PriorityQueue.enqueue()
 // 데이터 삭제 : PriorityQueue.dequeue()
 // 첫번째 데이터 : PriorityQueue.front()

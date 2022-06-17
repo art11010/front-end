@@ -3,7 +3,7 @@
 // ex. 줄서기(버스에서 먼저 줄 선 사람이 먼저 탐), 카카오톡 메세지(먼저 보낸 순서대로 나에게 메세지가 전달 됨)
 // 구현 메서드(method)
 // 데이터 전체 획득 : Queue.getBuffer()
-// 비어 있는지 확인 : Queue.inEmpty()
+// 비어 있는지 확인 : Queue.isEmpty()
 // 데이터 추가 : Queue.enqueue()
 // 데이터 삭제 : Queue.dequeue()
 // 첫번째 데이터 : Queue.front()
