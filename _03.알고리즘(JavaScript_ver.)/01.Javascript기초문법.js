@@ -1169,9 +1169,9 @@
 // 	// Math.random : 0 ~ 1 사이 난 수 return
 // 	// Number.parseInt : 정수로 바꿔줌
 // 	console.log(Math.random(), Number.parseInt(Math.random() * 10));
-// 	// Number.parseInt(Math.random() * 10 : 1자리 정수
-// 	// Number.parseInt(Math.random() * 100 : 10자리 정수
-// 	// Number.parseInt(Math.random() * 1000 : 100자리 정수 등등
+// 	// Number.parseInt(Math.random() * 10) : 1자리 정수
+// 	// Number.parseInt(Math.random() * 100) : 10자리 정수
+// 	// Number.parseInt(Math.random() * 1000) : 100자리 정수 등등
 // }
 
 // Math 제곱/제곱근/소수점 처리
