@@ -10,13 +10,13 @@ export default function SimpleForm(){
 	});
 
 	const handleChange = (e) => {
-		setUserInputs({...userInputs, [e.target.name] : e.target.value})
+		setUserInputs({...userInputs, [e.target.name] : e.target.value});
 		// if(e.target.name === 'nickname') setNickName(e.target.value);
 		// else setPassWord(e.target.value);
 	}
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const {nickname, password} = userInputs;
+		const { nickname, password } = userInputs;
 		alert(`nickname : ${nickname}, password : ${password}`);
 	}
 	return(

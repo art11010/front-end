@@ -1682,3 +1682,174 @@
 //     return answer;
 // }
 // console.log(solution(N, language));
+
+
+// 1.
+// N = 3;
+// dices = [[3, 5], [2, 1], [4, 2]];
+// function solution(N, dices) {
+// 	var answer = '';
+// 	let zero = 0;
+// 	let base = 0;
+// 	for(let i = 0;i < dices.length; i++){
+// 		if(dices[i][0] > dices[i][1]) zero++;
+// 		else if(dices[i][0] < dices[i][1]) base++;
+// 	}
+// 	if(zero > base) answer = 'zero'
+// 	else if(zero < base) answer = 'base'
+// 	else if(zero = base) answer = 'draw'
+// 	return answer;
+// }
+// console.log(solution(N, dices));
+
+// 2.
+// problems = ["ABCABC", "DDD", "CAABB"];
+// function solution(problems) {
+// 	var answer = 0;
+// 	for (let i = 0; i < problems.length; i++) {
+// 		let arr = [];
+// 		for (let j = 0; j < problems[i].length; j++) {
+// 			if(arr.includes(problems[i][j]) && arr[arr.length-1] != problems[i][j]){
+// 					break;
+// 			}
+// 			arr.push(problems[i][j])
+// 		}
+// 		if(arr.join('') == problems[i]) answer++;
+// 	}
+// 	return answer;
+// }
+// console.log(solution(problems));
+
+// 3.
+// arr = [95, 90, 95, 100, 95];
+// function solution(arr) {
+// 	var answer = 0;
+// 	arr = arr.sort(function(x, y){ return x - y; }).reverse();
+// 	let last = 0;
+// 	for (let i = 0; i < arr.length; i++) {
+// 		if(answer < arr.length/2 || arr[i] == last) {
+// 			answer++;
+// 			console.log(answer)
+// 		}
+// 		last = arr[i];
+// 	}
+// 	return answer;
+// }
+// console.log(solution(arr));
+
+// 4.
+
+// 5.
+// n = 32
+// price = 10
+// function solution(n, price) {
+// 	var answer = 0;
+// 	let plusOne = n % 10;
+// 	let another = parseInt(n / 10);
+// 	if( plusOne >= another) {
+// 		answer = (n - another) * price;
+// 	}else{
+// 		answer = (n - plusOne) * price;
+// 	}
+// 	return answer;
+// }
+// console.log(solution(n, price));
+
+// 6.
+// arr = [1, 3, 5, 7, 9];
+// a = 3;
+// b = 7;
+// function solution(arr, a, b) {
+// 	var answer = 0;
+// 	let arr2 = [];
+// 	for(let i = 0; i < arr.length; i++){
+// 		if( a <= arr[i] && arr[i] <= b ) arr2.push(arr[i])
+// 	}
+// 	if(arr2.length == 0) answer = -1;
+// 	else answer = Math.min(...arr2)
+// 	return answer;
+// }
+// console.log(solution(arr, a, b));
+
+// 7.
+// text = "google";
+// s = "o";
+// function solution(text, s) {
+// 	var answer = 0;
+// 	let count = 0;
+// 	for(let i = 0; i < text.length; i++){
+// 		if(text[i] == s) count++;
+// 	}
+// 	return answer = parseInt((count / text.length)*100);
+// }
+// console.log(solution(text, s));
+
+// 8.
+// arr = [3, 2, 1, 5];
+// t = 1;
+// function solution(arr, t) {
+// 	var answer = 0;
+// 	for(let i = 0; i < arr.length; i++){
+// 		answer += (arr[i] - 1) * t + (t * 2)
+// 	}
+// 	return answer;
+// }
+// console.log(solution(arr, t));
+
+// 9.
+// arr = [9, 1, 0, 3, 2, 6, 7, 7];
+// function solution(arr) {
+// 	var answer = 0;
+// 	let newArr = [];
+// 	while(1){
+// 		let n = arr.length;
+// 		arr2 = Array.from(new Set(arr));
+// 		if(arr2.length == 2) return answer = arr[0];
+// 		for(let i = 0; i < arr.length; i++){
+// 			if(arr.length == 1) return answer = arr[0];
+// 			if( i % 2 == 0 && 0 <= i < n/2 ){
+// 				let min = Math.min(arr[i * 2], arr[(i * 2) + 1])
+// 				newArr[i] = min;
+// 			}
+// 			if( i % 2 == 1 && 0 <= i < n/2 ){
+// 				let max = Math.max(arr[i * 2], arr[(i * 2) + 1])
+// 				newArr[i] = max;
+// 			}
+// 		}
+// 		arr = newArr;
+// 		console.log(arr);
+// 	}
+// }
+// console.log(solution(arr));
+
+// 10.
+// arr = [1, 2, 3, 4, 5, 6, 7, 8];
+// function solution(arr) {
+// 	var answer = 0;
+// 	let newArr = [];
+// 	while(1){
+// 		let n = arr.length;
+// 		arr2 = Array.from(new Set(arr));
+// 		if(arr2.length == 2) return answer = arr[0];
+// 		for(let i = 0; i < arr.length; i++){
+// 			if(arr.length == 1) return answer = arr[0];
+// 			if( i % 2 == 0 && 0 <= i < n/2 ){
+// 				let min = arr[i * 2] + arr[(i * 2) + 1];
+// 				newArr[i] = min;
+// 			}
+// 			if( i % 2 == 1 && 0 <= i < n/2 ){
+// 				let max = arr[i * 2] - arr[(i * 2) + 1];
+// 				newArr[i] = max;
+// 			}
+// 		}
+// 		arr = newArr;
+// 		console.log(arr);
+// 	}
+// }
+// console.log(solution(arr));
+
+
+
+
+
+
