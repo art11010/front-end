@@ -9,12 +9,13 @@ import './App.css';
 // import Toggle from './components/Toggle';
 // import SimpleForm from './components/SimpleForm';
 // import UnControlledForm from './components/UnControlledForm'
-import CatParent from './components/CatParent'
+// import CatParent from './components/CatParent'
+import ToDoList from './components/ToDoList'
 
 function App() {
 	return (
 		<div className="App">
-			<CatParent />
+			<ToDoList />
 		</div>
 	);
 }
