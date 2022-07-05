@@ -3,7 +3,15 @@ import SearchBar from './SearchBar';
 import StoreTable from './StoreTable';
 
 function OnlineStore() {
-	const [state, setState] = useState({filterText: '', inStockOnly: false});
+	const [filter, setFilter] = useState({text: '', inStockOnly: false});
+
+	function updateFilter(key,  value){
+		setFilter({
+			...filter,
+			[key]: value,
+		})
+	}
+
 	const datas = [
 		{category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
 		{category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"},
@@ -15,8 +23,8 @@ function OnlineStore() {
 
 	return (
 		<div>
-			<SearchBar />
-			<StoreTable products={datas} />
+			<SearchBar filter={filter} updateFilter={updateFilter} />
+			<StoreTable products={datas} filter={filter} />
 		</div>
 	)
 }

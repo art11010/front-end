@@ -2,9 +2,13 @@ import React from 'react';
 import ProductsTable from './ProductsTable';
 
 function StoreTable(props) {
-	const { products } = props;
+	const { products, filter } = props;
 
-	const result = products.reduce((acc, cur) => {
+	// products에서 filter.text가 있으면 -> 그 친구만 렌더링
+	const targetProduct = products.filter(p => p.name === filter.text);
+	const filteredProducts  = targetProduct.length > 0 ? targetProduct : products;
+
+	const result = filteredProducts.reduce((acc, cur) => {
 		if(acc.hasOwnProperty(cur.category)){
 			// key(category)를 가지고 있는 케이스, 배열에 추가만 하면 됨
 			return { ...acc, [cur.category] : [...acc[cur.category], cur]}
@@ -19,14 +23,14 @@ function StoreTable(props) {
 	return (
 		<table>
 			<thead>
-				<tr>
+				<tr style={{fontWeight : 'bold'}}>
 					<th>Name</th>
 					<th>Price</th>
 				</tr>
 			</thead>
 			<tbody>
 				{ keys.map((key, idx) =>
-					(<ProductsTable category={key} items={result[key]} key={idx} />
+					(<ProductsTable category={key} items={result[key]} key={idx} inStockOnly={filter.inStockOnly} />
 				)) }
 			</tbody>
 		</table>
