@@ -9,7 +9,7 @@ function ReactDocPage(props) {
 		<>
 			<h5 onClick={() => navigate('/')}>logo</h5>
 			<div>
-				ReactDocPage ##{ params.docId }
+				ReactDocPage ##{ params.docTitle }
 			</div>
 		</>
 	);
