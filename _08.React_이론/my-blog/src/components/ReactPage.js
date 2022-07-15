@@ -36,12 +36,13 @@ function ReactPage(props) {
 
 	useEffect(() => {
 		async function fetchData() {
-			const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-			const result = await res.json();
-			// console.log(result);
-			setDocs(result);
+			const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
+			const result = res.data;
+			console.log(res);
+			console.log(result);
+			return result;
 		}
-		fetchData();
+		fetchData().then(res => { setDocs(res) });
 	}, []);
 
 	return (
