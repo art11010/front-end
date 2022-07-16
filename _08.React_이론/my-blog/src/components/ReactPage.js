@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import useFetch from './useFetch';
 
-function ReactPage(props) {
+function ReactPage() {
 
 	// const docs = [
 	// 	{
@@ -32,18 +32,7 @@ function ReactPage(props) {
 	// 	},
 	// ];
 
-	const [docs, setDocs] = useState([]);
-
-	useEffect(() => {
-		async function fetchData() {
-			const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
-			const result = res.data;
-			console.log(res);
-			console.log(result);
-			return result;
-		}
-		fetchData().then(res => { setDocs(res) });
-	}, []);
+	const docs = useFetch('https://jsonplaceholder.typicode.com/posts');
 
 	return (
 		<div>
