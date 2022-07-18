@@ -1,42 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useFetch from './useFetch';
+
+// ↓ useFetch()
+// import useFetch from './useFetch';
+
+// ↓ swr
+import axios from 'axios';
+import useSWR from 'swr';
+import { useState } from 'react';
 
 function ReactPage() {
+	// ↓ useFetch()
+	// const docs = useFetch('https://jsonplaceholder.typicode.com/posts');
 
-	// const docs = [
-	// 	{
-	// 		id: 1,
-	// 		title: 'React 1',
-	// 		date: '21/07/2022'
-	// 	},
-	// 	{
-	// 		id: 2,
-	// 		title: 'React 2',
-	// 		date: '22/07/2022'
-	// 	},
-	// 	{
-	// 		id: 3,
-	// 		title: 'React 3',
-	// 		date: '23/07/2022'
-	// 	},
-	// 	{
-	// 		id: 4,
-	// 		title: 'React 4',
-	// 		date: '24/07/2022'
-	// 	},
-	// 	{
-	// 		id: 5,
-	// 		title: 'React 5',
-	// 		date: '25/07/2022'
-	// 	},
-	// ];
+	// ↓ swr
+	const [number, setNumber] = useState(0);
+	async	function fetcher(url){
+		const res = await axios.get(url);
+		const result = res.data;
+		console.log(res);
+		console.log(result);
+		return result;
+	}
+	const { data : docs, error } = useSWR('posts', fetcher('https://jsonplaceholder.typicode.com/posts'))
 
-	const docs = useFetch('https://jsonplaceholder.typicode.com/posts');
+	if( error ) return <div>failed to load</div>
+	if( !docs ) return <div>loading...</div>
 
 	return (
 		<div>
-			{/* <h2>ReactPage</h2> */}
+			<button onClick={ () => { setNumber(number + 1) } }>{ number }</button>
 			<ul>
 			{ docs.map((doc) =>
 				<li key={doc.id}><Link to={`${doc.title}`}>{doc.title}</Link></li>
