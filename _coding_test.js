@@ -1848,8 +1848,136 @@
 // }
 // console.log(solution(arr));
 
+// 1.
+// arr = [1, 2, 1];
+// function solution(arr) {
+// 	arr = arr.sort(function(x, y){ return x - y; });
+// 	if(arr.length % 2 === 0) return 0;
+// 	let zz = [];
+// 	for(let i = 0; i < arr.length; i++){
+// 		if( zz.includes(arr[i]) ) zz.splice(0,1);
+// 		else zz.push(arr[i]);
+// 	}
+// 	return Number(zz.join(''));
+// }
+// console.log(solution(arr));
+
+// 2.
 
 
+// 3.
+// arr = [4, 1, 3, 2]
+// function solution(arr) {
+// 	arr = arr.sort(function(x, y){ return x - y; });
+// 	let sum = 0;
+// 	for(let i = 1; i <= arr.length; i++){
+// 		if( i % 2 === 0){
+// 			sum += arr[i-1]
+// 		}
+// 	}
+// 	return sum;
+// }
+// console.log(solution(arr));
 
+// 4.
+// nums = [4, 1, 2, 1, 4];
+// d = 2;
+// function solution(nums, d) {
+// 	var answer = 0;
+// 	for (let i = 0; i < nums.length; i++) {
+// 		if(nums[i] % d === 0){
+// 			if(nums.indexOf(nums[i]) != nums.lastIndexOf(nums[i]) && nums.lastIndexOf(nums[i]) < nums.length){
+// 				answer++;
+// 			}
+// 		}
+// 	}
+// 	return answer/2;
+// }
+// console.log(solution(nums, d));
 
+// 5.
+// s = 'abcdefg hijklmnopqrstuvwxyz';
+// function solution(s) {
+// 	var answer = true;
+// 	s = s.replace(' ','');
+// 	s = s.split('');
+// 	setS = new Set(s);
+// 	console.log(setS)
+// 	setS.size == 26 ? answer = true : answer = false;
+// 	return answer;
+// }
+// console.log(solution(s));
 
+// 6.
+// arr = [-5, 2, -1, 3];
+// function solution(arr) {
+// 	var answer = 0;
+// 	arr = arr.sort(function(x, y){ return x - y});
+// 	let 음수 = arr[0];
+// 	let 양수 = arr[arr.length - 1];
+// 	for (let i = 0; i < arr.length; i++) {
+// 		if(arr[i] < 0){
+// 			if( 음수 < arr[i] ) 음수 = arr[i];
+// 		}else{
+// 			if( 양수 > arr[i] ) 양수 = arr[i];
+// 		}
+// 	}
+// 	Math.abs(음수) <= Math.abs(양수) ? answer = 음수 : answer = 양수;
+// 	return answer;
+// }
+// console.log(solution(arr));
+
+// 7.
+// let l = [1, 10, 10, 10, 5];
+// function solution(l) {
+// 	let arr = [];
+// 	let result = [];
+// 	for(let i = 0; i < l.length; i++){
+// 		let num = 0;
+// 		for(let j = 0; j < l.length; j++){
+// 			if( l[i] <= l[j] ){
+// 				num++;
+// 			}
+// 		}
+// 		arr.push(num);
+// 	}
+// 	for(let i = 0; i < l.length; i++){
+// 		result.push(l[i] * arr[i]);
+// 	}
+// 	return Math.max(...result);
+// }
+// console.log(solution(l));
+
+// 8.
+// arr = [6, 2, 1, 4]
+// K = 2
+// function solution(arr, K) {
+// 	arr = arr.sort(function(x, y){ return x - y; });
+// 	let sum = 0;
+// 	for(let i = 1; i <= arr.length; i++){
+// 		if( i % K === 0){
+// 			sum += arr[i-1]
+// 		}
+// 	}
+// 	return sum;
+// }
+// console.log(solution(arr, K))
+
+// 9.
+
+// 10.
+// let cars = [[10, 100], [2, 200], [30, 300]];
+// let clients = [[5, 110], [9, 500], [20, 400]];
+// function solution(cars, clients) {
+//     var answer = 0;
+// 	for(let i = 0; i < cars.length; i++){
+// 		for(let j = 0; j < clients.length; j++){
+// 			if(cars[i][0] >= clients[j][0] && cars[i][1] <= clients[j][1]){
+// 				answer++;
+// 				clients.splice(j,1);
+// 			}
+// 		}
+// 	}
+//     return answer;
+// }
+// console.log(solution(cars, clients));
