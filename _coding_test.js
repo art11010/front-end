@@ -1981,3 +1981,114 @@
 //     return answer;
 // }
 // console.log(solution(cars, clients));
+
+
+
+// 1.
+// n = 3;
+// function solution(n) {
+// 	let sum = '';
+// 	let result = 0;
+// 	for (let i = 1; i <= n; i++) {
+// 		sum += i.toString(2);
+// 	}
+// 	for (let i = 0; i < sum.length; i++) {
+// 		result += Number(sum[i]);
+// 	}
+// 	return result;
+// }
+// console.log(solution(n));
+
+// 2.
+
+// 3.
+
+// 4.
+// arr = [3, 2, 3, 1];
+// function solution(arr) {
+// 	arr = arr.sort(function(x,y){ return y - x });
+// 	return arr[0] + arr[1] + arr[2] + arr[3];
+// }
+// console.log(solution(arr));
+
+// 5.
+// array = ["apple", "banana", "kakao", "naver", "apache"];
+// p = "ap";
+// function solution(array, p) {
+// 	var answer = 0;
+// 	for (let i = 0; i < array.length; i++) {
+// 		if(array[i].startsWith(p)){
+// 			answer++;
+// 		}
+// 	}
+// 	return answer;
+// }
+// console.log(solution(array, p));
+
+// 6.
+// array = ["app", "ap", "pa", "appl"];
+// s = "apple";
+// function solution(array, s) {
+// 	var answer = 0;
+// 	for (let i = 0; i < array.length; i++) {
+// 		if(array[i].length % 2 && s.startsWith(array[i])){
+// 			answer++;
+// 		}
+// 	}
+// 	return answer;
+// }
+// console.log(solution(array, s));
+
+// 7.
+// p = "f?st*";
+// s = ["fastcampus", "fast", "faster", "notfast", "notfaster"];
+// function solution(p, s) {
+// 	var answer = 0;
+// 	if( p.includes('?') ){
+// 		let idx = p.indexOf('?');
+// 		p = p.slice(0, idx) + p.slice(idx+1);
+// 		for (let i = 0; i < s.length; i++) {
+// 			s[i] = s[i].slice(0, idx) + s[i].slice(idx+1);
+// 		}
+// 	}
+// 	if( p.includes('*') ){
+// 		p = p.slice(0, p.length-1);
+// 	}
+// 	for (let i = 0; i < s.length; i++) {
+// 		if(s[i].startsWith(p)){
+// 			answer++;
+// 		}
+// 	}
+// 	return answer;
+// }
+// console.log(solution(p, s));
+
+// 8.
+// live = [769, 514, 336, 173, 181, 373, 519, 338, 985, 709, 729, 702, 168];
+// commands = [[12, 581], [6, 222], [7, 233], [5, 117]]
+// function solution(live, commands) {
+// 	var answer = [];
+// 	let count = 0;
+// 	while(count < commands.length){
+// 		live[commands[count][0] - 1] = live[commands[count][0] - 1] - commands[count][1];
+// 		curt = live.slice(live, live.length);
+// 		for (let i = 1; i < curt.length; i++) {
+// 			if( curt[i - 1] < curt[i] ) curt[i] = curt[i - 1];
+// 		}
+// 		let set = new Set(curt);
+// 		answer.push(set.size)
+// 		count++;
+// 	}
+// 	return answer;
+// }
+// console.log(solution(live, commands));
+
+// 9.
+// n = 4;
+// graph = [[0, 1, 0, 1], [1, 0, 1, 0], [0, 1, 0, 1], [1, 0, 1, 0]];
+// function solution(n, graph) {
+// 	var answer = [];
+// 	console.log(graph[0][3])
+// 	return answer;
+// }
+// console.log(solution(n, graph));
