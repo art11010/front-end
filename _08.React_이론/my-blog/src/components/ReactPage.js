@@ -18,8 +18,8 @@ function ReactPage() {
 	async	function fetcher(url){
 		const res = await axios.get(url);
 		const result = res.data;
-		console.log(res);
-		console.log(result);
+		// console.log(res);
+		// console.log(result);
 		return result;
 	}
 	const { data : docs, error } = useSWR('posts', fetcher('https://jsonplaceholder.typicode.com/posts'))
