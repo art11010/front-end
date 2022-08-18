@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "react": "^18.0.0-rc.3",
-    "react-dom": "^18.0.0-rc.3"
+    "react-dom": "^18.0.0-rc.3",
+    "react-responsive-carousel": "^3.2.23"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
