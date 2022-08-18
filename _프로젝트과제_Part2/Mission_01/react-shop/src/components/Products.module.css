@@ -1,0 +1,7 @@
+.img{
+	max-width: 40%;
+}
+
+.scale:hover figure img{
+	transform: scale(1.2);
+}
