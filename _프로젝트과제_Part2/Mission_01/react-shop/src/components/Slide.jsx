@@ -9,15 +9,15 @@ function Slide(props) {
 		<div>
 			 <Carousel>
 					<div>
-						<img src="src/image/img_shop_fashion.jpeg" />
+						<img src="./src/image/img_shop_fashion.jpeg" />
 						<p className="legend">Legend 1</p>
 					</div>
 					<div>
-						<img src="src/image/img_shop_digital.jpeg" />
+						<img src="./src/image/img_shop_digital.jpeg" />
 						<p className="legend">Legend 1</p>
 					</div>
 					<div>
-						<img src="src/image/img_shop_grocery.jpeg" />
+						<img src="./src/image/img_shop_grocery.jpeg" />
 						<p className="legend">Legend 1</p>
 					</div>
 			</Carousel>
