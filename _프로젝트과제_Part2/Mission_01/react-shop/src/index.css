@@ -502,9 +502,6 @@ iframe,
 embed,
 object {
   display: block;
-  /* 1 */
-  vertical-align: middle;
-  /* 2 */
 }
 
 /*
@@ -2630,13 +2627,6 @@ body[dir="rtl"] .checkbox:checked,
     padding-right: 1rem;
     min-height: 3rem;
     font-size: 0.875rem;
-  }
-
-   {
-    height: 3rem;
-    width: 3rem;
-    border-radius: 9999px;
-    padding: 0px;
   }
 
   .lg\:card-normal .card-body {
