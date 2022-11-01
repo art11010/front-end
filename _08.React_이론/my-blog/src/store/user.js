@@ -9,7 +9,7 @@ const initialUser = {
 const userReducer = (state, action) => {
 	switch (action.type){
 		case 'changeJob':
-			return {...state, job: action.text}
+			return { ...state, job: action.text }
 			// break;
 		default:
 			break;
@@ -20,7 +20,7 @@ function UserStore(props) {
 	const [user, dispatch] = useReducer(userReducer, initialUser);
 	console.log(user)
 		return (
-		<UserContext.Provider value={{user, dispatch}}>{ props.children }</UserContext.Provider>
+		<UserContext.Provider value={{ user, dispatch }}>{ props.children }</UserContext.Provider>
 	);
 }
 

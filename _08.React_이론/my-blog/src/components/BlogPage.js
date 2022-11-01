@@ -3,7 +3,7 @@ import { UserContext } from '../store/user';
 
 function BlogPage() {
 	const { dispatch } = useContext(UserContext);
-	console.log(dispatch)
+	console.log(dispatch);
 	return (
 		<div>
 			<h1>BlogPage</h1>
