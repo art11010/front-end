@@ -2093,26 +2093,57 @@
 // }
 // console.log(solution(n, graph));
 
-// ingredient = [2, 1, 1, 2, 3, 1, 2, 3, 1]
-ingredient = [1, 3, 2, 1, 2, 1, 3, 1, 2]
-function solution(ingredient) {
-	var answer = 0;
-	let num = '1231';
-	ingredient = ingredient.join('');
-	end : while(1){
-		for(let i = 0; i < ingredient.length; i++){
 
-			if( ingredient.includes(num) ){
-				ingredient = ingredient.replace(num, '')
-				// console.log(ingredient)
-				answer++;
-				break;
-			}else if(i == ingredient.length - 1){
-				break end;
-			}
-		}
-		if(ingredient.length < 4) break;
+// 프로그레머스 - 햄버거 만들기
+// ingredient = [2, 1, 1, 2, 3, 1, 2, 3, 1]
+// ingredient = [1, 3, 2, 1, 2, 1, 3, 1, 2]
+// function solution(ingredient) {
+// 	var answer = 0;
+// 	let num = '1231';
+// 	ingredient = ingredient.join('');
+// 	end : while(1){
+// 		for(let i = 0; i < ingredient.length; i++){
+
+// 			if( ingredient.includes(num) ){
+// 				ingredient = ingredient.replace(num, '')
+// 				// console.log(ingredient)
+// 				answer++;
+// 				break;
+// 			}else if(i == ingredient.length - 1){
+// 				break end;
+// 			}
+// 		}
+// 		if(ingredient.length < 4) break;
+// 	}
+//     return answer;
+// }
+// console.log(solution(ingredient));
+
+// 프로그레머스 - 세균 증식
+// n = 7;
+// t = 15;
+// function solution(n, t) {
+//     var answer = 0;
+// 	let count = 0;
+// 	while(count < t){
+// 		n *= 2;
+// 		count++;
+// 	}
+// 	answer = n;
+//     return answer;
+// }
+// console.log(solution(n, t));
+
+// 프로그레머스 - 세균 증식
+quiz = 	["19 - 6 = 13", "5 + 66 = 71", "5 - 15 = 63", "3 - 1 = 2"];
+function solution(quiz) {
+    var answer = [];
+	for (let i = 0; i < quiz.length; i++) {
+		let endValue = quiz[i].slice(quiz[i].indexOf('=') + 2, quiz[i].length);
+		let realValue = eval(quiz[i].slice(0, quiz[i].indexOf('=')));
+		if(endValue == realValue) answer.push('O');
+		else answer.push('X');
 	}
     return answer;
 }
-console.log(solution(ingredient));
+console.log(solution(quiz));
