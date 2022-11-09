@@ -2135,15 +2135,39 @@
 // console.log(solution(n, t));
 
 // 프로그레머스 - 세균 증식
-quiz = 	["19 - 6 = 13", "5 + 66 = 71", "5 - 15 = 63", "3 - 1 = 2"];
-function solution(quiz) {
-    var answer = [];
-	for (let i = 0; i < quiz.length; i++) {
-		let endValue = quiz[i].slice(quiz[i].indexOf('=') + 2, quiz[i].length);
-		let realValue = eval(quiz[i].slice(0, quiz[i].indexOf('=')));
-		if(endValue == realValue) answer.push('O');
-		else answer.push('X');
+// quiz = 	["19 - 6 = 13", "5 + 66 = 71", "5 - 15 = 63", "3 - 1 = 2"];
+// function solution(quiz) {
+//     var answer = [];
+// 	for (let i = 0; i < quiz.length; i++) {
+// 		let endValue = quiz[i].slice(quiz[i].indexOf('=') + 2, quiz[i].length);
+// 		let realValue = eval(quiz[i].slice(0, quiz[i].indexOf('=')));
+// 		if(endValue == realValue) answer.push('O');
+// 		else answer.push('X');
+// 	}
+//     return answer;
+// }
+// console.log(solution(quiz));
+
+babbling = [/* "aya", "yee", "u",  */"ayayeayawoo"]
+// babbling = ["ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"]
+function solution(babbling) {
+    var answer = 0;
+	let arr = ["aya", "ye", "woo", "ma"];
+	let str = '';
+	for (let i = 0; i < babbling.length; i++) {
+		for (let j = 0; j < arr.length; j++) {
+			if(arr[j] == str ) continue;
+			if(babbling[i].includes(arr[j])){
+				str = arr[j];
+				console.log(babbling[i],str)
+				babbling[i] = babbling[i].replace(arr[j],' ');
+				j = 0;
+				if(babbling[i].replaceAll(' ','').length == 0){
+					answer++;
+				}
+			}
+		}
 	}
     return answer;
 }
-console.log(solution(quiz));
+console.log(solution(babbling));
