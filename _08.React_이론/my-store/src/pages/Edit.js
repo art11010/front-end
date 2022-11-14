@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import { /* useQuery, */ useQueries, useMutation, useQueryClient } from "react-query";
 import { getUser, updateNickname, getPosts } from '../mocks/api';
+
+
+// import { Post } from "./Post";
+const Post = lazy( () => import("./Post") );
+
 
 // api를 통해 현재 닉네임 값 가져오기 -> getUser()
 // handlSubmit : 업데이트 된 inputValue를 서버에 전송해서, 닉네임 값 업데이트하기 -> updateNickname()
@@ -62,7 +67,7 @@ export default function Edit() {
         </label>
       </form>
       <ul>
-        { posts?.map( post => <li>{ post.title }</li> ) }
+        { posts?.map( post => <Post title={post.title} /> ) }
       </ul>
     </>
   );
