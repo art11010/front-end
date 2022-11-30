@@ -12,7 +12,9 @@
     <footer>
       <slot name="footer"></slot>
     </footer> -->
-    <slot text="내가 누군줄 아니?"></slot>
+    <slot>
+      <div v-for="n in 1000" :key="n">{{ n }} - 마이컴포넌트다!</div>
+    </slot>
   </div>
 </template>
 
