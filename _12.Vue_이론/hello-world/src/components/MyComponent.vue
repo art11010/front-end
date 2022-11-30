@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <button v-on:click="childMethod">{{ counter }}</button> -->
-    <header>
+    <!-- <header>
       <slot name="header"></slot>
     </header>
     <main>
@@ -11,7 +11,8 @@
     </main>
     <footer>
       <slot name="footer"></slot>
-    </footer>
+    </footer> -->
+    <slot text="내가 누군줄 아니?"></slot>
   </div>
 </template>
 
