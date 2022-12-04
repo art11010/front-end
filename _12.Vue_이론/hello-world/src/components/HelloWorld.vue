@@ -19,22 +19,25 @@
         <span>{{ text }}</span>
       </template>
     </MyComponent> -->
-    <button @click="toggle">두유노 토글?</button>
+    <!-- <button @click="toggle">두유노 토글?</button>
     <keep-alive>
       <component :is="currentView"></component>
-    </keep-alive>
+    </keep-alive> -->
+    <MyComponent :authors="authorObj"></MyComponent>
   </div>
 </template>
 
 <script>
 import MyComponent from './MyComponent.vue';
-import YourComponent from './YourComponent.vue';
+// import YourComponent from './YourComponent.vue';
 // import CurrencyInput from './CurrencyInput';
+
 export default {
   name: 'HelloWorld',
   components: {
-    'my-component': MyComponent,
-    'your-component': YourComponent,
+    MyComponent,
+    // 'my-component': MyComponent,
+    // 'your-component': YourComponent,
     // CurrencyInput,
   },
   props: [],
@@ -44,6 +47,10 @@ export default {
       total: 0,
       price: 0,
       currentView: 'my-component',
+      authorObj: {
+        fistName: 'yeji',
+        lastName: 'lee',
+      },
     };
   },
   methods: {
@@ -58,7 +65,9 @@ export default {
   },
   computed: {},
   created() {},
-  mounted() {},
+  mounted() {
+    console.log(this.$root.test);
+  },
   destroyed() {},
 };
 </script>

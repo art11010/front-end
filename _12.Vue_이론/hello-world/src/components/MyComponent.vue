@@ -12,16 +12,23 @@
     <footer>
       <slot name="footer"></slot>
     </footer> -->
-    <slot>
+    <!-- <slot>
       <div v-for="n in 1000" :key="n">{{ n }} - 마이컴포넌트다!</div>
-    </slot>
+    </slot> -->
+    <!-- <div>{{ authors }}</div> -->
   </div>
 </template>
 
 <script>
+// function Person(firstName, lastName) {
+//   this.firstName = firstName;
+//   this.lastName = lastName;
+// }
 export default {
   name: 'MyComponent',
-  props: {},
+  props: {
+    // authors: Person,
+  },
   data() {
     return {
       counter: 0,
