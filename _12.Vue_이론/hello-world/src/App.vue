@@ -1,34 +1,40 @@
+<!-- <HelloWorld /> -->
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld />
+    <img alt="Vue logo" src="./assets/logo.png" />
     <!-- <HelloWorld
       v-for="fruitItem in fruits"
       v-bind:fruit="fruitItem"
       v-bind:key="fruitItem.id"
     /> -->
+    <p>
+      <router-link to="foo">go Foo</router-link>
+      <br />
+      <router-link to="bar">go Bar</router-link>
+    </p>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // HelloWorld,
   },
   data() {
-    return{
+    return {
       fruits: [
-        {id: 0, name: '사과'},
-        {id: 1, name: '망고'},
-        {id: 2, name: '두리안'},
-        {id: 3, name: '블루베리'}
-      ]
-    }
-  }
-}
+        { id: 0, name: '사과' },
+        { id: 1, name: '망고' },
+        { id: 2, name: '두리안' },
+        { id: 3, name: '블루베리' },
+      ],
+    };
+  },
+};
 </script>
 
 <style>
