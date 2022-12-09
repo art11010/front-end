@@ -10,6 +10,9 @@ const Routes = [
     name: 'product',
     props: { news: true },
     component: Product,
+    beforeEnter: (to, from) => {
+      console.log(to, from);
+    },
   },
 ];
 export default Routes;
