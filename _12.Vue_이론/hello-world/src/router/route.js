@@ -3,8 +3,13 @@ import Bar from '../components/Bar.vue';
 import Product from '../components/Product.vue';
 
 const Routes = [
-  { path: '/foo', component: Foo },
-  { path: '/bar', component: Bar },
-  { path: '/product/:id', component: Product },
+  { path: '/foo', name: 'foo', component: Foo, alias: '/foofo' },
+  { path: '/bar', name: 'bar', component: Bar },
+  {
+    path: '/product/:id',
+    name: 'product',
+    props: { news: true },
+    component: Product,
+  },
 ];
 export default Routes;

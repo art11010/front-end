@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Foo</h1>
+    <h1>Bar</h1>
     <div v-for="n in 10" :key="n">{{ n }} - 너꺼다!</div>
   </div>
 </template>

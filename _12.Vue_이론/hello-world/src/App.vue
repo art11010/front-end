@@ -8,9 +8,12 @@
       v-bind:key="fruitItem.id"
     /> -->
     <p>
-      <router-link to="foo">go Foo</router-link>
+      <!-- <router-link to="/foo">go Foo</router-link>
       <br />
-      <router-link to="bar">go Bar</router-link>
+      <router-link to="/bar">go Bar</router-link> -->
+      <router-link :to="{ name: 'foo' }">go Foo</router-link>
+      <br />
+      <router-link :to="{ name: 'bar' }">go Bar</router-link>
     </p>
     <router-view></router-view>
   </div>
