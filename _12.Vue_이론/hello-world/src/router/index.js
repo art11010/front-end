@@ -8,9 +8,12 @@ Vue.use(VueRouter);
 const Router = new VueRouter({
   mode: 'history',
   routes: Routes,
+  scrollBehavior(/* to, from, savedPosition */) {
+    return { x: 0, y: 0 };
+  },
 });
 
-Router.beforeEach((to, from, next) => {
+Router.beforeEach((/* to, from, */ next) => {
   next();
 });
 
