@@ -5,6 +5,8 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   // modules: {}
+  // plugins: [],
+  // strict: true
   state: {
     count: 0,
   },
