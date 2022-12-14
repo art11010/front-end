@@ -13,8 +13,8 @@ const Router = new VueRouter({
   },
 });
 
-Router.beforeEach((/* to, from, */ next) => {
-  next();
-});
+// Router.beforeEach((/* to, from, */ next) => {
+//   next();
+// });
 
 export default Router;

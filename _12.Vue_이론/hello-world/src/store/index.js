@@ -3,16 +3,19 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-store = new Vuex.Store({
+export const store = new Vuex.Store({
   // modules: {}
   state: {
     count: 0,
   },
   mutations: {
-    increment(state) {
-      state.count++;
+    increment(state, payload) {
+      state.count += payload;
+    },
+  },
+  getters: {
+    countGetters: (state) => {
+      return 100 + state.count;
     },
   },
 });
-
-export default store;
