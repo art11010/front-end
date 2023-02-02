@@ -7,18 +7,19 @@ import './App.css';
 // import PickedCard from './components/PickedCard';
 // import Banner from './components/Banner';
 // import Toggle from './components/Toggle';
-// import SimpleForm from './components/SimpleForm';
+import SimpleForm from './components/SimpleForm';
 // import UnControlledForm from './components/UnControlledForm'
 // import CatParent from './components/CatParent'
 // import ToDoList from './components/ToDoList'
-import OnlineStore from './components/OnlineStore'
+import OnlineStore from './components/OnlineStore';
 
 function App() {
-	return (
-		<div className="App">
-			<OnlineStore />
-		</div>
-	);
+  return (
+    <div className="App">
+      <OnlineStore />
+      <SimpleForm />
+    </div>
+  );
 }
 
 export default App;
