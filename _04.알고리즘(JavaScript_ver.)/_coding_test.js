@@ -12,18 +12,17 @@
 // };
 // console.log(twoSum(nums, target))
 
-
 // https://leetcode.com/problems/palindrome-number/
 // let isPalindrome = function(x) {
-	// 앞 뒤만 같아도 되는
-	// x = String(x);
-	// let result = x.split('');
-	// if(result[0] == result[result.length-1]) return true;
-	// return false;
+// 앞 뒤만 같아도 되는
+// x = String(x);
+// let result = x.split('');
+// if(result[0] == result[result.length-1]) return true;
+// return false;
 
-	// 뒤집어도 같은
-	// if( x == String(x).split('').reverse().join('')) return true;
-	// return false;
+// 뒤집어도 같은
+// if( x == String(x).split('').reverse().join('')) return true;
+// return false;
 // };
 // console.log(isPalindrome(122))
 
@@ -64,7 +63,6 @@
 // };
 // console.log(longestCommonPrefix(strs))
 
-
 // var ss = 124021100;
 // let arry = new Array;
 // function solution(s) {
@@ -96,7 +94,6 @@
 
 // console.log(solution(ss))
 
-
 // s = 'aacddefg'
 // function solution(s) {
 // 	s = String(s);
@@ -115,7 +112,6 @@
 // 	return arry.join('');
 // }
 // console.log(solution(s))
-
 
 // let orders = [2, 4, 5, 7], n = 3;
 // function solution(orders, n) {
@@ -163,9 +159,6 @@
 // 	// }
 // }
 // console.log(solution(arr))
-
-
-
 
 // 1.
 // let num = -587;
@@ -290,7 +283,6 @@
 // }
 // console.log(solution(arr))
 
-
 // 9.
 // points = [0, 0, 0, 5, 5, 0]
 // 1/2*밑변*높이
@@ -319,11 +311,10 @@
 // 	// 		min.push(arr[j])
 // 	// 	}
 // 	// }
-	
+
 // 	console.log(max,min)
 // }
 // console.log(solution(arr, i))
-
 
 // 1.
 // let nums = [1, 3, 4, 8];
@@ -362,7 +353,7 @@
 // 	console.log(A)
 // 	for(let i = 0; i < num; i++){
 // 		for(let j = i+1; j < num; j++){
-			
+
 // 		}
 // 	}
 // }
@@ -470,7 +461,6 @@
 //     return answer;
 // }
 // console.log(solution(A,B))
-
 
 // 9.
 // A = [["철수", "영희"], ["영희", "철수"], ["영희", "진수"], ["진수", "동수"], ["진수", "진호"]]
@@ -601,7 +591,6 @@
 // }
 // console.log(solution(A))
 
-
 // 8.
 // A = [["A", "B"], ["B", "C"], ["A", "C"], ["A", "D"], ["B", "E"]]
 // S = 'D'
@@ -634,9 +623,6 @@
 // }
 // console.log(solution(A, S))
 
-
-
-
 // function answer(arr){
 // 	let new_arr = [];
 // 	for(let i = 0; i < arr.length; i++){
@@ -667,14 +653,6 @@
 // 	process.stdout.write(`#${i + 1} `);
 // 	console.log(answer(input[i]))
 // }
-
-
-
-
-
-
-
-
 
 // 9.
 // A = [[1, 1, 1, 1], [0, 0, 0, 1], [0, 1, 1, 1], [0, 1, 1, 0], [0, 0, 1, 1]]
@@ -726,9 +704,6 @@
 //     return answer;
 // }
 
-
-
-
 // 1.
 // arr = [71, 111, 111, 103, 108, 101]
 // function solution(arr) {
@@ -763,7 +738,6 @@
 //     return parseInt(answer, 2);
 // }
 // console.log(solution(arr))
-
 
 // 4.
 // S = "ABBA"
@@ -813,7 +787,6 @@
 // 	}
 // }
 // console.log(solution(A))
-
 
 // 6.
 // A = [100000, 99000, 99000, 98000, 97000]
@@ -889,7 +862,6 @@
 //     return answer;
 // }
 // console.log(solution(A))
-
 
 // 1.
 // fruits = [-2, 5, -3, 6, 8, -1, -5, 3]
@@ -970,7 +942,6 @@
 // }
 // console.log(solution(n))
 
-
 // 5.
 // distance = [1, 2, 8];
 // time = [1, 1, 2];
@@ -1012,17 +983,17 @@
 // 		if( lrP < 0) lrP = 0;
 // 		// 배열 탐색
 // 		if(
-// 			puzzle[tbM][lr] == word[count+1] || 
-// 			puzzle[tbM][lrM] == word[count+1] || 
-// 			puzzle[tbM][lrP] == word[count+1] || 
-// 			puzzle[tbP][lr] == word[count+1] || 
-// 			puzzle[tbP][lrM] == word[count+1] || 
-// 			puzzle[tbP][lrP] == word[count+1] || 
-// 			puzzle[tb][lrM] == word[count+1] || 
-// 			puzzle[tbM][lrM] == word[count+1] || 
-// 			puzzle[tbP][lrM] == word[count+1] || 
-// 			puzzle[tb][lrP] == word[count+1] || 
-// 			puzzle[tbM][lrP] == word[count+1] || 
+// 			puzzle[tbM][lr] == word[count+1] ||
+// 			puzzle[tbM][lrM] == word[count+1] ||
+// 			puzzle[tbM][lrP] == word[count+1] ||
+// 			puzzle[tbP][lr] == word[count+1] ||
+// 			puzzle[tbP][lrM] == word[count+1] ||
+// 			puzzle[tbP][lrP] == word[count+1] ||
+// 			puzzle[tb][lrM] == word[count+1] ||
+// 			puzzle[tbM][lrM] == word[count+1] ||
+// 			puzzle[tbP][lrM] == word[count+1] ||
+// 			puzzle[tb][lrP] == word[count+1] ||
+// 			puzzle[tbM][lrP] == word[count+1] ||
 // 			puzzle[tbP][lrP] == word[count+1]
 // 		){
 // 			result++;
@@ -1110,7 +1081,6 @@
 // 	return count;
 // }
 // console.log(solution(p, s))
-
 
 // 1.
 // s = 'google'
@@ -1258,8 +1228,6 @@
 // 	return answer.size;
 // }
 // console.log(solution(s));
-
-
 
 // 2.
 // let arr1 =[1, 7, 8, 4];
@@ -1499,7 +1467,7 @@
 // ];
 // function solution(grid) {
 //     var answer = 0;
-	
+
 //     return answer;
 // }
 // console.log(solution(grid));
@@ -1683,7 +1651,6 @@
 // }
 // console.log(solution(N, language));
 
-
 // 1.
 // N = 3;
 // dices = [[3, 5], [2, 1], [4, 2]];
@@ -1864,7 +1831,6 @@
 
 // 2.
 
-
 // 3.
 // arr = [4, 1, 3, 2]
 // function solution(arr) {
@@ -1982,8 +1948,6 @@
 // }
 // console.log(solution(cars, clients));
 
-
-
 // 1.
 // n = 3;
 // function solution(n) {
@@ -2093,7 +2057,6 @@
 // }
 // console.log(solution(n, graph));
 
-
 // 프로그레머스 - 햄버거 만들기
 // ingredient = [2, 1, 1, 2, 3, 1, 2, 3, 1]
 // ingredient = [1, 3, 2, 1, 2, 1, 3, 1, 2]
@@ -2148,26 +2111,93 @@
 // }
 // console.log(solution(quiz));
 
-babbling = [/* "aya", "yee", "u",  */"ayayeayawoo"]
-// babbling = ["ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"]
-function solution(babbling) {
-    var answer = 0;
-	let arr = ["aya", "ye", "woo", "ma"];
-	let str = '';
-	for (let i = 0; i < babbling.length; i++) {
-		for (let j = 0; j < arr.length; j++) {
-			if(arr[j] == str ) continue;
-			if(babbling[i].includes(arr[j])){
-				str = arr[j];
-				console.log(babbling[i],str)
-				babbling[i] = babbling[i].replace(arr[j],' ');
-				j = 0;
-				if(babbling[i].replaceAll(' ','').length == 0){
-					answer++;
-				}
-			}
-		}
-	}
-    return answer;
+// babbling = [/* "aya", "yee", "u",  */"ayayeayawoo"]
+// // babbling = ["ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"]
+// function solution(babbling) {
+//     var answer = 0;
+// 	let arr = ["aya", "ye", "woo", "ma"];
+// 	let str = '';
+// 	for (let i = 0; i < babbling.length; i++) {
+// 		for (let j = 0; j < arr.length; j++) {
+// 			if(arr[j] == str ) continue;
+// 			if(babbling[i].includes(arr[j])){
+// 				str = arr[j];
+// 				console.log(babbling[i],str)
+// 				babbling[i] = babbling[i].replace(arr[j],' ');
+// 				j = 0;
+// 				if(babbling[i].replaceAll(' ','').length == 0){
+// 					answer++;
+// 				}
+// 			}
+// 		}
+// 	}
+//     return answer;
+// }
+// console.log(solution(babbling));
+
+// numbers = [2, 3, 3, 5];
+numbers = [9, 1, 5, 3, 6, 2];
+// function solution(numbers) {
+//     var answer = [...numbers];
+//     numbers.sort(function (x, y) {
+//         return x - y;
+//     });
+//     console.log(answer, numbers);
+//     // let currnt;
+//     for (let i = 0; i < numbers.length; i++) {
+//         if (
+//             answer[i] == numbers[numbers.length - 1] ||
+//             i == numbers.length - 1
+//         ) {
+//             answer[i] = -1;
+//             continue;
+//         }
+
+//         if (answer[i] == numbers[0]) {
+//             answer[i] = answer[i + 1];
+//             continue;
+//         }
+
+//         // answer[i] = numbers[i];
+//     }
+//     return answer;
+// }
+
+// function solution(numbers) {
+//     var answer = new Array(numbers.length).fill(-1);
+//     var stack = [];
+//     for (var i = 0; i < numbers.length; i++) {
+//         while (numbers[stack.at(-1)] < numbers[i]) {
+//             answer[stack.pop()] = numbers[i];
+//         }
+//         stack.push(i);
+//     }
+//     return answer;
+// }
+// console.log(solution(numbers));
+
+// function simpleArraySum(ar) {
+//   let sum = 0;
+//   for (let i = 0; i < ar.length; i++) {
+//     console.log(ar[i], sum);
+//     sum += ar[i];
+//   }
+// }
+
+// console.log(simpleArraySum([1, 2, 3, 4, 10, 11]));
+
+function compareTriplets(a, b) {
+  let arr = [];
+  let aScore = 0;
+  let bScore = 0;
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] > b[i]) {
+      aScore += 1;
+    } else if (a[i] < b[i]) {
+      bScore += 1;
+    }
+  }
+  arr.push(aScore, bScore);
+  return arr;
 }
-console.log(solution(babbling));
+console.log(compareTriplets([17, 28, 30], [99, 16, 8]));
