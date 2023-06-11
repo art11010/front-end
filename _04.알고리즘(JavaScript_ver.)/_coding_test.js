@@ -2136,7 +2136,7 @@
 // console.log(solution(babbling));
 
 // numbers = [2, 3, 3, 5];
-numbers = [9, 1, 5, 3, 6, 2];
+// numbers = [9, 1, 5, 3, 6, 2];
 // function solution(numbers) {
 //     var answer = [...numbers];
 //     numbers.sort(function (x, y) {
@@ -2186,18 +2186,67 @@ numbers = [9, 1, 5, 3, 6, 2];
 
 // console.log(simpleArraySum([1, 2, 3, 4, 10, 11]));
 
-function compareTriplets(a, b) {
-  let arr = [];
-  let aScore = 0;
-  let bScore = 0;
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] > b[i]) {
-      aScore += 1;
-    } else if (a[i] < b[i]) {
-      bScore += 1;
-    }
-  }
-  arr.push(aScore, bScore);
-  return arr;
-}
-console.log(compareTriplets([17, 28, 30], [99, 16, 8]));
+// function compareTriplets(a, b) {
+//   let arr = [];
+//   let aScore = 0;
+//   let bScore = 0;
+//   for (let i = 0; i < a.length; i++) {
+//     if (a[i] > b[i]) {
+//       aScore += 1;
+//     } else if (a[i] < b[i]) {
+//       bScore += 1;
+//     }
+//   }
+//   arr.push(aScore, bScore);
+//   return arr;
+// }
+// console.log(compareTriplets([17, 28, 30], [99, 16, 8]));
+
+// function aVeryBigSum(ar) {
+//   let sum = 0;
+//   for (let i = 0; i < ar.length; i++) {
+//     sum += ar[i];
+//   }
+//   return sum;
+// }
+// console.log(
+//   aVeryBigSum([1000000001, 1000000002, 1000000003, 1000000004, 1000000005])
+// );
+
+// function diagonalDifference(arr) {
+//   let counter = 0;
+
+//   // for (const item of arr) {
+//   //   console.log(item);
+//   //   // answer += Math.abs(arr[0] - arr[arr.length - 1]);
+//   // }
+//   // console.log(arr);
+// }
+// console.log(
+//   diagonalDifference([
+//     [11, 2, 4],
+//     [4, 5, 6],
+//     [10, 8, -12],
+//   ])
+// );
+
+// function sortTypes(arr) {
+//   //Insert your code here
+//   let totalArr = [];
+
+//   for (let i = 0; i < arr.length; i++) {
+//     let typeArrr = [];
+//     for (let j = i; j < arr.length; j++) {
+//       if (typeof arr[i] == typeof arr[j]) {
+//         typeArrr.push(arr[i]);
+//       }
+//     }
+//     totalArr.push([typeArrr]);
+//   }
+
+//   return totalArr;
+// }
+
+// // console.log(sortTypes([1, 'hello', 2, 3]));
+// // console.log(sortTypes([1, 2, 3]));
+// console.log(sortTypes([this, 1]));
